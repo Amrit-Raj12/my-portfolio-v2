@@ -83,9 +83,8 @@ export default function Footer({ activeId, onNavigate }: FooterProps) {
                     {/* Center */}
                     <div className="flex flex-col items-center text-center">
                         <h3
-                            className="font-orbitron text-[#FFD600] uppercase"
+                            className="font-orbitron text-[#FFD600] uppercase md:text-[1rem] text-[0.8rem]"
                             style={{
-                                fontSize: "1rem",
                                 letterSpacing: "0.45em",
                                 textShadow: "0 0 10px rgba(255,214,0,0.45)",
                             }}

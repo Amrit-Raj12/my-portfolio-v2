@@ -39,37 +39,72 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
     const rafRef = useRef<number | null>(null);
     const startRef = useRef<number | null>(null);
     const logTimersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
-const audioRef = useRef<HTMLAudioElement | null>(null);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
     const playedRef = useRef(false);
 
     useEffect(() => {
         if (playedRef.current) return;
-        
-        const audio = new Audio("/assets/audios/booting.opus");
+
+        // Use a <audio> element with multiple <source> children so the browser
+        // picks the first format it supports. This eliminates the
+        // "NotSupportedError: The element has no supported sources" that Safari
+        // and some other browsers throw when they encounter an .opus file.
+        const audio = document.createElement("audio");
         audio.volume = 0.5;
-        
-        const tryPlay = async () => {
-            if (playedRef.current) return;
-            try {
-                await audio.play();
-                playedRef.current = true;
-            } catch {
-                document.addEventListener("click", () => {
-                    if (!playedRef.current) {
-                        audio.play().then(() => { playedRef.current = true; });
-                    }
-                }, { once: true });
-            }
-        };
-        
-        setTimeout(tryPlay, 100);
+        audio.preload = "auto";
+
+        // Add sources in order of preference.
+        // Make sure you provide at least one of these files in /public/assets/audios/
+        const sources: { src: string; type: string }[] = [
+            { src: "/assets/audios/booting.ogg", type: "audio/ogg; codecs=vorbis" },
+            { src: "/assets/audios/booting.opus", type: "audio/ogg; codecs=opus" },
+        ];
+
+        sources.forEach(({ src, type }) => {
+            const source = document.createElement("source");
+            source.src = src;
+            source.type = type;
+            audio.appendChild(source);
+        });
+
         audioRef.current = audio;
-        
+
+        // Attempt autoplay; browsers may block it until a user gesture occurs.
+        const tryPlay = () => {
+            if (playedRef.current) return;
+            audio.play().then(() => {
+                playedRef.current = true;
+            }).catch(() => {
+                // Autoplay was blocked — wait for the first user interaction.
+                // Listening on the document for both pointer and keyboard covers
+                // all entry points without requiring a specific click target.
+            });
+        };
+
+        // Interaction handler that is properly referenced so we can remove it.
+        const onFirstInteraction = () => {
+            if (playedRef.current) return;
+            audio.play().then(() => {
+                playedRef.current = true;
+            }).catch(() => {
+                // Still blocked — nothing more we can do.
+            });
+        };
+
+        document.addEventListener("pointerdown", onFirstInteraction, { once: true });
+        document.addEventListener("keydown", onFirstInteraction, { once: true });
+
+        tryPlay();
+
         return () => {
             audio.pause();
             audio.src = "";
-            document.removeEventListener("click", () => {});
+            // Remove all <source> children so the browser releases the resources.
+            while (audio.firstChild) audio.removeChild(audio.firstChild);
+            document.removeEventListener("pointerdown", onFirstInteraction);
+            document.removeEventListener("keydown", onFirstInteraction);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     /* ── Animate progress bar ── */
@@ -102,9 +137,9 @@ const audioRef = useRef<HTMLAudioElement | null>(null);
         };
 
         rafRef.current = requestAnimationFrame(animate);
-        // return () => {
-        //     if (rafRef.current) cancelAnimationFrame(rafRef.current);
-        // };
+        return () => {
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+        };
     }, [duration, onComplete]);
 
     /* ── Stagger log lines ── */
@@ -372,9 +407,9 @@ const audioRef = useRef<HTMLAudioElement | null>(null);
                 {/* Big title with HUD brackets */}
                 <div className="relative inline-block mb-2">
                     <h1
-                        className="glow-yellow select-none glitch-heading"
+                        className="glow-yellow select-none glitch-heading md:text-[52px] text-[32px]"
                         style={{
-                            fontSize: "clamp(52px, 10vw, 80px)",
+                            // fontSize: "clamp(52px, 10vw, 80px)",
                             fontWeight: 900,
                             color: "#fde400",
                             lineHeight: 1.05,
@@ -386,7 +421,6 @@ const audioRef = useRef<HTMLAudioElement | null>(null);
                     <p
                         className="font-orbitron"
                         style={{
-                            // fontFamily: "font-orbitron",
                             fontSize: 12,
                             letterSpacing: "0.6em",
                             fontWeight: 600,
