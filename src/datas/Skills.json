@@ -1,0 +1,123 @@
+{
+  "techSkills": [
+    {
+      "name": "REACT.JS",
+      "icon": "JS",
+      "percentage": 90
+    },
+    {
+      "name": "NEXT.JS",
+      "icon": "LAYERS",
+      "percentage": 85
+    },
+    {
+      "name": "JAVASCRIPT",
+      "icon": "CODE",
+      "percentage": 90
+    },
+    {
+      "name": "TAILWIND CSS",
+      "icon": "CSS",
+      "percentage": 95
+    },
+    {
+      "name": "NODE.JS",
+      "icon": "DATABASE",
+      "percentage": 80
+    },
+    {
+      "name": "REST APIS",
+      "icon": "NETWORK",
+      "percentage": 85
+    }
+  ],
+  "softSkills": [
+    {
+      "icon": "LIGHTBULB",
+      "label": "PROBLEM SOLVING"
+    },
+    {
+      "icon": "MESSAGE_SQUARE",
+      "label": "COMMUNICATION"
+    },
+    {
+      "icon": "USERS",
+      "label": "TEAMWORK"
+    },
+    {
+      "icon": "BRUSH",
+      "label": "CREATIVITY"
+    },
+    {
+      "icon": "CLOCK",
+      "label": "TIME MANAGEMENT"
+    },
+    {
+      "icon": "REFRESH_CW",
+      "label": "ADAPTABILITY"
+    }
+  ],
+  "tools": [
+    {
+      "icon": "FILE_CODE",
+      "label": "VS Code"
+    },
+    {
+      "icon": "SEND",
+      "label": "Postman"
+    },
+    {
+      "icon": "PALETTE",
+      "label": "Figma"
+    },
+    {
+      "icon": "CAT",
+      "label": "GitHub"
+    },
+    {
+      "icon": "CLOUD",
+      "label": "Vercel"
+    },
+    {
+      "icon": "CHECK",
+      "label": "ESLint"
+    }
+  ],
+  "mobile": {
+    "skills": [
+      {
+        "name": "REACT.JS",
+        "value": 90
+      },
+      {
+        "name": "NEXT.JS",
+        "value": 85
+      },
+      {
+        "name": "JAVASCRIPT",
+        "value": 90
+      },
+      {
+        "name": "TAILWIND CSS",
+        "value": 95
+      },
+      {
+        "name": "NODE.JS",
+        "value": 80
+      },
+      {
+        "name": "REST APIS",
+        "value": 85
+      }
+    ],
+    "synergyModules": "Directing cross-functional squads in high-pressure delivery cycles.",
+    "tools": [
+      "VS Code",
+      "Postman",
+      "Figma",
+      "GitHub",
+      "Vercel",
+      "ESLint"
+    ]
+  }
+}

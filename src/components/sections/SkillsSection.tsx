@@ -2,6 +2,28 @@
 
 import React, { useState, useEffect } from "react";
 import { Terminal, Code, Lightbulb, MessageSquare, Users, Brush, Clock, RefreshCw, FileCode, Send, Palette, Cat, Cloud, Check, Layers, Network, Database } from "lucide-react";
+import skillsData from "@/datas/Skills.json";
+
+const iconMap: Record<string, React.ReactNode> = {
+  JS: <span className="font-orbitron font-bold text-[8px] tracking-widest">JS</span>,
+  LAYERS: <Layers size={14} />,
+  CODE: <Code size={14} />,
+  CSS: <span className="font-orbitron font-bold text-[8px] tracking-widest">CSS</span>,
+  DATABASE: <Database size={14} />,
+  NETWORK: <Network size={14} />,
+  LIGHTBULB: <Lightbulb size={20} />,
+  MESSAGE_SQUARE: <MessageSquare size={20} />,
+  USERS: <Users size={20} />,
+  BRUSH: <Brush size={20} />,
+  CLOCK: <Clock size={20} />,
+  REFRESH_CW: <RefreshCw size={20} />,
+  FILE_CODE: <FileCode size={16} />,
+  SEND: <Send size={16} />,
+  PALETTE: <Palette size={16} />,
+  CAT: <Cat size={16} />,
+  CLOUD: <Cloud size={16} />,
+  CHECK: <Check size={16} />,
+};
 
 function SkillItem({ name, icon, percentage }: { name: string; icon: React.ReactNode; percentage: number }) {
   const totalSegments = 15;
@@ -56,12 +78,7 @@ function ToolBadge({ icon, label }: { icon: React.ReactNode; label: string }) {
   );
 }
 
-function MobileSkillMatrix() {
-  const skills = [
-    { name: "FULLSTACK_DEV", value: 95 },
-    { name: "CLOUD_ARCH", value: 88 },
-    { name: "NEURAL_INTERFACES", value: 75 },
-  ];
+function MobileSkillMatrix({ mobileData }: { mobileData: typeof skillsData.mobile }) {
   return (
     <div className="border border-yellow-400/20 bg-[#0D1114] p-5 font-orbitron">
       <div className="text-yellow-400 text-xs tracking-widest mb-4">SYSTEM_CAPABILITIES</div>
@@ -69,7 +86,7 @@ function MobileSkillMatrix() {
         <span>SKILL SET MATRIX</span><span className="text-yellow-400/70">LEVEL: SENIOR ARCHITECT</span>
       </div>
       <div className="space-y-5">
-        {skills.map((s, i) => {
+        {mobileData.skills.map((s, i) => {
           const [w, setW] = React.useState(0);
           React.useEffect(() => { const t = setTimeout(() => setW(s.value), i * 200); return () => clearTimeout(t); }, []);
           return (
@@ -85,12 +102,12 @@ function MobileSkillMatrix() {
       </div>
       <div className="mt-6 border border-yellow-400/20 p-3">
         <div className="text-yellow-400 text-[10px] mb-2">SYNERGY_MODULES</div>
-        <p className="text-[10px] text-zinc-400">Directing cross-functional squads in high-pressure delivery cycles.</p>
+        <p className="text-[10px] text-zinc-400">{mobileData.synergyModules}</p>
       </div>
       <div className="mt-6">
         <div className="text-yellow-400 text-[10px] mb-3">TOOL_BELT</div>
         <div className="flex flex-wrap gap-3">
-          {["RUST", "KUBERNETES", "REACT_V19", "THREE_JS", "TAILWIND", "WASM"].map((t, i) => (
+          {mobileData.tools.map((t, i) => (
             <span key={i} className="text-[10px] border border-yellow-400/30 px-2 py-1 text-yellow-400">{t}</span>
           ))}
         </div>
@@ -149,19 +166,16 @@ export default function SkillsSection() {
         </div>
 
         {/* Skills grid */}
-        {effectiveIsMobile ? <MobileSkillMatrix /> : (
+        {effectiveIsMobile ? <MobileSkillMatrix mobileData={skillsData.mobile} /> : (
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-12 lg:col-span-8">
               <div className="glass-panel border border-yellow-400/30 p-8 glow-border-yellow relative">
                 <div className="absolute top-0 right-0 p-2 text-xs font-mono text-yellow-400/30">TECH_STACK_ANALYSIS_v2.0</div>
                 <div className="flex items-center gap-3 mb-10"><Terminal className="text-yellow-400" size={32} /><h2 className="text-2xl text-yellow-400 uppercase tracking-widest font-orbitron font-bold">TECH SKILLS</h2></div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                  <SkillItem name="REACT.JS" icon={<span className="font-orbitron font-bold text-[8px] tracking-widest">JS</span>} percentage={90} />
-                  <SkillItem name="NEXT.JS" icon={<Layers size={14} />} percentage={85} />
-                  <SkillItem name="JAVASCRIPT" icon={<Code size={14} />} percentage={90} />
-                  <SkillItem name="TAILWIND CSS" icon={<span className="font-orbitron font-bold text-[8px] tracking-widest">CSS</span>} percentage={95} />
-                  <SkillItem name="NODE.JS" icon={<Database size={14} />} percentage={80} />
-                  <SkillItem name="REST APIS" icon={<Network size={14} />} percentage={85} />
+                  {skillsData.techSkills.map((skill, i) => (
+                    <SkillItem key={i} name={skill.name} icon={iconMap[skill.icon]} percentage={skill.percentage} />
+                  ))}
                 </div>
               </div>
               <div className="mt-8 grid grid-cols-3 gap-4"><HUDCard label="SYSTEM_LOAD" value="42%" /><HUDCard label="DATA_STREAM" value="LIVE" /><HUDCard label="NODES_SYNC" value="100%" /></div>
@@ -171,24 +185,18 @@ export default function SkillsSection() {
                 <div className="absolute top-0 right-0 p-2 text-[10px] font-mono text-yellow-400/30">PSYCH_DRIVE_01</div>
                 <div className="flex items-center gap-3 mb-8"><Lightbulb className="text-yellow-400" size={28} /><h2 className="text-sm text-yellow-400 uppercase tracking-widest font-orbitron font-semibold">SOFT SKILLS</h2></div>
                 <div className="grid grid-cols-2 gap-4">
-                  <SoftSkillCard icon={<Lightbulb size={20} />} label="PROBLEM SOLVING" />
-                  <SoftSkillCard icon={<MessageSquare size={20} />} label="COMMUNICATION" />
-                  <SoftSkillCard icon={<Users size={20} />} label="TEAMWORK" />
-                  <SoftSkillCard icon={<Brush size={20} />} label="CREATIVITY" />
-                  <SoftSkillCard icon={<Clock size={20} />} label="TIME MANAGEMENT" />
-                  <SoftSkillCard icon={<RefreshCw size={20} />} label="ADAPTABILITY" />
+                  {skillsData.softSkills.map((skill, i) => (
+                    <SoftSkillCard key={i} icon={iconMap[skill.icon]} label={skill.label} />
+                  ))}
                 </div>
               </div>
               <div className="glass-panel border border-yellow-400/30 p-8 glow-border-yellow relative">
                 <div className="absolute top-0 right-0 p-2 text-[10px] font-mono text-yellow-400/30">TOOLKIT_V1.1</div>
                 <div className="flex items-center gap-3 mb-8"><FileCode className="text-yellow-400" size={28} /><h2 className="text-sm text-yellow-400 uppercase tracking-widest font-orbitron font-semibold">TOOLS &amp; TECH</h2></div>
                 <div className="flex flex-wrap gap-3">
-                  <ToolBadge icon={<FileCode size={16} />} label="VS Code" />
-                  <ToolBadge icon={<Send size={16} />} label="Postman" />
-                  <ToolBadge icon={<Palette size={16} />} label="Figma" />
-                  <ToolBadge icon={<Cat size={16} />} label="GitHub" />
-                  <ToolBadge icon={<Cloud size={16} />} label="Vercel" />
-                  <ToolBadge icon={<Check size={16} />} label="ESLint" />
+                  {skillsData.tools.map((tool, i) => (
+                    <ToolBadge key={i} icon={iconMap[tool.icon]} label={tool.label} />
+                  ))}
                 </div>
               </div>
             </div>
