@@ -1,0 +1,54 @@
+.neon-cursor-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.cursor-main {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: #ffd500;
+    box-shadow:
+        0 0 10px #ffd500,
+        0 0 20px #ffcc00,
+        0 0 35px #ffae00;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.cursor-trail {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    border: 2px solid #ffd500;
+    box-shadow:
+        0 0 12px rgba(255, 213, 0, 0.9),
+        inset 0 0 12px rgba(255, 213, 0, 0.5);
+    pointer-events: none;
+    z-index: 9998;
+}
+
+.cursor-glow {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(255, 213, 0, 0.28) 0%,
+            rgba(255, 174, 0, 0.12) 40%,
+            rgba(255, 174, 0, 0) 75%);
+    filter: blur(10px);
+    pointer-events: none;
+    z-index: 9997;
+}

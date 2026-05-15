@@ -1,0 +1,66 @@
+{
+    "status": "ONLINE / AVAILABLE",
+    "location": "INDIA [IN]",
+    "coordinates": {
+        "lat": 23.356886,
+        "lng": 85.350577
+    },
+    "timezone": "IST (GMT+5:30)",
+    "availability": "MON - SAT | 11:00 AM - 11:00 PM",
+    "contacts": [
+        {
+            "type": "email",
+            "label": "EMAIL",
+            "value": "amrit.raj.sharma24@gmail.com",
+            "button": "SEND MESSAGE",
+            "icon": "email",
+            "color": "yellow",
+            "link": "mailto:amrit.raj.sharma24@gmail.com"
+        },
+        {
+            "type": "phone",
+            "label": "PHONE",
+            "value": "+91 844-5138-063",
+            "button": "CALL NOW",
+            "icon": "phone",
+            "color": "cyan",
+            "link": "tel:+918445138063"
+        },
+        {
+            "type": "github",
+            "label": "GITHUB",
+            "value": "Amrit-Raj12",
+            "button": "VIEW REPOS",
+            "icon": "code",
+            "color": "white",
+            "link": "https://github.com/Amrit-Raj12"
+        },
+        {
+            "type": "linkedin",
+            "label": "LINKEDIN",
+            "value": "Amrit-Raj-Sh",
+            "button": "CONNECT",
+            "icon": "terminal",
+            "color": "blue",
+            "link": "https://www.linkedin.com/in/amrit-raj-sh/"
+        },
+        {
+            "type": "instagram",
+            "label": "INSTAGRAM",
+            "value": "___amrit___raj",
+            "button": "VIEW FEED",
+            "icon": "camera",
+            "color": "pink",
+            "link": "https://www.instagram.com/___amrit___raj"
+        },
+        {
+            "type": "projects",
+            "label": "PROJECTS",
+            "value": "portfolio_v8",
+            "button": "EXPLORE WORK",
+            "icon": "folder",
+            "color": "yellow",
+            "link": "/projects"
+        }
+    ]
+}

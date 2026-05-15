@@ -1,0 +1,380 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'ScaryBrusher';
+  src: url('/assets/fonts/Sefa (TTF).ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Design tokens ─────────────────────────────── */
+:root {
+  --cyber-bg: #06090D;
+  --neon-cyan: #00F0FF;
+  --neon-yellow: #FFD600;
+  --text-primary: #E6F1FF;
+  --text-muted: #7AA2B8;
+  --sidebar-width: 80px;
+}
+
+/* ── Tailwind v4 theme ─────────────────────────── */
+@theme inline {
+  --color-cyber-bg: var(--cyber-bg);
+  --color-neon-cyan: var(--neon-cyan);
+  --color-neon-yellow: var(--neon-yellow);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-oxanium: "Oxanium", sans-serif;
+  --font-scary: "ScaryBrusher", sans-serif;
+}
+
+/* ── Base reset ────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* margin: 0; */
+  /* padding: 0; */
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* allow scrolling */
+  /* SPA root manages all scroll surfaces */
+  background-color: var(--cyber-bg);
+  color: var(--text-primary);
+  font-family: "Inter", sans-serif;
+}
+
+/* ── Neon glow utilities ───────────────────────── */
+.glow-cyan {
+  box-shadow: 0 0 8px var(--neon-cyan), 0 0 20px rgba(0, 240, 255, 0.4);
+}
+
+.glow-yellow {
+  box-shadow: 0 0 8px var(--neon-yellow), 0 0 20px rgba(255, 214, 0, 0.4);
+}
+
+.glow-mix {
+  box-shadow:
+    0 0 10px var(--neon-cyan),
+    0 0 20px rgba(0, 240, 255, 0.3),
+    0 0 30px rgba(255, 214, 0, 0.2);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px var(--neon-cyan), 0 0 30px rgba(0, 240, 255, 0.6);
+}
+
+.text-glow-yellow {
+  text-shadow: 0 0 10px var(--neon-yellow), 0 0 30px rgba(255, 214, 0, 0.6);
+}
+
+/* Custom Cyberpunk Styles */
+.cyber-glow {
+  text-shadow: 0 0 10px #00F0FF, 0 0 20px #FFD600;
+}
+
+.cyber-skew {
+  transform: skewX(-5deg);
+}
+
+.cyber-heading {
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 2px;
+}
+
+.glitch-heading {
+  font-family: var(--font-scary);
+  letter-spacing: 2px;
+}
+
+/* ── Glitch animation ─────────────────────────── */
+@keyframes glitch {
+
+  0%,
+  100% {
+    transform: translate(0);
+    clip-path: none;
+  }
+
+  20% {
+    transform: translate(-2px, 1px);
+    clip-path: polygon(0 20%, 100% 20%, 100% 25%, 0 25%);
+  }
+
+  40% {
+    transform: translate(2px, -1px);
+    clip-path: polygon(0 60%, 100% 60%, 100% 65%, 0 65%);
+  }
+
+  60% {
+    transform: translate(-1px, 2px);
+    clip-path: polygon(0 40%, 100% 40%, 100% 45%, 0 45%);
+  }
+
+  80% {
+    transform: translate(1px, -2px);
+    clip-path: none;
+  }
+}
+
+@keyframes glitch-1 {
+
+  0%,
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+
+  10% {
+    transform: translate(-3px, 0);
+    opacity: 0.8;
+  }
+
+  20% {
+    transform: translate(3px, 0);
+    opacity: 0.9;
+  }
+
+  30% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes glitch-2 {
+
+  0%,
+  100% {
+    transform: translate(0);
+    opacity: 0;
+  }
+
+  15% {
+    transform: translate(3px, 1px);
+    opacity: 0.7;
+    color: var(--neon-cyan);
+  }
+
+  25% {
+    transform: translate(-3px, -1px);
+    opacity: 0;
+  }
+}
+
+.glitch-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-wrapper::before,
+.glitch-wrapper::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  pointer-events: none;
+}
+
+.glitch-wrapper::before {
+  animation: glitch-2 4s infinite;
+  color: var(--neon-cyan);
+  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+}
+
+.glitch-wrapper::after {
+  animation: glitch-1 4s infinite reverse;
+  color: var(--neon-yellow);
+  clip-path: polygon(0 55%, 100% 55%, 100% 75%, 0 75%);
+}
+
+/* ── Scroll mouse animation ───────────────────── */
+@keyframes scroll-wheel {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.scroll-wheel {
+  animation: scroll-wheel 1.4s ease infinite;
+}
+
+/* ── Floating particles ───────────────────────── */
+@keyframes float-up {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(-120px) scale(0);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: float-up linear infinite;
+  pointer-events: none;
+}
+
+/* ── Scan line overlay ────────────────────────── */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.12) 2px,
+      rgba(0, 0, 0, 0.12) 4px);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ── Mobile Utilities ────────────────────────── */
+.mobile-glass {
+  background: rgba(6, 9, 13, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-bottom-border {
+  border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.social-bar-top-border {
+  border-top: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+/* ── Sidebar neon border ──────────────────────── */
+.sidebar-border {
+  border-right: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 2px 0 20px rgba(0, 240, 255, 0.1);
+}
+
+/* ── NeonButton ───────────────────────────────── */
+.neon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 10px;
+  padding: 14px 36px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--neon-cyan);
+  background: transparent;
+  border: 1px solid var(--neon-cyan);
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.neon-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), transparent);
+  transition: all 0.3s ease;
+}
+
+.neon-btn:hover {
+  color: var(--cyber-bg);
+  background: var(--neon-cyan);
+  box-shadow:
+    0 0 15px var(--neon-cyan),
+    0 0 35px rgba(0, 240, 255, 0.5),
+    0 0 60px rgba(255, 214, 0, 0.2);
+}
+
+.neon-btn:hover::before {
+  background: transparent;
+}
+
+/* ── Corner decorations ───────────────────────── */
+.corner-tl,
+.corner-br {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.corner-tl {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--neon-yellow);
+  border-left: 2px solid var(--neon-yellow);
+}
+
+.corner-br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--neon-yellow);
+  border-right: 2px solid var(--neon-yellow);
+}
+
+/* ── Pulse ring on sidebar icons ─────────────── */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* -- Custom Animations for About Page ----------- */
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-slide-right {
+  animation: slide-right 2s linear infinite;
+}
+/* Enable smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar globally for all elements */
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

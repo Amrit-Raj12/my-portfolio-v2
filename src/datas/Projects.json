@@ -1,0 +1,262 @@
+{
+    "projects": [
+        {
+            "id": "64479a12c9642d00149dsa1adsattmulti",
+            "title": "MULTI-GENIE AI",
+            "description": "An advanced AI-powered platform built using Next.js, FastAPI, PostgreSQL, and OpenAI integrations.",
+            "image": "https://res.cloudinary.com/dcdchgx6z/image/upload/v1751435613/Website%20GIFs/multi-genie_olhkn7.gif",
+            "imageAlt": "Multi-Genie AI Project Preview",
+            "tags": [
+                "Next.js",
+                "Framer-Motion",
+                "Tailwind",
+                "Python",
+                "FastAPI",
+                "PostgreSQL"
+            ],
+            "category": "AI APPS",
+            "status": "live",
+            "projectUrl": "https://multi-genie-ai.vercel.app/",
+            "githubUrl": "https://github.com/Amrit-Raj12/ai-app-generator",
+            "date": "In-Progress"
+        },
+        {
+            "id": "64479a12c9642d00149dsa1adsatjobpilot",
+            "title": "JOBPILOT AI",
+            "description": "An AI-powered voice assistant platform that automates job applications using Next.js, FastAPI, Playwright, and OpenAI — speak a command and it applies to jobs on your behalf.",
+            "image": "https://res.cloudinary.com/dzur9wakk/image/upload/v1778664975/AutoJob_qsmyxl.gif",
+            "imageAlt": "JobPilot AI Project Preview",
+            "tags": [
+                "Next.js",
+                "Tailwind",
+                "FastAPI",
+                "Playwright",
+                "OpenAI",
+                "PostgreSQL"
+            ],
+            "category": "AI APPS",
+            "status": "in-dev",
+            "projectUrl": "https://github.com/Amrit-Raj12/ai-auto-apply",
+            "githubUrl": "https://github.com/Amrit-Raj12/ai-auto-apply",
+            "date": "In-Progress"
+        },
+        {
+            "id": "64479a12c9642d00149dsa1adsataria",
+            "title": "ARIA — AI VOICE ASSISTANT",
+            "description": "A desktop AI voice assistant built with Electron.js, powered by OpenAI Whisper for speech recognition, Ollama for local LLM inference, and Google API for real-time search and smart responses — all running natively on your machine.",
+            "image": "https://res.cloudinary.com/dzur9wakk/image/upload/v1778675091/ai-assistant_hkbyz7.gif",
+            "imageAlt": "ARIA AI Voice Assistant Preview",
+            "tags": [
+                "Electron.js",
+                "Whisper",
+                "Ollama",
+                "Google API",
+                "JavaScript",
+                "Python"
+            ],
+            "category": "AI APPS",
+            "status": "in-dev",
+            "projectUrl": "",
+            "githubUrl": "https://github.com/Amrit-Raj12/ai-voice-assistant-app",
+            "date": "In-Progress"
+        },
+        {
+            "id": "64479a12c9642d00149dsa1adsattawd",
+            "title": "GURU DHUNDHOO",
+            "description": "Gurudhoondo is a learning platform where students can find experienced mentors, teachers, and skilled individuals who are ready to share their knowledge.",
+            "image": "https://res.cloudinary.com/dcdchgx6z/image/upload/v1751436053/Website%20GIFs/GURURDHOONDO_xnpx5q.gif",
+            "imageAlt": "Guru Dhundhoo Project Preview",
+            "tags": [
+                "React.js",
+                "Laravel",
+                "Inertia",
+                "Tailwind",
+                "Laravel",
+                "MySQL"
+            ],
+            "category": "WEB APPS",
+            "status": "live",
+            "projectUrl": "https://gurudhoondo.com/",
+            "githubUrl": "#",
+            "date": "29 March, 2025"
+        },
+        {
+            "id": "64479a12c9642d00149dsa123sd",
+            "title": "MANGA READING APP",
+            "description": "Modern manga reading application with responsive UI and optimized reading experience.",
+            "image": "https://res.cloudinary.com/dcdchgx6z/image/upload/v1729156959/landing_yjuq4t.png",
+            "imageAlt": "Manga Reading App Preview",
+            "tags": [
+                "Next.js(14)",
+                "Redux",
+                "Tailwind",
+                "Redux",
+                "React Query"
+            ],
+            "category": "WEB APPS",
+            "status": "live",
+            "projectUrl": "https://manga-nest.vercel.app/",
+            "githubUrl": "https://github.com/Amrit-Raj12/manga-next-app",
+            "date": "25 Sep, 2024"
+        },
+        {
+            "id": "64479a12c9642d00149d6456",
+            "title": "MOVIE STREAMING APP",
+            "description": "Movie streaming platform built with MERN stack featuring authentication and media browsing.",
+            "image": "https://res.cloudinary.com/dcdchgx6z/image/upload/v1751436055/Website%20GIFs/Freelix_ma0qqb.gif",
+            "imageAlt": "Movie Streaming App Preview",
+            "tags": [
+                "Next.js(13)",
+                "Redux",
+                "Tailwind",
+                "Node.js",
+                "Mongodb"
+            ],
+            "category": "WEB APPS",
+            "status": "live",
+            "projectUrl": "https://freelix-app.vercel.app/",
+            "githubUrl": "https://github.com/Amrit-Raj12/freelix-nextjs-app-pb",
+            "date": "10 May, 2024"
+        },
+        {
+            "id": "64479a12c9642d00149d6318",
+            "title": "E-COMMERCE APP",
+            "description": "Full-stack MERN e-commerce application with product management and authentication.",
+            "image": "https://res.cloudinary.com/dcdchgx6z/image/upload/v1751436054/Website%20GIFs/shopkart_ehwm3u.gif",
+            "imageAlt": "E-commerce App Preview",
+            "tags": [
+                "Node.js",
+                "Express",
+                "MongoDB",
+                "Next.js"
+            ],
+            "category": "WEB APPS",
+            "status": "live",
+            "projectUrl": "https://shopkart-next-app.vercel.app/",
+            "githubUrl": "https://github.com/Amrit-Raj12/shopkart-next-app-pb",
+            "date": "5 April, 2023"
+        },
+        {
+            "id": "64f434714eeacb0014f883d7",
+            "title": "BACKGROUND REMOVER APP",
+            "description": "AI-based background remover application with fast image processing.",
+            "image": "https://res.cloudinary.com/dcdchgx6z/image/upload/v1751437170/bgr-ezgif.com-optimize_t3gbzc.gif",
+            "imageAlt": "Background Remover App Preview",
+            "tags": [
+                "React.js",
+                "Node.js",
+                "Remove-BG-API"
+            ],
+            "category": "TOOLS",
+            "status": "live",
+            "projectUrl": "https://background-be-gone.vercel.app",
+            "githubUrl": "https://github.com/Amrit-Raj12/bg-remover-app",
+            "date": "03 Sep, 2023"
+        },
+        {
+            "id": "6630f9ffe9a2e3000bf58b67",
+            "title": "MUSIFY MUSIC STREAMING APP",
+            "description": "Music streaming mobile app built with React Native and MERN stack.",
+            "image": "https://res.cloudinary.com/dcdchgx6z/image/upload/v1714485580/Musify_keyg8b.jpg",
+            "imageAlt": "Musify App Preview",
+            "tags": [
+                "React-Native",
+                "Redux",
+                "Typescript",
+                "Node.js",
+                "MongoDB"
+            ],
+            "category": "MOBILE APPS",
+            "status": "live",
+            "projectUrl": "https://amrit-raj.tech/",
+            "githubUrl": "https://github.com/Amrit-Raj12/musify-app",
+            "date": "20 April, 2024"
+        },
+        {
+            "id": "64479a12c9642d00149calcivomobile",
+            "title": "CALCIVO",
+            "description": "A multi-purpose mobile calculator application built using React Native, featuring multiple calculation tools with a clean, responsive, and user-friendly interface.",
+            "image": "https://res.cloudinary.com/dzur9wakk/image/upload/v1778665503/Calcivo_a96p0c.png",
+            "imageAlt": "Calcivo Mobile App Preview",
+            "tags": [
+                "React Native",
+                "JavaScript",
+                "Mobile App",
+                "Calculator"
+            ],
+            "category": "MOBILE APPS",
+            "status": "live",
+            "projectUrl": "",
+            "githubUrl": "https://github.com/Amrit-Raj12/muti-purpose-calc",
+            "date": "10 May, 2026"
+        },
+        {
+            "id": "64479a12c9642d00149dsa1adsatradial",
+            "title": "MOUSE RADIAL MENU",
+            "description": "A lightweight desktop tool built with Electron.js that brings a customizable radial context menu to your mouse — triggering shortcuts, apps, and actions instantly with a right-click hold.",
+            "image": "https://res.cloudinary.com/dzur9wakk/image/upload/v1778674299/mouse-shortcut_dazozw.gif",
+            "imageAlt": "Mouse Radial Menu Tool Preview",
+            "tags": [
+                "Electron.js",
+                "HTML",
+                "CSS",
+                "JavaScript"
+            ],
+            "category": "TOOLS",
+            "status": "live",
+            "projectUrl": "",
+            "githubUrl": "https://github.com/Amrit-Raj12/mouse-radial-menu",
+            "date": "30 April 2026"
+        },
+        {
+            "id": "645e68aaaff592001412345sa33",
+            "title": "IMAGITEXT AI APP",
+            "description": "AI-powered text-to-image generator mobile application.",
+            "image": "https://res.cloudinary.com/dcdchgx6z/image/upload/v1723790820/ImagiTextAsserts/Imagitext-app-thumb_bk0udf.png",
+            "imageAlt": "ImagiText AI App Preview",
+            "tags": [
+                "React-Native",
+                "Redux",
+                "Limewire"
+            ],
+            "category": "AI APPS",
+            "status": "live",
+            "projectUrl": "https://drive.google.com/file/d/1iNIQz2dBSlHcxgFWJYoNqZ2T97usvpPX/view?usp=sharing",
+            "githubUrl": "https://github.com/Amrit-Raj12/image-gen-app",
+            "date": "15 Aug, 2024"
+        },
+        {
+            "id": "645e68aaaff592001412345sa23",
+            "title": "CODE-U ONLINE EDITOR",
+            "description": "Online HTML, CSS, and JavaScript editor with live preview support.",
+            "image": "https://res.cloudinary.com/dcdchgx6z/image/upload/v1723803867/code-u_abryua.png",
+            "imageAlt": "Code-U Project Preview",
+            "tags": [
+                "React.js",
+                "Codemirror",
+                "MaterialUI"
+            ],
+            "category": "TOOLS",
+            "status": "live",
+            "projectUrl": "https://code-u-app.vercel.app",
+            "githubUrl": "https://github.com/Amrit-Raj12/code-u-app",
+            "date": "10 June, 2024"
+        },
+        {
+            "id": "645e68aaaff5920014100a35",
+            "title": "EYE CURSOR TRACKER",
+            "description": "Interactive eye-tracking cursor animation project built using Next.js.",
+            "image": "https://res.cloudinary.com/dcdchgx6z/image/upload/v1751437291/eye-capture_pyaeag.gif",
+            "imageAlt": "Eye Cursor Tracker Preview",
+            "tags": [
+                "Next.js",
+                "SCSS"
+            ],
+            "category": "EXPERIMENTS",
+            "status": "live",
+            "projectUrl": "https://eye-tracker-app.vercel.app",
+            "githubUrl": "https://github.com/Amrit-Raj12/eye-tracker-app",
+            "date": "12 May, 2023"
+        }
+    ]
+}

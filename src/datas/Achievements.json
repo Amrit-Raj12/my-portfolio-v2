@@ -1,0 +1,140 @@
+{
+    "title": "ACHIEVEMENTS.LOG",
+    "subtitle": "MODULE_04: CERTIFICATIONS",
+    "description": "Verified certifications, completed programs, internships, and technical milestones achieved throughout the development journey.",
+    "achievements": [
+        {
+            "id": "CERT_001",
+            "icon": "brain",
+            "title": "OCI AI FOUNDATIONS",
+            "description": "Successfully completed the Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate certification.",
+            "tags": [
+                "OCI SERVICES",
+                "AI",
+                "ML",
+                "DL",
+                "GENERATIVE AI"
+            ],
+            "certificateUrl": "https://drive.google.com/file/d/1XSfrOUdmpkfFZyKtsRIxf65cKvXbTPR_/view?usp=sharing",
+            "verifyUrl": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=CFC82547A00E9EC221DAF4B5DD2FDCFAAFFC920EDE84CC6D2CB112D0A4A7A813"
+        },
+        {
+            "id": "CERT_002",
+            "icon": "rocket",
+            "title": "REACT_NATIVE_CERTIFICATE",
+            "description": "Successfully completed the React Native, Redux & Express Full Stack course at Udemy.",
+            "tags": [
+                "REACT NATIVE",
+                "REDUX",
+                "NODE.JS",
+                "EXPRESS.JS",
+                "TYPESCRIPT"
+            ],
+            "certificateUrl": "https://drive.google.com/file/d/1rpccF1sbJu9yxnkK5N6h-9hS1QcPzmDA/view?usp=drive_link",
+            "verifyUrl": "/"
+        },
+        {
+            "id": "CERT_003",
+            "icon": "server",
+            "title": "NODEJS_CERTIFICATE",
+            "description": "Successfully completed the Node.js course covering backend development fundamentals.",
+            "tags": [
+                "NODE.JS",
+                "MONGODB",
+                "EXPRESS.JS",
+                "TYPESCRIPT"
+            ],
+            "certificateUrl": "https://drive.google.com/file/d/1pB90mUk8x6Rq1RXYDislhEr_dtplO9o4/view?usp=sharing",
+            "verifyUrl": "/"
+        },
+        {
+            "id": "CERT_004",
+            "icon": "cpu",
+            "title": "MERN_STACK_DEVELOPMENT",
+            "description": "Completed MERN Stack Development Bootcamp with full-stack application development training.",
+            "tags": [
+                "MONGODB",
+                "EXPRESS.JS",
+                "REACT.JS",
+                "NODE.JS"
+            ],
+            "certificateUrl": "https://drive.google.com/file/d/1VjbGXc0VeAvzITY043znOBGQ3D_L5Va3/view?usp=sharing",
+            "verifyUrl": "/"
+        },
+        {
+            "id": "CERT_005",
+            "icon": "code",
+            "title": "JAVASCRIPT_CERTIFICATE",
+            "description": "Successfully completed JavaScript programming certification at Sololearn.",
+            "tags": [
+                "JAVASCRIPT"
+            ],
+            "certificateUrl": "https://drive.google.com/file/d/1UzJK8shovnj6SzXwkzZ6b__ORO3X00tI/view?usp=sharing",
+            "verifyUrl": "/"
+        },
+        {
+            "id": "CERT_006",
+            "icon": "layers",
+            "title": "REACT_REDUX_COURSE",
+            "description": "Completed React + Redux course with frontend architecture and state management concepts.",
+            "tags": [
+                "REACT.JS",
+                "STYLED COMPONENTS",
+                "REACT ROUTER",
+                "REDUX"
+            ],
+            "certificateUrl": "https://drive.google.com/file/d/1UuN3y04QpXMY74HFmZt0heswKidugAqU/view?usp=sharing",
+            "verifyUrl": "/"
+        },
+        {
+            "id": "CERT_007",
+            "icon": "globe",
+            "title": "WEB_DESIGNING_COURSE",
+            "description": "Successfully completed web designing course covering HTML, CSS, JavaScript, and Bootstrap.",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JAVASCRIPT",
+                "BOOTSTRAP"
+            ],
+            "certificateUrl": "https://drive.google.com/file/d/1AzRLonKARJl0bs5PRmqsT608CJ4hlqsA/view?usp=sharing",
+            "verifyUrl": "/"
+        },
+        {
+            "id": "CERT_008",
+            "icon": "briefcase",
+            "title": "WEB_DEVELOPER_INTERNSHIP",
+            "description": "Completed Web Developer Internship at Ritewind with practical development experience.",
+            "tags": [
+                "WORDPRESS",
+                "WEB DESIGN",
+                "WEB DEVELOPMENT"
+            ],
+            "certificateUrl": "https://drive.google.com/file/d/1yQnOP6BH_NtMn4avbltlLRwT16lPT0lj/view?usp=sharing",
+            "verifyUrl": "/"
+        },
+        {
+            "id": "CERT_009",
+            "icon": "sparkles",
+            "title": "MACHINE_LEARNING_CERTIFICATE",
+            "description": "Successfully completed Machine Learning training at SmartBridge Educational Services.",
+            "tags": [
+                "IBM",
+                "MACHINE LEARNING"
+            ],
+            "certificateUrl": "https://drive.google.com/file/d/1C1S2cFdUQ5rRgfEOYl0OimHbOjQyjuda/view?usp=sharing",
+            "verifyUrl": "/"
+        },
+        {
+            "id": "CERT_010",
+            "icon": "search",
+            "title": "TECHNICAL_SEO_CERTIFICATE",
+            "description": "Successfully completed the Technical SEO Exam at Semrush Academy.",
+            "tags": [
+                "SEO"
+            ],
+            "certificateUrl": "https://drive.google.com/file/d/1UXuk4_ZrNQj4kMdTy9aHKoarrp9p5Goa/view?usp=sharing",
+            "verifyUrl": "/"
+        }
+    ]
+}

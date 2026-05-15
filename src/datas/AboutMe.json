@@ -1,0 +1,85 @@
+{
+    "bio": {
+        "title": "ABOUT ME",
+        "description": "I'm a passionate Full Stack Developer who loves building beautiful, functional, and user-centric digital experiences. I enjoy turning ideas into real-world solutions through clean code and creative design.",
+        "resumeUrl": "/assets/resume.pdf"
+    },
+    "timeline": [
+        {
+            "year": "2023 - Present",
+            "role": "Full Stack Developer",
+            "desc": "Building modern web applications and working with scalable full stack architectures."
+        },
+        {
+            "year": "2021 - 2023",
+            "role": "Frontend Developer",
+            "desc": "Focused on creating responsive UI with React, Next.js and modern frontend tools."
+        }
+    ],
+    "quickFacts": [
+        {
+            "icon": "Calendar",
+            "value": "4+",
+            "label": "Years Experience"
+        },
+        {
+            "icon": "FolderOpen",
+            "value": "15+",
+            "label": "Projects Completed"
+        },
+        {
+            "icon": "Code2",
+            "value": "10+",
+            "label": "Technologies Mastered"
+        },
+        {
+            "icon": "Star",
+            "value": "100%",
+            "label": "Client Satisfaction"
+        }
+    ],
+    "services": [
+        {
+            "icon": "Globe",
+            "title": "Web Development",
+            "description": "Building responsive and high-performance websites and applications."
+        },
+        {
+            "icon": "Sparkle",
+            "title": "AI Development",
+            "description": "Building intelligent AI-powered solutions, automations, and smart user experiences."
+        },
+        {
+            "icon": "Server",
+            "title": "Backend Development",
+            "description": "Creating scalable APIs and server-side systems."
+        },
+        {
+            "icon": "Brain",
+            "title": "Problem Solving",
+            "description": "Solving complex problems with efficient logic and clean architecture."
+        }
+    ],
+    "interests": [
+        {
+            "icon": "Gamepad2",
+            "label": "Gaming"
+        },
+        {
+            "icon": "Brain",
+            "label": "AI"
+        },
+        {
+            "icon": "Music",
+            "label": "Music"
+        },
+        {
+            "icon": "SquarePlay",
+            "label": "YouTube"
+        },
+        {
+            "icon": "Code2",
+            "label": "Tech Enthusiast"
+        }
+    ]
+}

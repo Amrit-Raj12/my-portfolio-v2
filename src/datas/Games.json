@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "SNAKE_V.01",
+        "description": "Classic survival. Navigate the grid, consume data, grow longer.",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBHNVjTcGSWSCceRT-oY1XH_p2oVnjK7msqx1_vpJChUTesdQm3c6kurm-BYg03dxOPaIMJpvedLWGOWDUpwvvAi56D0TCjg1VDSKiRUv6Hc3fo2ezz4gF9VFZyRxzDAtmQflCn6u2KaNfUd1JkV4NQBvx9yEQmtf7tRNFUKhmnbOkWR1i3gYgckya3d1tvdMLWsf9uFFU9K996Wz5Mn3IT3hYX6mUDqgpQ5vUDhdKINXrgSyWqLrmln_LtfQaLhMfZdbAaIXGO6NY",
+        "link": "http://localhost:3000/snake-game"
+    },
+    {
+        "id": 2,
+        "title": "VOID_STRIKE",
+        "description": "Eliminate incoming threats...",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDkWvWnR213scCdea4gH86vJAYjAwGoCyO-6KoECX1lvx06UXx6wNJkU4C1rXHyKNtJlTo1KlV-O5D6QgulmDx4fOiy_sOdztDYdHKmSxOzmQ9ryZ7V13kGH7l2GMRBEIPw3fqv26NDj1b5Qmjv5surHnJK5R9KodeZXxJd7QKFRMBlc4QuyiUezlsLdULSK1naGjmHbPIlGNCh9GtLL2Z1C9GtDMPlk3YQikknNcg7xdvk6RhNGA5opTUbWPmcZGjbCpSg01hVO5A",
+        "link": "https://yourdomain.com/games/void-strike"
+    }
+]
