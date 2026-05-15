@@ -4,13 +4,20 @@
         "title": "SNAKE_V.01",
         "description": "Classic survival. Navigate the grid, consume data, grow longer.",
         "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBHNVjTcGSWSCceRT-oY1XH_p2oVnjK7msqx1_vpJChUTesdQm3c6kurm-BYg03dxOPaIMJpvedLWGOWDUpwvvAi56D0TCjg1VDSKiRUv6Hc3fo2ezz4gF9VFZyRxzDAtmQflCn6u2KaNfUd1JkV4NQBvx9yEQmtf7tRNFUKhmnbOkWR1i3gYgckya3d1tvdMLWsf9uFFU9K996Wz5Mn3IT3hYX6mUDqgpQ5vUDhdKINXrgSyWqLrmln_LtfQaLhMfZdbAaIXGO6NY",
-        "link": "http://localhost:3000/snake-game"
+        "link": "/snake-game"
     },
     {
         "id": 2,
-        "title": "VOID_STRIKE",
-        "description": "Eliminate incoming threats...",
-        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDkWvWnR213scCdea4gH86vJAYjAwGoCyO-6KoECX1lvx06UXx6wNJkU4C1rXHyKNtJlTo1KlV-O5D6QgulmDx4fOiy_sOdztDYdHKmSxOzmQ9ryZ7V13kGH7l2GMRBEIPw3fqv26NDj1b5Qmjv5surHnJK5R9KodeZXxJd7QKFRMBlc4QuyiUezlsLdULSK1naGjmHbPIlGNCh9GtLL2Z1C9GtDMPlk3YQikknNcg7xdvk6RhNGA5opTUbWPmcZGjbCpSg01hVO5A",
-        "link": "https://yourdomain.com/games/void-strike"
+        "title": "GTA_VICE_CITY",
+        "description": "Grand Theft Auto: Vice City is an action-adventure game set in the vibrant, neon-drenched streets of 1980s Miami. Join Tommy Vercetti as he builds his criminal empire, orchestrates daring heists, and navigates a world of betrayal and excess.",
+        "image": "https://res.cloudinary.com/dzur9wakk/image/upload/v1778835761/b585c86a-1e66-4453-9b50-f4deec0d37d0_bylqvi.png",
+        "link": "https://quenq.com/apps/vice-city/"
+    },
+    {
+        "id": 3,
+        "title": "ANGRY_BIRDS",
+        "description": "Angry Birds is a puzzle video game franchise created by Rovio Entertainment. Players use a slingshot to launch birds at pigs positioned on a structure, aiming to destroy them. The game became a massive global hit, spawning numerous sequels, spin-offs, and media adaptations, and is celebrated for its simple yet addictive gameplay mechanics and charming characters.",
+        "image": "https://res.cloudinary.com/dzur9wakk/image/upload/v1778835893/a1c1e2e6-1def-46ba-9ebb-a8c4661e009b_c4rmuv.png",
+        "link": "https://quenq.com/apps/angry-birds-chrome/"
     }
 ]

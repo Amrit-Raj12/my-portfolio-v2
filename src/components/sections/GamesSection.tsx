@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Gamepad2 } from "lucide-react";
 import games from "../../datas/Games.json";
+import Link from "next/link";
 
 interface Game { id: number; title: string; description: string; image: string; link: string; }
 
@@ -17,11 +18,19 @@ function GameCard({ game }: { game: Game }) {
       </div>
       <h3 className="text-lg font-bold text-yellow-400 mb-1">{game.title}</h3>
       <p className="text-[11px] text-zinc-400 mb-4 leading-relaxed">{game.description}</p>
-      <a href={game.link} target={isExternal ? "_blank" : "_self"} rel={isExternal ? "noopener noreferrer" : ""}
+      <Link
+        href={game.link}
+        target={isExternal ? "_blank" : "_self"}
+        rel={isExternal ? "noopener noreferrer" : ""}
         className="w-full flex items-center justify-center gap-2 py-2 border border-yellow-400/40 text-yellow-400 text-xs font-semibold tracking-wider hover:bg-yellow-400 hover:text-black transition-colors"
-        style={{ clipPath: "polygon(0% 0%, 90% 0%, 100% 30%, 100% 100%, 10% 100%, 0% 70%)" }}>
-        <Gamepad2 size={14} /> PLAY NOW
-      </a>
+        style={{
+          clipPath:
+            "polygon(0% 0%, 90% 0%, 100% 30%, 100% 100%, 10% 100%, 0% 70%)",
+        }}
+      >
+        <Gamepad2 size={14} />
+        PLAY NOW
+      </Link>
       <div style={{ position: "absolute", bottom: -2, right: -2, width: 12, height: 12, borderBottom: "2px solid #fde400", borderRight: "2px solid #fde400" }} />
     </div>
   );

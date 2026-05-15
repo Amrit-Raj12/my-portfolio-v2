@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 
 type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT";
@@ -25,7 +26,7 @@ export default function SnakeGamePage() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(6);
   const [isNewHighScore, setIsNewHighScore] = useState(false);
-  
+
   const gameLoopRef = useRef<NodeJS.Timeout | null>(null);
   const directionRef = useRef<Direction>("RIGHT");
   const scoreRef = useRef(0);
@@ -35,7 +36,7 @@ export default function SnakeGamePage() {
     fetch("/api/snake-high-score")
       .then((res) => res.json())
       .then((data) => setHighScore(data.highScore))
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   useEffect(() => {
@@ -46,7 +47,7 @@ export default function SnakeGamePage() {
     }
 
     if (gameState === "PLAYING") {
-      audioRef.current.play().catch(() => {});
+      audioRef.current.play().catch(() => { });
     } else if (gameState === "PAUSED" || gameState === "START" || gameState === "GAME_OVER") {
       audioRef.current.pause();
     }
@@ -61,7 +62,7 @@ export default function SnakeGamePage() {
   const generateFood = useCallback((): { x: number; y: number } => {
     let newFood: { x: number; y: number };
     let isOnSnake = true;
-    
+
     while (isOnSnake) {
       newFood = {
         x: Math.floor(Math.random() * GRID_WIDTH),
@@ -90,7 +91,7 @@ export default function SnakeGamePage() {
       clearInterval(gameLoopRef.current);
       gameLoopRef.current = null;
     }
-    
+
     try {
       const res = await fetch("/api/snake-high-score", {
         method: "POST",
@@ -103,7 +104,7 @@ export default function SnakeGamePage() {
         setIsNewHighScore(true);
       }
     } catch { }
-    
+
     setGameState("GAME_OVER");
   }, []);
 
@@ -111,7 +112,7 @@ export default function SnakeGamePage() {
     setSnake((prevSnake) => {
       const head = prevSnake[0];
       const newHead = { ...head };
-      
+
       switch (directionRef.current) {
         case "UP":
           newHead.y -= 1;
@@ -161,7 +162,7 @@ export default function SnakeGamePage() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const key = e.key.toLowerCase();
-      
+
       if (key === " " || key === "escape") {
         e.preventDefault();
         if (gameState === "PLAYING") {
@@ -171,11 +172,11 @@ export default function SnakeGamePage() {
         }
         return;
       }
-      
+
       if (gameState !== "PLAYING") return;
-      
+
       const currentDir = directionRef.current;
-      
+
       if ((key === "w" || key === "arrowup") && currentDir !== "DOWN") {
         directionRef.current = "UP";
         setDirection("UP");
@@ -227,7 +228,13 @@ export default function SnakeGamePage() {
     }}>
       <div className="absolute inset-0 bg-[var(--cyber-bg)]/80"></div>
       <div className="relative z-10 w-full">
-      <style jsx>{`
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 px-4 py-2 mb-4 font-orbitron text-xs tracking-[0.15em] text-[var(--neon-cyan)] border border-[var(--neon-cyan)]/50 bg-[var(--neon-cyan)]/10 hover:bg-[var(--neon-cyan)]/20 transition-all"
+        >
+          ← GO BACK
+        </Link>
+        <style jsx>{`
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
         
         .retro-font {
@@ -309,104 +316,104 @@ export default function SnakeGamePage() {
         }
       `}</style>
 
-      <h1 className="retro-font text-2xl md:text-3xl lg:text-4xl text-center mb-4 neon-glow-yellow">
-        Classic Snake Game
-      </h1>
+        <h1 className="retro-font text-2xl md:text-3xl lg:text-4xl text-center mb-4 neon-glow-yellow">
+          Classic Snake Game
+        </h1>
 
-      <p className="retro-font text-xs md:text-sm lg:text-base text-center mb-6 neon-glow-cyan">
-        Play and Relive the Fun!
-      </p>
+        <p className="retro-font text-xs md:text-sm lg:text-base text-center mb-6 neon-glow-cyan">
+          Play and Relive the Fun!
+        </p>
 
-      <div className="flex justify-center">
-        <div className="game-board w-[280px] h-[350px] md:w-[360px] md:h-[440px] lg:w-[440px] lg:h-[540px] rounded-lg relative overflow-hidden">
-          <div className="absolute inset-0 scanlines pointer-events-none"></div>
-          
-          {gameState === "START" && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-              <button 
-                onClick={startGame}
-                className="retro-font text-xs md:text-sm play-icon w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110 pulse-anim"
-              >
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  viewBox="0 0 24 24" 
-                  fill="var(--cyber-bg)" 
-                  className="w-8 h-8 md:w-10 md:h-10 ml-1"
+        <div className="flex justify-center">
+          <div className="game-board w-[280px] h-[350px] md:w-[360px] md:h-[440px] lg:w-[440px] lg:h-[540px] rounded-lg relative overflow-hidden">
+            <div className="absolute inset-0 scanlines pointer-events-none"></div>
+
+            {gameState === "START" && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+                <button
+                  onClick={startGame}
+                  className="retro-font text-xs md:text-sm play-icon w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110 pulse-anim"
                 >
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </button>
-              <p className="retro-font text-xs mt-6 neon-glow-cyan">Press to Start</p>
-              <p className="retro-font text-[10px] mt-4 text-[var(--text-muted)] text-center px-4">
-                Use W/A/S/D or Arrow keys to move<br/>
-                Space/Esc to pause
-              </p>
-            </div>
-          )}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="var(--cyber-bg)"
+                    className="w-8 h-8 md:w-10 md:h-10 ml-1"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </button>
+                <p className="retro-font text-xs mt-6 neon-glow-cyan">Press to Start</p>
+                <p className="retro-font text-[10px] mt-4 text-[var(--text-muted)] text-center px-4">
+                  Use W/A/S/D or Arrow keys to move<br />
+                  Space/Esc to pause
+                </p>
+              </div>
+            )}
 
-          {gameState === "PAUSED" && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center z-10 glassmorphism">
-              <h2 className="retro-font text-lg neon-glow-yellow mb-4">PAUSED</h2>
-              <button 
-                onClick={resumeGame}
-                className="retro-font text-xs play-icon px-6 py-3 rounded-lg cursor-pointer btn-glow"
-              >
-                RESUME
-              </button>
-            </div>
-          )}
+            {gameState === "PAUSED" && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center z-10 glassmorphism">
+                <h2 className="retro-font text-lg neon-glow-yellow mb-4">PAUSED</h2>
+                <button
+                  onClick={resumeGame}
+                  className="retro-font text-xs play-icon px-6 py-3 rounded-lg cursor-pointer btn-glow"
+                >
+                  RESUME
+                </button>
+              </div>
+            )}
 
-          {gameState === "GAME_OVER" && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center z-10 glassmorphism">
-              <h2 className="retro-font text-lg neon-glow-yellow mb-2">GAME OVER</h2>
-              <p className="retro-font text-sm neon-glow-cyan mb-4">Score: {score}</p>
-              {isNewHighScore && (
-                <p className="retro-font text-xs neon-glow-green mb-4">NEW HIGH SCORE!</p>
-              )}
-              <button 
-                onClick={restartGame}
-                className="retro-font text-xs play-icon px-6 py-3 rounded-lg cursor-pointer btn-glow"
-              >
-                PLAY AGAIN
-              </button>
-            </div>
-          )}
+            {gameState === "GAME_OVER" && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center z-10 glassmorphism">
+                <h2 className="retro-font text-lg neon-glow-yellow mb-2">GAME OVER</h2>
+                <p className="retro-font text-sm neon-glow-cyan mb-4">Score: {score}</p>
+                {isNewHighScore && (
+                  <p className="retro-font text-xs neon-glow-green mb-4">NEW HIGH SCORE!</p>
+                )}
+                <button
+                  onClick={restartGame}
+                  className="retro-font text-xs play-icon px-6 py-3 rounded-lg cursor-pointer btn-glow"
+                >
+                  PLAY AGAIN
+                </button>
+              </div>
+            )}
 
-          {gameState !== "START" && (
-            <div className="absolute inset-0 grid" style={{
-              gridTemplateColumns: `repeat(${GRID_WIDTH}, 1fr)`,
-              gridTemplateRows: `repeat(${GRID_HEIGHT}, 1fr)`,
-            }}>
-              {food && (
-                <div 
-                  className="food-glow rounded-sm" 
-                  style={{
-                    gridColumn: food.x + 1,
-                    gridRow: food.y + 1,
-                  }}
-                />
-              )}
-              
-              {snake.map((seg, i) => (
-                <div 
-                  key={i}
-                  className={`${i === 0 ? 'snake-glow' : ''} rounded-sm`}
-                  style={{
-                    gridColumn: seg.x + 1,
-                    gridRow: seg.y + 1,
-                    backgroundColor: i === 0 ? 'var(--neon-cyan)' : 'rgba(0, 240, 255, 0.6)',
-                  }}
-                />
-              ))}
-            </div>
-          )}
+            {gameState !== "START" && (
+              <div className="absolute inset-0 grid" style={{
+                gridTemplateColumns: `repeat(${GRID_WIDTH}, 1fr)`,
+                gridTemplateRows: `repeat(${GRID_HEIGHT}, 1fr)`,
+              }}>
+                {food && (
+                  <div
+                    className="food-glow rounded-sm"
+                    style={{
+                      gridColumn: food.x + 1,
+                      gridRow: food.y + 1,
+                    }}
+                  />
+                )}
+
+                {snake.map((seg, i) => (
+                  <div
+                    key={i}
+                    className={`${i === 0 ? 'snake-glow' : ''} rounded-sm`}
+                    style={{
+                      gridColumn: seg.x + 1,
+                      gridRow: seg.y + 1,
+                      backgroundColor: i === 0 ? 'var(--neon-cyan)' : 'rgba(0, 240, 255, 0.6)',
+                    }}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
 
-      <div className="flex justify-between w-[280px] md:w-[360px] lg:w-[440px] mt-6 retro-font text-xs">
-        <span className="neon-glow-cyan">HIGH-SCORE: {highScore}</span>
-        <span className="neon-glow-cyan">SCORE: {score}</span>
-      </div>
+        <div className="flex justify-between w-[280px] md:w-[360px] lg:w-[440px] mt-6 retro-font text-xs">
+          <span className="neon-glow-cyan">HIGH-SCORE: {highScore}</span>
+          <span className="neon-glow-cyan">SCORE: {score}</span>
+        </div>
       </div>
     </main>
   );
