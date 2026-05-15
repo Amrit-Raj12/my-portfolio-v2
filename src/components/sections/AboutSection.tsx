@@ -100,7 +100,7 @@ export default function AboutSection() {
                   {/* <span className="font-orbitron text-[0.7rem] text-text-muted tracking-[0.25em] mb-2 block">{"// GET TO KNOW ME"}</span> */}
                   <h2 className="font-scary text-[#FFD600] text-4xl md:text-7xl tracking-tight leading-[0.9] mb-4 text-glow-yellow">{aboutData.bio.title}</h2>
                   <p className="font-inter text-[#7AA2B8] text-[0.95rem] leading-relaxed tracking-wide max-w-[500px] mb-8">{aboutData.bio.description}</p>
-                  <a href={aboutData.bio.resumeUrl} className="group relative inline-flex items-center gap-4 px-6 py-3 border border-neon-yellow/60 bg-neon-yellow/5 font-orbitron text-[0.75rem] font-bold tracking-[0.2em] text-neon-yellow transition-all hover:bg-neon-yellow hover:text-black">
+                  <a href={aboutData.bio.resumeUrl} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center gap-4 px-6 py-3 border border-neon-yellow/60 bg-neon-yellow/5 font-orbitron text-[0.75rem] font-bold tracking-[0.2em] text-neon-yellow transition-all hover:bg-neon-yellow hover:text-black">
                     <Download size={16} /> DOWNLOAD RESUME
                   </a>
                 </motion.section>

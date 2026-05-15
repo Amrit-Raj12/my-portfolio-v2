@@ -267,8 +267,9 @@ export default function AchievementsSection() {
 
           {/* Resume Button */}
           <a
-            href="/resume.pdf"
-            download
+            href="https://drive.google.com/file/d/10N-LgO23dwTQHsaJjA_Gd9pOkGa3r5Gk/view"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative inline-flex items-center justify-center gap-3 px-6 md:px-8 py-4 font-orbitron text-xs md:text-sm font-black uppercase tracking-[0.25em] text-black bg-[#FFD600] overflow-hidden transition-all duration-300 hover:scale-[1.03]"
             style={{
               clipPath:

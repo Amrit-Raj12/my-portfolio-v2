@@ -259,8 +259,9 @@ export default function HomeSection() {
           </div>
 
           <a
-            href="/assets/resume.pdf"
-            download
+            href="https://drive.google.com/file/d/10N-LgO23dwTQHsaJjA_Gd9pOkGa3r5Gk/view"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative inline-flex w-fit items-center justify-center bg-[#06090D] font-orbitron text-[0.75rem] tracking-[0.2em] font-bold text-neon-yellow overflow-hidden"
             style={{ padding: "16px 20px" }}
           >
