@@ -209,6 +209,28 @@
             "date": "30 April 2026"
         },
         {
+        "id": "64479a12c9642d00149n8nautomation",
+        "title": "AI VIDEO AUTOMATION PLATFORM",
+        "description": "A fully automated AI-powered video generation and publishing system built with n8n. The workflow generates scripts, creates AI images, produces videos, adds metadata, and automatically uploads content to YouTube with minimal human intervention.",
+        "image": "https://res.cloudinary.com/dzur9wakk/image/upload/v1780639705/aaafc7e3-9049-4acf-bfea-b620fc242853_nadacw.png",
+        "imageAlt": "AI Video Automation Platform Preview",
+        "tags": [
+            "n8n",
+            "OpenAI",
+            "Google Sheets",
+            "ComfyUI",
+            "YouTube API",
+            "JavaScript",
+            "Webhooks",
+            "Automation"
+        ],
+        "category": "AI APPS",
+        "status": "live",
+        "projectUrl": "",
+        "githubUrl": "",
+        "date": "26 May, 2026"
+        },
+        {
             "id": "645e68aaaff592001412345sa33",
             "title": "IMAGITEXT AI APP",
             "description": "AI-powered text-to-image generator mobile application.",
