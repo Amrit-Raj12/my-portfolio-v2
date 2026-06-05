@@ -7,6 +7,7 @@ import { Cat, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 type Project = {
   id: string; title: string; description: string; image: string; imageAlt: string;
   tags: string[]; category: string; status: string; projectUrl: string; githubUrl: string;
+  date: string;
 };
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -34,7 +35,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <div className="space-y-4">
         <div className="flex justify-between items-end gap-4 overflow-hidden">
           <h3 className="font-orbitron text-sm md:text-base font-bold text-[#FFD600] tracking-wide uppercase truncate flex-1">{project.title.replace(" ", "_")}</h3>
-          <span className="font-orbitron text-[9px] text-[#7AA2B8] tracking-[0.2em] font-black whitespace-nowrap">2024_Q1</span>
+          <span className="font-orbitron text-[9px] text-[#7AA2B8] tracking-[0.2em] font-black whitespace-nowrap">{project.date}</span>
         </div>
         <p className="font-inter text-[#7AA2B8] text-[0.85rem] leading-relaxed tracking-wide line-clamp-2 opacity-90">{project.description}</p>
         <div className="flex gap-4 pt-2">
