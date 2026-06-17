@@ -94,7 +94,7 @@ export default function ContactSection() {
               </div>
             </div>
             <div className="bg-[#000] p-6 border border-yellow-400/20" style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }}>
-              <GlobalUplink defaultLocation={data.location} defaultCoordinates={data.coordinates} />
+              <GlobalUplink defaultLocation={data.location} defaultCoordinates={data.coordinates} defaultAddress={data.address} />
             </div>
           </div>
 

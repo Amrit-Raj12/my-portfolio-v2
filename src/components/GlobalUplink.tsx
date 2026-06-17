@@ -6,22 +6,26 @@ interface GlobalUplinkProps {
     className?: string;
     defaultLocation?: string;
     defaultCoordinates?: { lat: number; lng: number };
+    defaultAddress?: string;
 }
 
-const GlobalUplink: React.FC<GlobalUplinkProps> = ({ 
+const GlobalUplink: React.FC<GlobalUplinkProps> = ({
     className = "",
     defaultLocation = "India",
-    defaultCoordinates = { lat: 23.356886, lng: 85.350577 }
+    defaultCoordinates = { lat: 23.356886, lng: 85.350577 },
+    defaultAddress = ""
 }) => {
     const [coordinates, setCoordinates] = useState(defaultCoordinates);
     const [location, setLocation] = useState(defaultLocation);
+    const [address, setAddress] = useState(defaultAddress);
 
     useEffect(() => {
         // Use provided default location/coordinates instead of overriding with browser geolocation
         // so it consistently represents the author's contact data from contact.json
         setCoordinates(defaultCoordinates);
         setLocation(defaultLocation);
-    }, [defaultCoordinates, defaultLocation]);
+        setAddress(defaultAddress);
+    }, [defaultCoordinates, defaultLocation, defaultAddress]);
 
     const mapHtml = `
 <!DOCTYPE html>
@@ -101,8 +105,8 @@ const GlobalUplink: React.FC<GlobalUplinkProps> = ({
 
             {/* Bottom status text - LEFT */}
             <div className="absolute top-4 left-4 sm:bottom-4 sm:top-auto sm:left-4 z-10 pointer-events-none bg-black/70 p-2 sm:p-3 border border-[#FACC15]/30 backdrop-blur-sm">
-                <div className="text-[#FACC15] text-[10px] sm:text-xs font-mono tracking-wider mb-1 flex items-center gap-2">
-                    GLOBAL UPLINK ESTABLISHED
+                <div className="text-[#FACC15] text-[10px] font-mono tracking-wider mb-1 flex items-center gap-2">
+                    {address || location}
                     <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FACC15]"></span>
                 </div>
                 <div className="text-[#FACC15]/60 text-[8px] sm:text-[10px] font-mono">
