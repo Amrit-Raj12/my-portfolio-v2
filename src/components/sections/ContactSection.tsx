@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import contactData from "../../datas/contact.json";
 import { GithubIcon, LinkedinIcon, InstagramIcon, EmailIcon, PhoneIcon } from "../SocialIcons";
 import { Folder } from "lucide-react";
@@ -18,6 +18,24 @@ const colorMap: any = {
 export default function ContactSection() {
   const data = contactData;
   const [isMobile, setIsMobile] = useState(false);
+
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  /* ── Scroll to section via the SPA scroll container ── */
+  const scrollToSection = useCallback((id: string) => {
+    const el = document.getElementById(`spa-${id}`);
+    if (!el) return;
+
+    const lenis = (window as any).__lenis;
+    if (lenis) {
+      lenis.scrollTo(el.offsetTop, { duration: 1.5 });
+    } else {
+      const container = scrollRef.current;
+      if (container) container.scrollTo({ top: el.offsetTop, behavior: "smooth" });
+    }
+  }, []);
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     if (typeof window !== "undefined") { handleResize(); window.addEventListener("resize", handleResize); }
@@ -85,11 +103,8 @@ export default function ContactSection() {
             {data.contacts.map((item: any, index: number) => {
               const color = colorMap[item.color] || colorMap.yellow;
               const Icon = iconMap[item.type] || EmailIcon;
-              return (
-                <a href={item.link} target={item.link?.startsWith("http") ? "_blank" : undefined} rel={item.link?.startsWith("http") ? "noopener noreferrer" : undefined}
-                  key={index}
-                  className={`relative block group border ${color.border} bg-[#0D1113]/80 backdrop-blur-xl p-6 flex flex-col justify-between transition-all duration-500 hover:border-current overflow-hidden cursor-pointer`}
-                  style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }}>
+              const cardContent = (
+                <>
                   <div className={`absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-[0.03] transition duration-500 ${color.bg}`} />
                   <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,100,0.06))] bg-[size:100%_2px,3px_100%]" />
                   <div className="flex justify-between mb-10 z-10 relative">
@@ -103,6 +118,22 @@ export default function ContactSection() {
                       {item.button}<span className="text-sm font-inter">→</span>
                     </div>
                   </div>
+                </>
+              );
+              return item.type === "projects" ? (
+                <div onClick={() => scrollToSection("projects")} role="button" tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); scrollToSection("projects"); } }}
+                  key={index}
+                  className={`relative block group border ${color.border} bg-[#0D1113]/80 backdrop-blur-xl p-6 flex flex-col justify-between transition-all duration-500 hover:border-current overflow-hidden cursor-pointer`}
+                  style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }}>
+                  {cardContent}
+                </div>
+              ) : (
+                <a href={item.link} target={item.link?.startsWith("http") ? "_blank" : undefined} rel={item.link?.startsWith("http") ? "noopener noreferrer" : undefined}
+                  key={index}
+                  className={`relative block group border ${color.border} bg-[#0D1113]/80 backdrop-blur-xl p-6 flex flex-col justify-between transition-all duration-500 hover:border-current overflow-hidden cursor-pointer`}
+                  style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }}>
+                  {cardContent}
                 </a>
               );
             })}
