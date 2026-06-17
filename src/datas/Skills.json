@@ -1,4 +1,211 @@
 {
+  "skillCategories": [
+    {
+      "id": "frontend",
+      "label": "Frontend",
+      "skills": [
+        {
+          "name": "REACT.JS",
+          "icon": "JS",
+          "percentage": 90
+        },
+        {
+          "name": "NEXT.JS",
+          "icon": "LAYERS",
+          "percentage": 85
+        },
+        {
+          "name": "JAVASCRIPT",
+          "icon": "CODE",
+          "percentage": 90
+        },
+        {
+          "name": "TYPESCRIPT",
+          "icon": "CODE",
+          "percentage": 85
+        },
+        {
+          "name": "TAILWIND CSS",
+          "icon": "CSS",
+          "percentage": 95
+        },
+        {
+          "name": "HTML5",
+          "icon": "CODE",
+          "percentage": 95
+        },
+        {
+          "name": "CSS3",
+          "icon": "CSS",
+          "percentage": 90
+        },
+        {
+          "name": "REDUX",
+          "icon": "NETWORK",
+          "percentage": 75
+        },
+        {
+          "name": "FRAMER MOTION",
+          "icon": "LAYERS",
+          "percentage": 80
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "label": "Backend",
+      "skills": [
+        {
+          "name": "NODE.JS",
+          "icon": "DATABASE",
+          "percentage": 80
+        },
+        {
+          "name": "EXPRESS.JS",
+          "icon": "NETWORK",
+          "percentage": 80
+        },
+        {
+          "name": "REST APIS",
+          "icon": "NETWORK",
+          "percentage": 85
+        },
+        {
+          "name": "GRAPHQL",
+          "icon": "NETWORK",
+          "percentage": 70
+        },
+        {
+          "name": "PYTHON",
+          "icon": "CODE",
+          "percentage": 75
+        },
+        {
+          "name": "POSTGRESQL",
+          "icon": "DATABASE",
+          "percentage": 70
+        },
+        {
+          "name": "MONGODB",
+          "icon": "DATABASE",
+          "percentage": 75
+        },
+        {
+          "name": "MYSQL",
+          "icon": "DATABASE",
+          "percentage": 75
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "AI",
+      "skills": [
+        {
+          "name": "TENSORFLOW",
+          "icon": "DATABASE",
+          "percentage": 75
+        },
+        {
+          "name": "PYTORCH",
+          "icon": "DATABASE",
+          "percentage": 70
+        },
+        {
+          "name": "NLP",
+          "icon": "NETWORK",
+          "percentage": 80
+        },
+        {
+          "name": "COMPUTER VISION",
+          "icon": "LAYERS",
+          "percentage": 70
+        },
+        {
+          "name": "LANGCHAIN",
+          "icon": "NETWORK",
+          "percentage": 75
+        },
+        {
+          "name": "RAG SYSTEMS",
+          "icon": "DATABASE",
+          "percentage": 75
+        }
+      ]
+    },
+    {
+      "id": "android",
+      "label": "Android",
+      "skills": [
+        {
+          "name": "REACT NATIVE",
+          "icon": "CODE",
+          "percentage": 80
+        },
+        {
+          "name": "JETPACK COMPOSE",
+          "icon": "LAYERS",
+          "percentage": 75
+        },
+        {
+          "name": "FIREBASE",
+          "icon": "DATABASE",
+          "percentage": 75
+        },
+        {
+          "name": "ANDROID SDK",
+          "icon": "CODE",
+          "percentage": 80
+        },
+        {
+          "name": "ROOM DB",
+          "icon": "DATABASE",
+          "percentage": 70
+        }
+      ]
+    },
+    {
+      "id": "devops",
+      "label": "DevOps",
+      "skills": [
+        {
+          "name": "DOCKER",
+          "icon": "LAYERS",
+          "percentage": 75
+        },
+        {
+          "name": "KUBERNETES",
+          "icon": "LAYERS",
+          "percentage": 65
+        },
+        {
+          "name": "CI/CD",
+          "icon": "NETWORK",
+          "percentage": 80
+        },
+        {
+          "name": "AWS",
+          "icon": "CLOUD",
+          "percentage": 70
+        },
+        {
+          "name": "NGINX",
+          "icon": "NETWORK",
+          "percentage": 65
+        },
+        {
+          "name": "GIT",
+          "icon": "CODE",
+          "percentage": 90
+        },
+        {
+          "name": "GOOGLE CLOUD",
+          "icon": "CLOUD",
+          "percentage": 70
+        }
+      ]
+    }
+  ],
   "techSkills": [
     {
       "name": "REACT.JS",

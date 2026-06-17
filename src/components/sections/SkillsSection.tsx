@@ -128,6 +128,9 @@ export default function SkillsSection() {
   }, []);
 
   const effectiveIsMobile = mounted ? isMobile : false;
+  const [activeCategory, setActiveCategory] = useState("frontend");
+  const currentCategory = skillsData.skillCategories.find(c => c.id === activeCategory);
+  const currentSkills = currentCategory?.skills || [];
 
   return (
     <div className="relative w-full h-full bg-[#0B0F11] text-slate-200 flex flex-col">
@@ -165,15 +168,34 @@ export default function SkillsSection() {
           </div>
         </div>
 
+        {/* Category tabs */}
+        {!effectiveIsMobile && (
+          <div className="flex flex-wrap items-center gap-4 mb-6 border-b border-white/5 pb-4 shrink-0">
+            <span className="font-orbitron text-[9px] font-black text-slate-500 uppercase tracking-[0.4em]">CATEGORY:</span>
+            <div className="flex flex-wrap gap-2.5">
+              {skillsData.skillCategories.map((cat) => (
+                <button key={cat.id} onClick={() => setActiveCategory(cat.id)}
+                  className={`px-5 py-2 font-orbitron text-[9px] font-black uppercase tracking-[0.25em] transition-all duration-300 border ${
+                    activeCategory === cat.id
+                      ? "bg-yellow-400 text-black border-yellow-400 shadow-[0_0_20px_rgba(253,228,0,0.3)]"
+                      : "border-white/10 text-[#7AA2B8] hover:border-yellow-400/40 hover:text-yellow-400"
+                  } cursor-pointer`}>
+                  {cat.label.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Skills grid */}
         {effectiveIsMobile ? <MobileSkillMatrix mobileData={skillsData.mobile} /> : (
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-12 lg:col-span-8">
               <div className="glass-panel border border-yellow-400/30 p-8 glow-border-yellow relative">
                 <div className="absolute top-0 right-0 p-2 text-xs font-mono text-yellow-400/30">TECH_STACK_ANALYSIS_v2.0</div>
-                <div className="flex items-center gap-3 mb-10"><Terminal className="text-yellow-400" size={32} /><h2 className="text-2xl text-yellow-400 uppercase tracking-widest font-orbitron font-bold">TECH SKILLS</h2></div>
+                <div className="flex items-center gap-3 mb-10"><Terminal className="text-yellow-400" size={32} /><h2 className="text-2xl text-yellow-400 uppercase tracking-widest font-orbitron font-bold">{currentCategory?.label.toUpperCase() || "TECH"} SKILLS</h2></div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                  {skillsData.techSkills.map((skill, i) => (
+                  {currentSkills.map((skill, i) => (
                     <SkillItem key={i} name={skill.name} icon={iconMap[skill.icon]} percentage={skill.percentage} />
                   ))}
                 </div>
