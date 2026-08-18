@@ -1,6 +1,30 @@
 {
     "projects": [
         {
+            "id": "ai-interview-prep-2026",
+            "title": "AI INTERVIEW PREP",
+            "description": "An offline-first AI-powered interview preparation platform with AI-generated questions, mock interviews, DSA coding practice, flashcards, progress tracking, and a 9-language online compiler.",
+            "image": "https://res.cloudinary.com/dzur9wakk/image/upload/v1787032847/interview-prep-landin-ui_xfmwuz.png",
+            "imageAlt": "AI Interview Prep Project Preview",
+            "tags": [
+                "Next.js",
+                "React",
+                "TypeScript",
+                "Tailwind CSS",
+                "Gemini AI",
+                "OpenAI",
+                "Monaco Editor",
+                "Judge0",
+                "IndexedDB",
+                "PWA"
+            ],
+            "category": "AI APPS",
+            "status": "live",
+            "projectUrl": "https://interview-practice-ai-platform.vercel.app/",
+            "githubUrl": "https://github.com/Amrit-Raj12/interview-practice-ai",
+            "date": "2026"
+        },
+        {
             "id": "64479a12c9642d00149dsa1adsattmulti",
             "title": "MULTI-GENIE AI",
             "description": "An advanced AI-powered platform built using Next.js, FastAPI, PostgreSQL, and OpenAI integrations.",
