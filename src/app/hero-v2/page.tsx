@@ -139,19 +139,23 @@ export default function HeroV2Page() {
       </div>
       <ParticleField />
 
-      <section className="relative z-30 mx-auto flex min-h-screen w-full max-w-[1600px] flex-col justify-between px-4 pb-8 pt-4 transition-transform duration-300 sm:px-6 md:px-10 lg:px-14 min-[2560px]:-translate-y-28">
-        <div className="pointer-events-none absolute inset-x-0 top-[clamp(9rem,18vh,13rem)] z-10 hidden justify-center overflow-visible px-3 lg:flex lg:top-[clamp(8rem,17vh,14rem)] xl:top-[clamp(11rem,21vh,18rem)] 2xl:top-[clamp(12rem,23vh,20rem)] min-[2560px]:top-[clamp(16rem,28vh,24rem)] min-[2560px]:translate-y-32">
-          <h1
-            className="whitespace-nowrap font-scary text-[clamp(2.4rem,12vw,6rem)] font-normal uppercase leading-none tracking-[0.08em] text-center opacity-90 drop-shadow-[0_20px_50px_rgba(0,0,0,0.85)] sm:text-[clamp(3.4rem,9vw,8rem)] md:text-[clamp(4rem,8vw,9rem)] lg:text-[clamp(4rem,11vw,11rem)] xl:text-[clamp(4rem,9vw,12rem)]"
-            style={{
-              background: "linear-gradient(180deg, rgba(204,255,0,0.9), rgba(0,240,255,0.78) 45%, rgba(4,18,30,0.28))",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            CODE // CREATE
-          </h1>
+      <section className="relative z-30 mx-auto flex min-h-screen w-full max-w-[1600px] translate-y-8 flex-col justify-between px-4 pb-8 pt-4 transition-transform duration-300 sm:px-6 md:px-10 lg:px-14 min-[2560px]:-translate-y-16">
+        <div className="pointer-events-none absolute inset-x-0 top-[clamp(2rem,4vh,5rem)] z-10 hidden translate-y-4 justify-center overflow-visible px-3 lg:flex lg:top-[clamp(2rem,4vh,6rem)] xl:top-[clamp(4rem,8vh,8rem)] 2xl:top-[clamp(5rem,10vh,10rem)] min-[2560px]:top-[clamp(7rem,14vh,12rem)] min-[2560px]:translate-y-4">
+          <div className="glitch-wrapper">
+            <h1
+              className="glitch whitespace-nowrap font-scary text-[clamp(3.5rem,16vw,8rem)] font-normal uppercase leading-none tracking-[0.08em] text-center opacity-90 drop-shadow-[0_20px_50px_rgba(0,0,0,0.85)] sm:text-[clamp(5rem,12vw,10rem)] md:text-[clamp(6rem,11vw,11rem)] lg:text-[clamp(6rem,14vw,14rem)] xl:text-[clamp(6rem,12vw,15rem)]"
+              data-text="CODEVERSE"
+              style={{
+                background: "#b7ff00",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              CODEVERSE
+            </h1>
+            <span className="glitch-underline" aria-hidden="true" />
+          </div>
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 bottom-0 top-0 z-40 hidden items-center justify-center lg:flex min-[2560px]:-translate-y-8">
