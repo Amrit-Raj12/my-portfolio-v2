@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowDown, ArrowRight, Download } from "lucide-react";
 import { useEffect, useRef } from "react";
+import homeData from "@/datas/Home.json";
 
 type Particle = {
   x: number;
@@ -13,6 +14,14 @@ type Particle = {
   alpha: number;
   color: string;
 };
+
+type HomeMetric = {
+  value: string;
+  label: string;
+  detail: string;
+};
+
+const metrics = homeData.metrics as HomeMetric[];
 
 function ParticleField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -106,6 +115,22 @@ function RadarMark() {
   );
 }
 
+function scrollToSpaSection(id: "about" | "projects") {
+  const section = document.getElementById(`spa-${id}`);
+  if (!section) return;
+
+  const lenis = (window as any).__lenis;
+  if (lenis) {
+    lenis.scrollTo(section.offsetTop, { duration: 1.5 });
+    return;
+  }
+
+  document.getElementById("spa-scroll")?.scrollTo({
+    top: section.offsetTop,
+    behavior: "smooth",
+  });
+}
+
 export default function HeroV2() {
   const modelRef = useRef<HTMLDivElement>(null);
   const backgroundRef = useRef<HTMLDivElement>(null);
@@ -185,14 +210,14 @@ export default function HeroV2() {
             </div>
             <p className="mx-auto max-w-lg text-sm leading-relaxed text-slate-300 drop-shadow-md sm:text-base lg:mx-0">Turning ideas into immersive, high-performance web experiences with modern tech and a creative mindset.</p>
             <div className="flex flex-wrap items-center justify-center gap-3 pt-1 sm:gap-4 sm:pt-2 lg:justify-start">
-              <a href="#projects" className="inline-flex items-center gap-2.5 rounded-full bg-[#ccff00] px-5 py-3 font-mono text-[11px] font-bold uppercase tracking-wider text-black shadow-[0_0_20px_rgba(204,255,0,0.55),0_0_45px_rgba(204,255,0,0.25)] transition-transform hover:scale-105 sm:px-7 sm:text-sm">View My Work <ArrowRight className="size-4" /></a>
-              <a href="#about" className="rounded-full border border-[#ccff00]/40 bg-black/70 px-6 py-3 font-mono text-[11px] font-bold uppercase tracking-widest text-slate-200 backdrop-blur-md transition hover:border-[#ccff00] hover:text-white hover:shadow-[0_0_15px_rgba(204,255,0,0.35)] sm:px-8 sm:text-sm">About Me</a>
+              <a href="#projects" onClick={(event) => { event.preventDefault(); scrollToSpaSection("projects"); }} className="inline-flex items-center gap-2.5 rounded-full bg-[#ccff00] px-5 py-3 font-mono text-[11px] font-bold uppercase tracking-wider text-black shadow-[0_0_20px_rgba(204,255,0,0.55),0_0_45px_rgba(204,255,0,0.25)] transition-transform hover:scale-105 sm:px-7 sm:text-sm">View My Work <ArrowRight className="size-4" /></a>
+              <a href="#about" onClick={(event) => { event.preventDefault(); scrollToSpaSection("about"); }} className="rounded-full border border-[#ccff00]/40 bg-black/70 px-6 py-3 font-mono text-[11px] font-bold uppercase tracking-widest text-slate-200 backdrop-blur-md transition hover:border-[#ccff00] hover:text-white hover:shadow-[0_0_15px_rgba(204,255,0,0.35)] sm:px-8 sm:text-sm">About Me</a>
             </div>
           </div>
 
           <div className="pointer-events-auto flex flex-col items-center space-y-4 sm:space-y-5 lg:col-span-4 lg:col-start-9 lg:items-end lg:text-right">
             <div className="max-w-sm space-y-2"><h3 className="font-scary text-2xl uppercase tracking-wider text-[#ccff00] drop-shadow-[0_0_15px_rgba(204,255,0,0.5)] sm:text-3xl">The Future We Build</h3><p className="text-xs leading-relaxed text-slate-300 sm:text-sm">Clean code. Creative UI. Real impact. Exploring the intersection of design, technology and imagination.</p></div>
-            <a href="https://drive.google.com/file/d/10N-LgO23dwTQHsaJjA_Gd9pOkGa3r5Gk/view" target="_blank" rel="noopener noreferrer" aria-label="Download resume" className="group flex items-center gap-4 pt-2"><span className="relative flex size-12 items-center justify-center rounded-full border border-[#ccff00] bg-black/50 text-[#ccff00] shadow-[0_0_15px_rgba(204,255,0,0.5)] transition group-hover:scale-110 group-hover:bg-[#ccff00]/10"><Download className="size-5" /><span className="absolute inset-0 animate-ping rounded-full border border-[#ccff00]/30" /></span><span className="border-b border-slate-700 pb-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-slate-200 transition group-hover:text-[#ccff00] sm:text-xs">Download Resume</span></a>
+            <a href={homeData.resumeUrl} download="Amrit-Raj-Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download resume" className="group flex items-center gap-4 pt-2"><span className="relative flex size-12 items-center justify-center rounded-full border border-[#ccff00] bg-black/50 text-[#ccff00] shadow-[0_0_15px_rgba(204,255,0,0.5)] transition group-hover:scale-110 group-hover:bg-[#ccff00]/10"><Download className="size-5" /><span className="absolute inset-0 animate-ping rounded-full border border-[#ccff00]/30" /></span><span className="border-b border-slate-700 pb-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-slate-200 transition group-hover:text-[#ccff00] sm:text-xs">Download Resume</span></a>
           </div>
         </div>
 
@@ -200,18 +225,18 @@ export default function HeroV2() {
           <div className="grid grid-cols-2 gap-3 lg:hidden">
             <div className="flex min-h-[120px] flex-col justify-center rounded border border-[#ccff00]/10 bg-[#07131b]/60 p-3">
               <div className="flex items-center gap-2 pb-2 text-[#ccff00]"><RadarMark /><span className="font-scary text-[2rem] leading-none">2+</span></div>
-              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-slate-300">Years Experience</div>
-              <div className="mt-1 text-[11px] leading-tight text-slate-400">Learning. Building. Growing.</div>
+              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-slate-300">{metrics[0].label}</div>
+              <div className="mt-1 text-[11px] leading-tight text-slate-400">{metrics[0].detail}</div>
             </div>
             <div className="flex min-h-[120px] flex-col justify-center rounded border border-[#ccff00]/10 bg-[#07131b]/60 p-3">
-              <div className="font-scary text-[2rem] leading-none text-[#ccff00]">10+</div>
-              <div className="mt-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-slate-300">Projects Built</div>
-              <div className="mt-1 text-[11px] leading-tight text-slate-400">Turning ideas into real products.</div>
+              <div className="font-scary text-[2rem] leading-none text-[#ccff00]">{metrics[1].value}</div>
+              <div className="mt-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-slate-300">{metrics[1].label}</div>
+              <div className="mt-1 text-[11px] leading-tight text-slate-400">{metrics[1].detail}</div>
             </div>
             <div className="flex min-h-[120px] flex-col justify-center rounded border border-[#ccff00]/10 bg-[#07131b]/60 p-3">
-              <div className="font-scary text-[2rem] leading-none text-[#ccff00]">5+</div>
-              <div className="mt-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-slate-300">Tech Stack</div>
-              <div className="mt-1 text-[11px] leading-tight text-slate-400">Always exploring what&apos;s next.</div>
+              <div className="font-scary text-[2rem] leading-none text-[#ccff00]">{metrics[2].value}</div>
+              <div className="mt-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-slate-300">{metrics[2].label}</div>
+              <div className="mt-1 text-[11px] leading-tight text-slate-400">{metrics[2].detail}</div>
             </div>
             <div className="flex min-h-[120px] flex-col justify-center rounded border border-[#ccff00]/10 bg-[#07131b]/60 p-3">
               <div className="mb-2 flex items-center justify-start gap-2">
@@ -223,15 +248,27 @@ export default function HeroV2() {
           </div>
 
           <div className="hidden lg:grid lg:grid-cols-5 lg:gap-6">
-            <div className="col-span-2 flex items-center gap-4 border-b border-slate-800/80 pb-4 pr-4 sm:col-span-1 sm:border-b-0 sm:border-r sm:pb-0"><RadarMark /><div><div className="font-scary text-2xl leading-tight text-[#ccff00]">2+</div><div className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-300">Years Experience</div><div className="text-[11px] leading-tight text-slate-400">Learning. Building. Growing.</div></div></div>
-            <Metric value="10+" label="Projects Completed" detail="Turning ideas into real products." />
-            <Metric value="5+" label="Technologies" detail="Always exploring what&apos;s next." />
+            <div className="col-span-2 flex items-center gap-4 border-b border-slate-800/80 pb-4 pr-4 sm:col-span-1 sm:border-b-0 sm:border-r sm:pb-0"><RadarMark /><div><div className="font-scary text-2xl leading-tight text-[#ccff00]">{metrics[0].value}</div><div className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-300">{metrics[0].label}</div><div className="text-[11px] leading-tight text-slate-400">{metrics[0].detail}</div></div></div>
+            <Metric {...metrics[1]} />
+            <Metric {...metrics[2]} />
             <div className="col-span-2 flex items-center gap-3.5 border-r border-slate-800/80 pr-4 lg:col-span-1"><div className="grid size-14 shrink-0 grid-cols-2 gap-0.5 rounded-full border border-cyan-400/40 bg-black/60 p-1 shadow-[0_0_15px_rgba(0,240,255,0.25)]"><span className="flex items-center justify-center rounded-full border border-cyan-300/40 bg-cyan-600/40 text-[9px] font-bold">AR</span><span className="flex items-center justify-center rounded-full border border-[#ccff00]/40 bg-[#ccff00]/40 text-[9px] font-bold text-black">AI</span><span className="flex items-center justify-center rounded-full border border-indigo-400/40 bg-indigo-600/40 text-[9px] font-bold">FL</span><span className="flex items-center justify-center rounded-full border border-emerald-400/40 bg-emerald-600/40 text-[9px] font-bold">DEV</span></div><div><div className="font-mono text-xs font-bold uppercase tracking-widest text-white">Global Community</div><div className="text-[11px] leading-tight text-slate-400">Connecting. Sharing. Building together.</div></div></div>
-            <div className="col-span-2 flex items-center justify-end sm:col-span-1"><a href="#projects" aria-label="Explore projects" className="group relative flex size-14 items-center justify-center rounded-full border border-[#ccff00]/50 text-white shadow-[0_0_15px_rgba(204,255,0,0.3)] transition hover:border-[#ccff00] hover:bg-[#ccff00]/10 hover:text-[#ccff00]"><ArrowRight className="size-5 transition-transform group-hover:translate-x-0.5" /><span className="absolute inset-1 rounded-full border border-dashed border-[#ccff00]/30 transition-transform duration-500 group-hover:rotate-45" /></a></div>
+            <div className="col-span-2 flex items-center justify-end sm:col-span-1"><a href="#projects" onClick={(event) => { event.preventDefault(); scrollToSpaSection("projects"); }} aria-label="Explore projects" className="group relative flex size-14 items-center justify-center rounded-full border border-[#ccff00]/50 text-white shadow-[0_0_15px_rgba(204,255,0,0.3)] transition hover:border-[#ccff00] hover:bg-[#ccff00]/10 hover:text-[#ccff00]"><ArrowRight className="size-5 transition-transform group-hover:translate-x-0.5" /><span className="absolute inset-1 rounded-full border border-dashed border-[#ccff00]/30 transition-transform duration-500 group-hover:rotate-45" /></a></div>
           </div>
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-800/60 pt-3 font-mono text-[9px] tracking-[0.25em] text-slate-400"><div className="flex items-center gap-2"><span className="size-1.5 rounded-full bg-[#ccff00] shadow-[0_0_6px_#ccff00]" />STATUS: OPERATIONAL // V.2.6.4</div><div className="flex items-center gap-3">{"// CODE"} <span>EXPLORE</span><span>CREATE</span><span className="text-[#ccff00]">EVOLVE</span><span className="h-0.5 w-6 bg-[#ccff00] shadow-[0_0_6px_#ccff00]" /></div></div>
         </HudBox>
       </section>
+
+      <button
+        type="button"
+        onClick={() => scrollToSpaSection("about")}
+        aria-label="Scroll to About section"
+        className="group absolute bottom-3 left-1/2 z-[60] flex -translate-x-1/2 flex-col items-center gap-1 text-[#ccff00] transition hover:text-white"
+      >
+        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.28em]">Scroll Down</span>
+        <span className="flex size-8 items-center justify-center rounded-full border border-[#ccff00]/60 bg-black/60 shadow-[0_0_14px_rgba(204,255,0,0.3)] transition group-hover:border-[#ccff00] group-hover:shadow-[0_0_20px_rgba(204,255,0,0.55)]">
+          <ArrowDown className="size-4 animate-bounce" />
+        </span>
+      </button>
     </main>
   );
 }
