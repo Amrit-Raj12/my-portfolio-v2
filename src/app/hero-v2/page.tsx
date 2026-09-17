@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 type Particle = {
@@ -192,7 +192,7 @@ export default function HeroV2Page() {
 
           <div className="pointer-events-auto flex flex-col items-center space-y-4 sm:space-y-5 lg:col-span-4 lg:col-start-9 lg:items-end lg:text-right">
             <div className="max-w-sm space-y-2"><h3 className="font-scary text-2xl uppercase tracking-wider text-[#ccff00] drop-shadow-[0_0_15px_rgba(204,255,0,0.5)] sm:text-3xl">The Future We Build</h3><p className="text-xs leading-relaxed text-slate-300 sm:text-sm">Clean code. Creative UI. Real impact. Exploring the intersection of design, technology and imagination.</p></div>
-            <button type="button" aria-label="Watch showreel" className="group flex items-center gap-4 pt-2"><span className="relative flex size-12 items-center justify-center rounded-full border border-[#ccff00] bg-black/50 text-[#ccff00] shadow-[0_0_15px_rgba(204,255,0,0.5)] transition group-hover:scale-110 group-hover:bg-[#ccff00]/10"><Play className="size-5 fill-current" /><span className="absolute inset-0 animate-ping rounded-full border border-[#ccff00]/30" /></span><span className="border-b border-slate-700 pb-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-slate-200 transition group-hover:text-[#ccff00] sm:text-xs">Watch Showreel</span></button>
+            <a href="https://drive.google.com/file/d/10N-LgO23dwTQHsaJjA_Gd9pOkGa3r5Gk/view" target="_blank" rel="noopener noreferrer" aria-label="Download resume" className="group flex items-center gap-4 pt-2"><span className="relative flex size-12 items-center justify-center rounded-full border border-[#ccff00] bg-black/50 text-[#ccff00] shadow-[0_0_15px_rgba(204,255,0,0.5)] transition group-hover:scale-110 group-hover:bg-[#ccff00]/10"><Download className="size-5" /><span className="absolute inset-0 animate-ping rounded-full border border-[#ccff00]/30" /></span><span className="border-b border-slate-700 pb-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-slate-200 transition group-hover:text-[#ccff00] sm:text-xs">Download Resume</span></a>
           </div>
         </div>
 
