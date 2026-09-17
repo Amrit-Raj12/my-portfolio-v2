@@ -106,7 +106,7 @@ function RadarMark() {
   );
 }
 
-export default function HeroV2Page() {
+export default function HeroV2() {
   const modelRef = useRef<HTMLDivElement>(null);
   const backgroundRef = useRef<HTMLDivElement>(null);
 
@@ -128,7 +128,7 @@ export default function HeroV2Page() {
   }, []);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#04070a] text-slate-100 selection:bg-[#ccff00] selection:text-black">
+    <main data-hero-section="true" className="relative min-h-screen overflow-hidden bg-[#04070a] text-slate-100 selection:bg-[#ccff00] selection:text-black">
       <div className="fixed inset-0 z-0 overflow-hidden bg-[#04070a]">
         <div ref={backgroundRef} className="absolute -inset-[2%] transition-transform duration-300 ease-out">
           <Image src="/assets/images/background.png" alt="Cyberpunk city skyline" fill priority className="object-cover object-center" sizes="100vw" />
