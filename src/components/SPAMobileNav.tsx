@@ -53,14 +53,14 @@ export default function SPAMobileNav({ activeId, onNavigate }: Props) {
               aria-label={label}
               className="relative p-2 rounded-xl transition-all duration-200"
               style={{
-                background: isActive ? "rgba(255,214,0,0.10)" : "transparent",
-                border: isActive ? "1px solid rgba(255,214,0,0.30)" : "1px solid transparent",
-                boxShadow: isActive ? "0 0 15px rgba(255,214,0,0.2)" : "none",
+                background: isActive ? "rgba(204,255,0,0.10)" : "transparent",
+                border: isActive ? "1px solid rgba(204,255,0,0.30)" : "1px solid transparent",
+                boxShadow: isActive ? "0 0 15px rgba(204,255,0,0.2)" : "none",
               }}
             >
               <Icon
                 size={22}
-                style={{ color: isActive ? "#FFD600" : "#7AA2B8" }}
+                style={{ color: isActive ? "#CCFF00" : "#7AA2B8" }}
               />
             </button>
           );
@@ -89,9 +89,9 @@ export default function SPAMobileNav({ activeId, onNavigate }: Props) {
                   <div
                     className="w-10 h-10 flex items-center justify-center rounded-sm border transition-all"
                     style={{
-                      color: isActive ? "#FFD600" : "#7AA2B8",
-                      borderColor: isActive ? "rgba(255,214,0,0.4)" : "rgba(255,255,255,0.08)",
-                      background: isActive ? "rgba(255,214,0,0.08)" : "transparent",
+                      color: isActive ? "#CCFF00" : "#7AA2B8",
+                      borderColor: isActive ? "rgba(204,255,0,0.4)" : "rgba(255,255,255,0.08)",
+                      background: isActive ? "rgba(204,255,0,0.08)" : "transparent",
                     }}
                   >
                     <Icon size={18} />
@@ -99,8 +99,8 @@ export default function SPAMobileNav({ activeId, onNavigate }: Props) {
                   <span
                     className="font-orbitron text-xl tracking-[0.2em]"
                     style={{
-                      color: isActive ? "#FFD600" : "#7AA2B8",
-                      textShadow: isActive ? "0 0 20px rgba(255,214,0,0.5)" : "none",
+                      color: isActive ? "#CCFF00" : "#7AA2B8",
+                      textShadow: isActive ? "0 0 20px rgba(204,255,0,0.5)" : "none",
                     }}
                   >
                     {label}

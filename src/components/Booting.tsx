@@ -198,7 +198,7 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
         }
 
         .glow-cyan  { text-shadow: 0 0 10px rgba(0,238,252,0.8), 0 0 20px rgba(0,238,252,0.4); }
-        .glow-yellow{ text-shadow: 0 0 15px rgba(253,228,0,0.6), 0 0 30px rgba(253,228,0,0.3); }
+        .glow-yellow{ text-shadow: 0 0 15px rgba(204,255,0,0.6), 0 0 30px rgba(204,255,0,0.3); }
 
         .border-glow-cyan {
           box-shadow: 0 0 10px rgba(0,238,252,0.2), inset 0 0 10px rgba(0,238,252,0.1);
@@ -499,11 +499,11 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                                                 : isFilled
                                                     ? {
                                                         backgroundColor: "#fde400",
-                                                        boxShadow: "0 0 4px rgba(253,228,0,0.4)",
+                                                        boxShadow: "0 0 4px rgba(204,255,0,0.4)",
                                                     }
                                                     : {
-                                                        backgroundColor: "rgba(253,228,0,0.07)",
-                                                        border: "1px solid rgba(253,228,0,0.18)",
+                                                        backgroundColor: "rgba(204,255,0,0.07)",
+                                                        border: "1px solid rgba(204,255,0,0.18)",
                                                     }),
                                         }}
                                     />
@@ -551,8 +551,8 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                         </h5>
                         <div className="flex gap-1 mt-1">
                             <div style={{ width: 16, height: 4, backgroundColor: "#fde400" }} />
-                            <div style={{ width: 16, height: 4, backgroundColor: "rgba(253,228,0,0.4)" }} />
-                            <div style={{ width: 16, height: 4, backgroundColor: "rgba(253,228,0,0.2)" }} />
+                            <div style={{ width: 16, height: 4, backgroundColor: "rgba(204,255,0,0.4)" }} />
+                            <div style={{ width: 16, height: 4, backgroundColor: "rgba(204,255,0,0.2)" }} />
                         </div>
                     </div>
                 </div>
@@ -565,7 +565,7 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                             fontWeight: 800,
                             fontSize: 10,
                             letterSpacing: "0.5em",
-                            color: "rgba(253,228,0,0.50)",
+                            color: "rgba(204,255,0,0.50)",
                         }}
                     >
             // "CODE. CREATE. EVOLVE." //

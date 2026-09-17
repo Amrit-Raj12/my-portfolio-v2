@@ -8,7 +8,7 @@ import GlobalUplink from "../GlobalUplink";
 
 const iconMap: any = { email: EmailIcon, phone: PhoneIcon, github: GithubIcon, linkedin: LinkedinIcon, instagram: InstagramIcon, projects: Folder };
 const colorMap: any = {
-  yellow: { border: "border-yellow-400/30", text: "text-yellow-400", bg: "bg-yellow-400/10", hover: "hover:bg-yellow-400 hover:text-black" },
+  yellow: { border: "border-neon-yellow/30", text: "text-neon-yellow", bg: "bg-neon-yellow/10", hover: "hover:bg-neon-yellow hover:text-black" },
   cyan: { border: "border-cyan-400/30", text: "text-cyan-400", bg: "bg-cyan-400/10", hover: "hover:bg-cyan-400 hover:text-black" },
   white: { border: "border-white/30", text: "text-white", bg: "bg-white/10", hover: "hover:bg-white hover:text-black" },
   blue: { border: "border-blue-400/30", text: "text-blue-400", bg: "bg-blue-400/10", hover: "hover:bg-blue-400 hover:text-black" },
@@ -49,11 +49,11 @@ export default function ContactSection() {
       {/* Header */}
       <div className="relative z-10 flex items-center justify-between px-6 md:px-12 py-4 border-b border-white/5 bg-[#0B0F11]/80 backdrop-blur-md shrink-0">
         <div className="flex items-center gap-2 md:gap-4">
-          <div className="text-xs md:text-lg font-black text-yellow-400 border-2 border-yellow-400 px-1.5 md:px-2 py-0.5 font-orbitron tracking-tighter">ARCHITECT_OS</div>
-          <div className="h-4 w-px bg-yellow-400/30 hidden sm:block" />
+          <div className="text-xs md:text-lg font-black text-neon-yellow border-2 border-neon-yellow px-1.5 md:px-2 py-0.5 font-orbitron tracking-tighter">ARCHITECT_OS</div>
+          <div className="h-4 w-px bg-neon-yellow/30 hidden sm:block" />
           <span className="text-[8px] md:text-[10px] font-orbitron font-semibold text-slate-500 uppercase tracking-widest hidden sm:block">Sector: Comms_Link</span>
         </div>
-        <span className="material-symbols-outlined text-slate-500 hover:text-yellow-400 cursor-pointer transition-colors text-sm">settings</span>
+        <span className="material-symbols-outlined text-slate-500 hover:text-neon-yellow cursor-pointer transition-colors text-sm">settings</span>
       </div>
 
       {/* Main */}
@@ -61,31 +61,31 @@ export default function ContactSection() {
         {/* Title */}
         <div className="mb-8 md:mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
           <div className="flex gap-4">
-            <div className="w-1.5 bg-yellow-400 shadow-[0_0_20px_rgba(253,228,0,0.4)] h-16 md:h-20" />
+            <div className="w-1.5 bg-neon-yellow shadow-[0_0_20px_rgba(204,255,0,0.4)] h-16 md:h-20" />
             <div className="space-y-1">
-              <div className="flex items-center gap-2"><div className="w-2 h-2 bg-yellow-400/40" /><span className="font-orbitron text-[0.7rem] text-yellow-400/60 tracking-[0.4em] font-black uppercase">MODULE_06: ESTABLISH CONNECTION</span></div>
-              <h2 className="font-scary text-[#FFD600] text-4xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-glow-yellow uppercase italic">CONTACT</h2>
+              <div className="flex items-center gap-2"><div className="w-2 h-2 bg-neon-yellow/40" /><span className="font-orbitron text-[0.7rem] text-neon-yellow/60 tracking-[0.4em] font-black uppercase">MODULE_06: ESTABLISH CONNECTION</span></div>
+              <h2 className="font-scary text-[#CCFF00] text-4xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-glow-yellow uppercase italic">CONTACT</h2>
             </div>
           </div>
           <div className="hidden md:flex flex-col gap-3 font-orbitron text-[9px] text-slate-600 uppercase tracking-[0.2em] text-right">
             <div className="flex items-center justify-end gap-6 border-b border-white/5 pb-2">
               <span>COMMS_LINK</span>
-              <div className="flex gap-0.5">{[...Array(12)].map((_, i) => <div key={i} className={`w-1 h-2 ${i < 10 ? "bg-yellow-400/30" : "bg-white/5"}`} />)}</div>
+              <div className="flex gap-0.5">{[...Array(12)].map((_, i) => <div key={i} className={`w-1 h-2 ${i < 10 ? "bg-neon-yellow/30" : "bg-white/5"}`} />)}</div>
             </div>
-            <div className="flex items-center justify-end gap-6"><span>SECURE_CHANNEL</span><span className="text-yellow-400/40 font-black">ACTIVE_0x99</span></div>
+            <div className="flex items-center justify-end gap-6"><span>SECURE_CHANNEL</span><span className="text-neon-yellow/40 font-black">ACTIVE_0x99</span></div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* LEFT */}
           <div className="lg:col-span-4 flex flex-col gap-8">
-            <div className="border border-yellow-400/30 p-6 bg-[#0D1113]/80 backdrop-blur-xl hover:border-[#FACC15] transition-all duration-500" style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }}>
-              <h2 className="font-orbitron text-xl font-bold text-yellow-400 mb-4 uppercase tracking-wide">Let's Connect</h2>
-              <p className="font-inter text-[#7AA2B8] text-sm mb-6 leading-relaxed opacity-90 border-l-2 border-yellow-400/30 pl-4 italic">
+            <div className="border border-neon-yellow/30 p-6 bg-[#0D1113]/80 backdrop-blur-xl hover:border-[#CCFF00] transition-all duration-500" style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }}>
+              <h2 className="font-orbitron text-xl font-bold text-neon-yellow mb-4 uppercase tracking-wide">Let's Connect</h2>
+              <p className="font-inter text-[#7AA2B8] text-sm mb-6 leading-relaxed opacity-90 border-l-2 border-neon-yellow/30 pl-4 italic">
                 I'm open to collaborations, freelance work, or just tech discussions.
               </p>
               <div className="space-y-5 text-sm">
-                <div><p className="font-orbitron text-[#7AA2B8]/70 text-[10px] tracking-widest uppercase mb-1">STATUS</p><p className="font-inter font-medium text-yellow-400">{data.status}</p></div>
+                <div><p className="font-orbitron text-[#7AA2B8]/70 text-[10px] tracking-widest uppercase mb-1">STATUS</p><p className="font-inter font-medium text-neon-yellow">{data.status}</p></div>
                 <div className="grid grid-cols-2 gap-4">
                   <div><p className="font-orbitron text-[#7AA2B8]/70 text-[10px] tracking-widest uppercase mb-1">LOCATION</p><p className="font-inter font-medium text-slate-300">{data.location}</p></div>
                   <div><p className="font-orbitron text-[#7AA2B8]/70 text-[10px] tracking-widest uppercase mb-1">TIMEZONE</p><p className="font-inter font-medium text-slate-300">{data.timezone}</p></div>
@@ -93,7 +93,7 @@ export default function ContactSection() {
                 <div><p className="font-orbitron text-[#7AA2B8]/70 text-[10px] tracking-widest uppercase mb-1">AVAILABILITY</p><p className="font-inter font-medium text-slate-300">{data.availability}</p></div>
               </div>
             </div>
-            <div className="bg-[#000] p-6 border border-yellow-400/20" style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }}>
+            <div className="bg-[#000] p-6 border border-neon-yellow/20" style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }}>
               <GlobalUplink defaultLocation={data.location} defaultCoordinates={data.coordinates} defaultAddress={data.address} />
             </div>
           </div>

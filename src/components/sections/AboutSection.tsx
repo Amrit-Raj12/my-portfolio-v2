@@ -96,9 +96,9 @@ export default function AboutSection() {
               {/* LEFT */}
               <div className="xl:col-span-5 flex flex-col gap-10">
                 <motion.section initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-yellow-400/40" /><span className="font-orbitron text-[0.7rem] text-yellow-400/60 tracking-[0.4em] font-black uppercase">Module_01: KNOW_ME</span></div>
+                  <div className="flex items-center gap-3"><div className="w-2 h-2 bg-neon-yellow/40" /><span className="font-orbitron text-[0.7rem] text-neon-yellow/60 tracking-[0.4em] font-black uppercase">Module_01: KNOW_ME</span></div>
                   {/* <span className="font-orbitron text-[0.7rem] text-text-muted tracking-[0.25em] mb-2 block">{"// GET TO KNOW ME"}</span> */}
-                  <h2 className="font-scary text-[#FFD600] text-4xl md:text-7xl tracking-tight leading-[0.9] mb-4 text-glow-yellow">{aboutData.bio.title}</h2>
+                  <h2 className="font-scary text-[#CCFF00] text-4xl md:text-7xl tracking-tight leading-[0.9] mb-4 text-glow-yellow">{aboutData.bio.title}</h2>
                   <p className="font-inter text-[#7AA2B8] text-[0.95rem] leading-relaxed tracking-wide max-w-[500px] mb-8">{aboutData.bio.description}</p>
                   <a href={aboutData.bio.resumeUrl} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center gap-4 px-6 py-3 border border-neon-yellow/60 bg-neon-yellow/5 font-orbitron text-[0.75rem] font-bold tracking-[0.2em] text-neon-yellow transition-all hover:bg-neon-yellow hover:text-black">
                     <Download size={16} /> DOWNLOAD RESUME

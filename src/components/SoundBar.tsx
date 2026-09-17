@@ -46,7 +46,7 @@ function EqualizerBars({ playing }: { playing: boolean }) {
           style={{
             flex: 1,
             height: playing ? b.maxH : "20%",
-            background: "linear-gradient(180deg, #00F0FF 0%, #FFD600 100%)",
+            background: "linear-gradient(180deg, #00F0FF 0%, #CCFF00 100%)",
             borderRadius: "2px 2px 0 0",
             boxShadow: playing ? "0 0 6px rgba(0,240,255,0.9)" : "none",
             transition: playing ? "none" : "height 0.3s ease, box-shadow 0.3s ease",
@@ -203,13 +203,13 @@ export default function SoundBar() {
           {/* Gold corner accents */}
           <span style={{
             position: "absolute", top: 2, left: 2, width: 8, height: 8,
-            borderTop: "1.5px solid rgba(255,214,0,0.65)",
-            borderLeft: "1.5px solid rgba(255,214,0,0.65)"
+            borderTop: "1.5px solid rgba(204,255,0,0.65)",
+            borderLeft: "1.5px solid rgba(204,255,0,0.65)"
           }} />
           <span style={{
             position: "absolute", bottom: 2, right: 2, width: 8, height: 8,
-            borderBottom: "1.5px solid rgba(255,214,0,0.65)",
-            borderRight: "1.5px solid rgba(255,214,0,0.65)"
+            borderBottom: "1.5px solid rgba(204,255,0,0.65)",
+            borderRight: "1.5px solid rgba(204,255,0,0.65)"
           }} />
 
           {playing

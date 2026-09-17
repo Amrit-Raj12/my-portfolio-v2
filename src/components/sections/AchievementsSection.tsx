@@ -22,7 +22,7 @@ function AchievementCard({ data }: any) {
         </div>
         <div className="flex flex-col justify-between w-full z-10">
           <div>
-            <h3 className="font-orbitron text-base md:text-sm font-bold text-[#FFD600] tracking-wide uppercase mb-1 md:mb-2">{data.title.replace(/ /g, "_")}</h3>
+            <h3 className="font-orbitron text-base md:text-sm font-bold text-[#CCFF00] tracking-wide uppercase mb-1 md:mb-2">{data.title.replace(/ /g, "_")}</h3>
             <p className="font-inter text-[#7AA2B8] mb-4 text-xs md:text-[0.7rem] leading-relaxed opacity-90">{data.description}</p>
             <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4">
               {data.tags.map((tag: string, i: number) => (
@@ -177,33 +177,33 @@ export default function AchievementsSection() {
       {/* Header */}
       <div className="relative z-10 flex items-center justify-between px-6 md:px-12 py-4 border-b border-white/5 bg-[#0B0F11]/80 backdrop-blur-md shrink-0">
         <div className="flex items-center gap-2 md:gap-4">
-          <div className="text-xs md:text-lg font-black text-yellow-400 border-2 border-yellow-400 px-1.5 md:px-2 py-0.5 font-orbitron tracking-tighter">ARCHITECT_OS</div>
-          <div className="h-4 w-px bg-yellow-400/30 hidden sm:block" />
+          <div className="text-xs md:text-lg font-black text-neon-yellow border-2 border-neon-yellow px-1.5 md:px-2 py-0.5 font-orbitron tracking-tighter">ARCHITECT_OS</div>
+          <div className="h-4 w-px bg-neon-yellow/30 hidden sm:block" />
           <span className="text-[8px] md:text-[10px] font-orbitron font-semibold text-slate-500 uppercase tracking-widest hidden sm:block">Sector: Achievements_Log</span>
         </div>
-        <span className="material-symbols-outlined text-slate-500 hover:text-yellow-400 cursor-pointer transition-colors text-sm">settings</span>
+        <span className="material-symbols-outlined text-slate-500 hover:text-neon-yellow cursor-pointer transition-colors text-sm">settings</span>
       </div>
 
       {/* Content */}
       <div className={`relative flex flex-col px-6 md:px-12 z-10 flex-1 ${effectiveIsMobile ? "pt-6 pb-24 overflow-y-auto" : "pt-6 overflow-hidden"}`}>
         <div className="mb-4 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 shrink-0">
           <div className="flex gap-4">
-            <div className="w-1.5 bg-yellow-400 shadow-[0_0_20px_rgba(253,228,0,0.4)] h-16 md:h-20" />
+            <div className="w-1.5 bg-neon-yellow shadow-[0_0_20px_rgba(204,255,0,0.4)] h-16 md:h-20" />
             <div className="space-y-1">
-              <div className="flex items-center gap-2"><div className="w-2 h-2 bg-yellow-400/40" /><span className="font-orbitron text-[0.7rem] text-yellow-400/60 tracking-[0.4em] font-black uppercase">{subtitle}</span></div>
-              <h2 className="font-scary text-[#FFD600] text-4xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-glow-yellow uppercase italic">ACHIEVEMENTS</h2>
+              <div className="flex items-center gap-2"><div className="w-2 h-2 bg-neon-yellow/40" /><span className="font-orbitron text-[0.7rem] text-neon-yellow/60 tracking-[0.4em] font-black uppercase">{subtitle}</span></div>
+              <h2 className="font-scary text-[#CCFF00] text-4xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-glow-yellow uppercase italic">ACHIEVEMENTS</h2>
             </div>
           </div>
           <div className="hidden md:flex flex-col gap-3 font-orbitron text-[9px] text-slate-600 uppercase tracking-[0.2em] text-right">
             <div className="flex items-center justify-end gap-6 border-b border-white/5 pb-2">
               <span>SYS_INTEGRITY</span>
-              <div className="flex gap-0.5">{[...Array(12)].map((_, i) => <div key={i} className={`w-1 h-2 ${i < 10 ? "bg-yellow-400/30" : "bg-white/5"}`} />)}</div>
+              <div className="flex gap-0.5">{[...Array(12)].map((_, i) => <div key={i} className={`w-1 h-2 ${i < 10 ? "bg-neon-yellow/30" : "bg-white/5"}`} />)}</div>
             </div>
-            <div className="flex items-center justify-end gap-6"><span>DATA_SYNC</span><span className="text-yellow-400/40 font-black">VERIFIED_0xAA</span></div>
+            <div className="flex items-center justify-end gap-6"><span>DATA_SYNC</span><span className="text-neon-yellow/40 font-black">VERIFIED_0xAA</span></div>
           </div>
         </div>
 
-        <p className="font-inter text-[#7AA2B8] max-w-2xl text-[0.85rem] leading-relaxed tracking-wide opacity-90 mb-6 border-l-2 border-yellow-400/30 pl-6 italic shrink-0">"{description}"</p>
+        <p className="font-inter text-[#7AA2B8] max-w-2xl text-[0.85rem] leading-relaxed tracking-wide opacity-90 mb-6 border-l-2 border-neon-yellow/30 pl-6 italic shrink-0">"{description}"</p>
 
         <div className={`${effectiveIsMobile ? "flex flex-col gap-8 pb-8" : "flex-1 overflow-hidden relative"}`}>
           {!effectiveIsMobile && (
@@ -228,26 +228,26 @@ export default function AchievementsSection() {
       </div>
 
       {/* Bottom Quote + Resume CTA */}
-      <div className="relative mt-6 md:mt-8 border border-yellow-400/20 bg-[#0B0F11]/80 backdrop-blur-md overflow-hidden">
+      <div className="relative mt-6 md:mt-8 border border-neon-yellow/20 bg-[#0B0F11]/80 backdrop-blur-md overflow-hidden">
 
         {/* Cyberpunk Border Glow */}
         <div
           className="absolute inset-0 pointer-events-none opacity-40"
           style={{
             boxShadow:
-              "inset 0 0 30px rgba(255,214,0,0.08), 0 0 20px rgba(255,214,0,0.05)",
+              "inset 0 0 30px rgba(204,255,0,0.08), 0 0 20px rgba(204,255,0,0.05)",
           }}
         />
 
         {/* Corner Decorations */}
-        <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-yellow-400/50" />
-        <div className="absolute bottom-0 right-0 w-6 h-6 border-r-2 border-b-2 border-yellow-400/50" />
+        <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-neon-yellow/50" />
+        <div className="absolute bottom-0 right-0 w-6 h-6 border-r-2 border-b-2 border-neon-yellow/50" />
 
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 px-5 md:px-8 py-6">
 
           {/* Quote Section */}
           <div className="flex items-start gap-4">
-            <div className="mt-1 text-yellow-400 shrink-0">
+            <div className="mt-1 text-neon-yellow shrink-0">
               ✦
             </div>
 
@@ -257,8 +257,8 @@ export default function AchievementsSection() {
               </p>
 
               <div className="flex items-center gap-2">
-                <div className="w-10 h-px bg-yellow-400/40" />
-                <span className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-yellow-400/60">
+                <div className="w-10 h-px bg-neon-yellow/40" />
+                <span className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-neon-yellow/60">
                   SYSTEM_GROWTH
                 </span>
               </div>
@@ -270,12 +270,12 @@ export default function AchievementsSection() {
             href="https://drive.google.com/file/d/10N-LgO23dwTQHsaJjA_Gd9pOkGa3r5Gk/view"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center justify-center gap-3 px-6 md:px-8 py-4 font-orbitron text-xs md:text-sm font-black uppercase tracking-[0.25em] text-black bg-[#FFD600] overflow-hidden transition-all duration-300 hover:scale-[1.03]"
+            className="group relative inline-flex items-center justify-center gap-3 px-6 md:px-8 py-4 font-orbitron text-xs md:text-sm font-black uppercase tracking-[0.25em] text-black bg-[#CCFF00] overflow-hidden transition-all duration-300 hover:scale-[1.03]"
             style={{
               clipPath:
                 "polygon(0 0, 92% 0, 100% 30%, 100% 100%, 8% 100%, 0 70%)",
               boxShadow:
-                "0 0 20px rgba(255,214,0,0.45), inset 0 0 10px rgba(255,255,255,0.25)",
+                "0 0 20px rgba(204,255,0,0.45), inset 0 0 10px rgba(255,255,255,0.25)",
             }}
           >
             {/* Glow Layer */}

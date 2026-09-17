@@ -12,7 +12,7 @@
 :root {
   --cyber-bg: #06090D;
   --neon-cyan: #00F0FF;
-  --neon-yellow: #FFD600;
+  --neon-yellow: #CCFF00;
   --text-primary: #E6F1FF;
   --text-muted: #7AA2B8;
   --sidebar-width: 80px;
@@ -57,14 +57,14 @@ body {
 }
 
 .glow-yellow {
-  box-shadow: 0 0 8px var(--neon-yellow), 0 0 20px rgba(255, 214, 0, 0.4);
+  box-shadow: 0 0 8px var(--neon-yellow), 0 0 20px rgba(204, 255, 0, 0.4);
 }
 
 .glow-mix {
   box-shadow:
     0 0 10px var(--neon-cyan),
     0 0 20px rgba(0, 240, 255, 0.3),
-    0 0 30px rgba(255, 214, 0, 0.2);
+    0 0 30px rgba(204, 255, 0, 0.2);
 }
 
 .text-glow-cyan {
@@ -72,12 +72,12 @@ body {
 }
 
 .text-glow-yellow {
-  text-shadow: 0 0 10px var(--neon-yellow), 0 0 30px rgba(255, 214, 0, 0.6);
+  text-shadow: 0 0 10px var(--neon-yellow), 0 0 30px rgba(204, 255, 0, 0.6);
 }
 
 /* Custom Cyberpunk Styles */
 .cyber-glow {
-  text-shadow: 0 0 10px #00F0FF, 0 0 20px #FFD600;
+  text-shadow: 0 0 10px #00F0FF, 0 0 20px #CCFF00;
 }
 
 .cyber-skew {
@@ -317,7 +317,7 @@ body {
   box-shadow:
     0 0 15px var(--neon-cyan),
     0 0 35px rgba(0, 240, 255, 0.5),
-    0 0 60px rgba(255, 214, 0, 0.2);
+    0 0 60px rgba(204, 255, 0, 0.2);
 }
 
 .neon-btn:hover::before {

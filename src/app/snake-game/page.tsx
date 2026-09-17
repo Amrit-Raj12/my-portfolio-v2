@@ -246,7 +246,7 @@ export default function SnakeGamePage() {
           text-shadow: 
             0 0 10px var(--neon-yellow),
             0 0 20px var(--neon-yellow),
-            0 0 40px rgba(255, 214, 0, 0.5);
+            0 0 40px rgba(204, 255, 0, 0.5);
         }
 
         .neon-glow-cyan {
@@ -283,7 +283,7 @@ export default function SnakeGamePage() {
           box-shadow: 
             0 0 8px var(--neon-yellow),
             0 0 16px var(--neon-yellow),
-            0 0 24px rgba(255, 214, 0, 0.6);
+            0 0 24px rgba(204, 255, 0, 0.6);
         }
 
         .snake-glow {

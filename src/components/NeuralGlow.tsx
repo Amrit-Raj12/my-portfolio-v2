@@ -77,7 +77,7 @@ const NeuralGlow = () => {
         // Cyberpunk neon cyan/yellow palette
         vec3 cyan = vec3(0.0, 0.95, 1.0);
         vec3 electricBlue = vec3(0.0, 0.55, 1.0);
-        vec3 neonYellow = vec3(1.0, 0.85, 0.0);
+        vec3 neonYellow = vec3(0.8, 1.0, 0.0);
 
         // animated mix
         float pulse = 0.5 + 0.5 * sin(u_time * 0.0015);

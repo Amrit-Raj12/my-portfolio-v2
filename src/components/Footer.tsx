@@ -29,7 +29,7 @@ export default function Footer({ activeId, onNavigate }: FooterProps) {
         <footer
             className="relative w-full overflow-hidden md:ml-20 bg-[#0B0F11] md:px-15"
             style={{
-                boxShadow: "0 -2px 20px rgba(255,214,0,0.08)",
+                boxShadow: "0 -2px 20px rgba(204,255,0,0.08)",
                 scrollSnapAlign: "start",
             }}
         >
@@ -38,7 +38,7 @@ export default function Footer({ activeId, onNavigate }: FooterProps) {
                 className="absolute top-0 left-0 w-full h-[1px]"
                 style={{
                     background:
-                        "linear-gradient(90deg, transparent, rgba(255,214,0,0.7), transparent)",
+                        "linear-gradient(90deg, transparent, rgba(204,255,0,0.7), transparent)",
                 }}
             />
 
@@ -83,10 +83,10 @@ export default function Footer({ activeId, onNavigate }: FooterProps) {
                     {/* Center */}
                     <div className="flex flex-col items-center text-center">
                         <h3
-                            className="font-orbitron text-[#FFD600] uppercase md:text-[1rem] text-[0.8rem]"
+                            className="font-orbitron text-[#CCFF00] uppercase md:text-[1rem] text-[0.8rem]"
                             style={{
                                 letterSpacing: "0.45em",
-                                textShadow: "0 0 10px rgba(255,214,0,0.45)",
+                                textShadow: "0 0 10px rgba(204,255,0,0.45)",
                             }}
                         >
                             // CODE. CREATE. EVOLVE. //
@@ -125,8 +125,8 @@ export default function Footer({ activeId, onNavigate }: FooterProps) {
                                     style={{
                                         width: "4px",
                                         height: `${h}px`,
-                                        background: "#FFD600",
-                                        boxShadow: "0 0 8px rgba(255,214,0,0.7)",
+                                        background: "#CCFF00",
+                                        boxShadow: "0 0 8px rgba(204,255,0,0.7)",
                                     }}
                                 />
                             ))}
