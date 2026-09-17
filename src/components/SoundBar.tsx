@@ -127,17 +127,17 @@ export default function SoundBar() {
           -webkit-appearance: none;
           width: 12px; height: 12px;
           border-radius: 50%;
-          background: #00F0FF;
+          background: #CCFF00;
           cursor: pointer;
-          box-shadow: 0 0 7px #00F0FF;
+          box-shadow: 0 0 7px #CCFF00;
         }
         .sb-vol::-moz-range-thumb {
           width: 12px; height: 12px;
           border-radius: 50%;
-          background: #00F0FF;
+          background: #CCFF00;
           cursor: pointer;
           border: none;
-          box-shadow: 0 0 7px #00F0FF;
+          box-shadow: 0 0 7px #CCFF00;
         }
         .sb-vol {
           -webkit-appearance: none;
@@ -145,8 +145,8 @@ export default function SoundBar() {
           height: 3px;
           background: linear-gradient(
             90deg,
-            #00F0FF calc(var(--vp, 40) * 1%),
-            rgba(0,240,255,0.15) calc(var(--vp, 40) * 1%)
+            #CCFF00 calc(var(--vp, 40) * 1%),
+            rgba(204,255,0,0.15) calc(var(--vp, 40) * 1%)
           );
           border-radius: 2px;
           outline: none;
@@ -158,7 +158,7 @@ export default function SoundBar() {
       <div
         onMouseEnter={showPanel}
         onMouseLeave={startHide}
-        className="md:top-[20px] md:right-[22px] top-[10px] right-[10px]"
+        className="md:top-[20px] md:right-[22px] top-[64px] right-[10px]"
         style={{
           position: "fixed",
           // top: "44px",
@@ -182,14 +182,14 @@ export default function SoundBar() {
             height: "46px",
             borderRadius: "6px",
             background: playing
-              ? "rgba(0,240,255,0.09)"
+              ? "rgba(204,255,0,0.09)"
               : "rgba(6,9,13,0.88)",
             border: playing
-              ? "1px solid rgba(0,240,255,0.65)"
-              : "1px solid rgba(0,240,255,0.28)",
+              ? "1px solid rgba(204,255,0,0.65)"
+              : "1px solid rgba(204,255,0,0.4)",
             boxShadow: playing
-              ? "0 0 18px rgba(0,240,255,0.45), 0 0 36px rgba(0,240,255,0.15)"
-              : "0 0 8px rgba(0,240,255,0.08)",
+              ? "0 0 18px rgba(204,255,0,0.45), 0 0 36px rgba(204,255,0,0.15)"
+              : "0 0 8px rgba(204,255,0,0.18)",
             cursor: "pointer",
             backdropFilter: "blur(12px)",
             display: "flex",
@@ -215,8 +215,8 @@ export default function SoundBar() {
           {playing
             ? <EqualizerBars playing />
             : (
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="#00F0FF"
-                style={{ filter: "drop-shadow(0 0 5px rgba(0,240,255,0.9))", marginLeft: 2 }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#CCFF00"
+                style={{ filter: "drop-shadow(0 0 5px rgba(204,255,0,0.9))", marginLeft: 2 }}>
                 <polygon points="5,3 19,12 5,21" />
               </svg>
             )
@@ -247,17 +247,17 @@ export default function SoundBar() {
           transition: "opacity 0.22s ease, transform 0.22s ease",
           pointerEvents: showVolume ? "auto" : "none",
           background: "rgba(6,9,13,0.95)",
-          border: "1px solid rgba(0,240,255,0.28)",
+          border: "1px solid rgba(204,255,0,0.28)",
           backdropFilter: "blur(14px)",
           borderRadius: "6px",
           padding: "12px 14px",
           minWidth: "146px",
-          boxShadow: "0 8px 30px rgba(0,0,0,0.5), 0 0 18px rgba(0,240,255,0.1)",
+          boxShadow: "0 8px 30px rgba(0,0,0,0.5), 0 0 18px rgba(204,255,0,0.1)",
         }}>
           <div style={{
             fontFamily: "Orbitron, sans-serif",
             fontSize: "0.5rem",
-            color: "#7AA2B8",
+            color: "#CCFF00",
             letterSpacing: "0.22em",
             marginBottom: "8px",
             textTransform: "uppercase",
@@ -275,10 +275,11 @@ export default function SoundBar() {
           <div style={{
             fontFamily: "Orbitron, sans-serif",
             fontSize: "0.58rem",
-            color: "#00F0FF",
+            color: "#CCFF00",
             textAlign: "right",
             marginTop: "6px",
             letterSpacing: "0.1em",
+            textShadow: "0 0 8px rgba(204,255,0,0.7)",
           }}>
             {volPct}%
           </div>
