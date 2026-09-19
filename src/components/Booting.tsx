@@ -198,7 +198,7 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
         }
 
         .glow-cyan  { text-shadow: 0 0 10px rgba(0,238,252,0.8), 0 0 20px rgba(0,238,252,0.4); }
-        .glow-yellow{ text-shadow: 0 0 15px rgba(253,228,0,0.6), 0 0 30px rgba(253,228,0,0.3); }
+        .glow-yellow{ text-shadow: 0 0 15px rgba(204,255,0,0.6), 0 0 30px rgba(204,255,0,0.3); }
 
         .border-glow-cyan {
           box-shadow: 0 0 10px rgba(0,238,252,0.2), inset 0 0 10px rgba(0,238,252,0.1);
@@ -320,7 +320,7 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                     {logLines.length === LOG_ENTRIES.length && (
                         <li
                             className="log-line mt-1"
-                            style={{ color: "#fde400", fontWeight: 600 }}
+                            style={{ color: "#CCFF00", fontWeight: 600 }}
                         >
                             &gt; Welcome back, User.
                         </li>
@@ -350,9 +350,9 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                 </h4>
                 <div className="space-y-3">
                     {[
-                        { label: "FRONTEND", value: "ACTIVE", color: "#fde400" },
+                        { label: "FRONTEND", value: "ACTIVE", color: "#CCFF00" },
                         { label: "BACKEND", value: "ONLINE", color: "#00eefc" },
-                        { label: "AI_SYSTEMS", value: "READY", color: "#fde400" },
+                        { label: "AI_SYSTEMS", value: "READY", color: "#CCFF00" },
                     ].map(({ label, value, color }) => (
                         <div key={label} className="flex items-center gap-3">
                             <span
@@ -381,7 +381,7 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                         ].map(({ key, val }) => (
                             <div key={key}>
                                 <p style={{ fontSize: 9, color: "rgba(0,238,252,0.35)" }}>{key}</p>
-                                <p style={{ fontFamily: "monospace", fontSize: 12, color: "#fde400" }}>{val}</p>
+                                <p style={{ fontFamily: "monospace", fontSize: 12, color: "#CCFF00" }}>{val}</p>
                             </div>
                         ))}
                     </div>
@@ -411,7 +411,7 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                         style={{
                             // fontSize: "clamp(52px, 10vw, 80px)",
                             fontWeight: 900,
-                            color: "#fde400",
+                            color: "#CCFF00",
                             lineHeight: 1.05,
                             letterSpacing: "-0.04em",
                         }}
@@ -441,7 +441,7 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                         <div
                             key={i}
                             className={`absolute w-8 h-8 ${cls}`}
-                            style={{ borderColor: "#fde400" }}
+                            style={{ borderColor: "#CCFF00" }}
                         />
                     ))}
                 </div>
@@ -462,7 +462,7 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                                 fontSize: 11,
                                 fontWeight: 600,
                                 letterSpacing: "0.12em",
-                                color: "#fde400",
+                                color: "#CCFF00",
                                 textTransform: "uppercase",
                             }}
                         >
@@ -498,12 +498,12 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                                                 }
                                                 : isFilled
                                                     ? {
-                                                        backgroundColor: "#fde400",
-                                                        boxShadow: "0 0 4px rgba(253,228,0,0.4)",
+                                                        backgroundColor: "#CCFF00",
+                                                        boxShadow: "0 0 4px rgba(204,255,0,0.4)",
                                                     }
                                                     : {
-                                                        backgroundColor: "rgba(253,228,0,0.07)",
-                                                        border: "1px solid rgba(253,228,0,0.18)",
+                                                        backgroundColor: "rgba(204,255,0,0.07)",
+                                                        border: "1px solid rgba(204,255,0,0.18)",
                                                     }),
                                         }}
                                     />
@@ -546,13 +546,13 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                         </svg>
                     </div>
                     <div>
-                        <h5 style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.08em", color: "#fde400" }}>
+                        <h5 style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.08em", color: "#CCFF00" }}>
                             CONNECTED TO DEV_NETWORK
                         </h5>
                         <div className="flex gap-1 mt-1">
-                            <div style={{ width: 16, height: 4, backgroundColor: "#fde400" }} />
-                            <div style={{ width: 16, height: 4, backgroundColor: "rgba(253,228,0,0.4)" }} />
-                            <div style={{ width: 16, height: 4, backgroundColor: "rgba(253,228,0,0.2)" }} />
+                            <div style={{ width: 16, height: 4, backgroundColor: "#CCFF00" }} />
+                            <div style={{ width: 16, height: 4, backgroundColor: "rgba(204,255,0,0.4)" }} />
+                            <div style={{ width: 16, height: 4, backgroundColor: "rgba(204,255,0,0.2)" }} />
                         </div>
                     </div>
                 </div>
@@ -565,7 +565,7 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                             fontWeight: 800,
                             fontSize: 10,
                             letterSpacing: "0.5em",
-                            color: "rgba(253,228,0,0.50)",
+                            color: "rgba(204,255,0,0.50)",
                         }}
                     >
             // "CODE. CREATE. EVOLVE." //
@@ -600,7 +600,7 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                                 style={{
                                     height: `${h}%`,
                                     backgroundColor:
-                                        i === 4 || i === 9 ? "#fde400" : `rgba(0,238,252,${0.3 + (h / 100) * 0.7})`,
+                                        i === 4 || i === 9 ? "#CCFF00" : `rgba(0,238,252,${0.3 + (h / 100) * 0.7})`,
                                 }}
                             />
                         ))}
@@ -608,7 +608,7 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
                     <div className="flex items-center gap-2 mt-2">
                         <span
                             className="rounded-full"
-                            style={{ width: 6, height: 6, backgroundColor: "#fde400", boxShadow: "0 0 6px #fde400" }}
+                            style={{ width: 6, height: 6, backgroundColor: "#CCFF00", boxShadow: "0 0 6px #CCFF00" }}
                         />
                         <span style={{ fontSize: 9, fontFamily: "monospace", color: "rgba(0,238,252,0.50)" }}>
                             UPLINK STABLE

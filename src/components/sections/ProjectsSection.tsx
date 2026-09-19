@@ -12,14 +12,14 @@ type Project = {
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <div className="group relative bg-[#0D1113]/80 backdrop-blur-xl border border-white/5 p-4 md:p-6 transition-all duration-500 hover:border-yellow-400/40 flex flex-col gap-4" style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }}>
+    <div className="group relative bg-[#0D1113]/80 backdrop-blur-xl border border-white/5 p-4 md:p-6 transition-all duration-500 hover:border-neon-yellow/40 flex flex-col gap-4" style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }}>
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,100,0.06))] bg-[size:100%_2px,3px_100%]" />
-      <div className="relative aspect-video overflow-hidden border border-white/5 group-hover:border-yellow-400/20 transition-colors duration-500">
+      <div className="relative aspect-video overflow-hidden border border-white/5 group-hover:border-neon-yellow/20 transition-colors duration-500">
         <img alt={project.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-60 group-hover:opacity-100 grayscale-[0.5] group-hover:grayscale-0" src={project.image} />
         <div className="absolute top-4 right-4">
           <div className="bg-black/90 border border-white/10 px-3 py-1 flex items-center gap-2 backdrop-blur-md">
-            <div className={`w-1.5 h-1.5 rounded-full ${project.status === "live" ? "bg-[#00F0FF]" : "bg-yellow-400"} shadow-[0_0_12px_#00eefc] animate-pulse`} />
-            <span className={`hidden md:block font-orbitron text-[9px] font-black tracking-[0.2em] ${project.status === "live" ? "text-[#00F0FF]" : "text-yellow-400"} uppercase`}>
+            <div className={`w-1.5 h-1.5 rounded-full ${project.status === "live" ? "bg-[#00F0FF]" : "bg-neon-yellow"} shadow-[0_0_12px_#00eefc] animate-pulse`} />
+            <span className={`hidden md:block font-orbitron text-[9px] font-black tracking-[0.2em] ${project.status === "live" ? "text-[#00F0FF]" : "text-neon-yellow"} uppercase`}>
               {project.status === "live" ? "LIVE" : "IN DEV."}
             </span>
           </div>
@@ -34,21 +34,21 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </div>
       <div className="space-y-4">
         <div className="flex justify-between items-end gap-4 overflow-hidden">
-          <h3 className="font-orbitron text-sm md:text-base font-bold text-[#FFD600] tracking-wide uppercase truncate flex-1">{project.title.replace(" ", "_")}</h3>
+          <h3 className="font-orbitron text-sm md:text-base font-bold text-[#CCFF00] tracking-wide uppercase truncate flex-1">{project.title.replace(" ", "_")}</h3>
           <span className="font-orbitron text-[9px] text-[#7AA2B8] tracking-[0.2em] font-black whitespace-nowrap">{project.date}</span>
         </div>
         <p className="font-inter text-[#7AA2B8] text-[0.85rem] leading-relaxed tracking-wide line-clamp-2 opacity-90">{project.description}</p>
         <div className="flex gap-4 pt-2">
-          <button onClick={() => window.open(project.githubUrl, "_blank")} className="group/btn relative flex-1 border-2 border-white/10 p-3 transition-all duration-300 hover:border-yellow-400/50 hover:bg-yellow-400/10 flex items-center justify-center cursor-pointer" style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 85% 100%, 0 100%)" }} title="VIEW_REPOSITORY">
-            <Cat size={18} className="text-slate-400 group-hover/btn:text-yellow-400 transition-colors" />
-            <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-yellow-400 text-black font-orbitron text-[8px] font-black tracking-widest opacity-0 group-hover/btn:opacity-100 group-hover/btn:-top-14 transition-all duration-300 pointer-events-none whitespace-nowrap z-[100] shadow-[0_0_20px_rgba(253,228,0,0.6)]">
-              VIEW_REPOSITORY<div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-yellow-400 rotate-45" />
+          <button onClick={() => window.open(project.githubUrl, "_blank")} className="group/btn relative flex-1 border-2 border-white/10 p-3 transition-all duration-300 hover:border-neon-yellow/50 hover:bg-neon-yellow/10 flex items-center justify-center cursor-pointer" style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 85% 100%, 0 100%)" }} title="VIEW_REPOSITORY">
+            <Cat size={18} className="text-slate-400 group-hover/btn:text-neon-yellow transition-colors" />
+            <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-neon-yellow text-black font-orbitron text-[8px] font-black tracking-widest opacity-0 group-hover/btn:opacity-100 group-hover/btn:-top-14 transition-all duration-300 pointer-events-none whitespace-nowrap z-[100] shadow-[0_0_20px_rgba(204,255,0,0.6)]">
+              VIEW_REPOSITORY<div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-neon-yellow rotate-45" />
             </div>
           </button>
-          <button onClick={() => window.open(project.projectUrl, "_blank")} className="group/btn relative flex-1 border-2 border-yellow-400/40 p-3 transition-all duration-300 hover:bg-yellow-400/10 flex items-center justify-center cursor-pointer" style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 85% 100%, 0 100%)" }} title="VIEW_PROJECT">
-            <ExternalLink size={18} className="text-yellow-400 group-hover/btn:scale-110 transition-transform" />
-            <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-yellow-400 text-black font-orbitron text-[8px] font-black tracking-widest opacity-0 group-hover/btn:opacity-100 group-hover/btn:-top-14 transition-all duration-300 pointer-events-none whitespace-nowrap z-[100] shadow-[0_0_20px_rgba(253,228,0,0.6)]">
-              VIEW_PROJECT<div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-yellow-400 rotate-45" />
+          <button onClick={() => window.open(project.projectUrl, "_blank")} className="group/btn relative flex-1 border-2 border-neon-yellow/40 p-3 transition-all duration-300 hover:bg-neon-yellow/10 flex items-center justify-center cursor-pointer" style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 85% 100%, 0 100%)" }} title="VIEW_PROJECT">
+            <ExternalLink size={18} className="text-neon-yellow group-hover/btn:scale-110 transition-transform" />
+            <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-neon-yellow text-black font-orbitron text-[8px] font-black tracking-widest opacity-0 group-hover/btn:opacity-100 group-hover/btn:-top-14 transition-all duration-300 pointer-events-none whitespace-nowrap z-[100] shadow-[0_0_20px_rgba(204,255,0,0.6)]">
+              VIEW_PROJECT<div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-neon-yellow rotate-45" />
             </div>
           </button>
         </div>
@@ -171,12 +171,12 @@ export default function ProjectsSection() {
       {/* Header bar */}
       <div className="relative z-10 flex items-center justify-between px-6 md:px-12 py-4 border-b border-white/5 bg-[#0B0F11]/80 backdrop-blur-md shrink-0">
         <div className="flex items-center gap-2 md:gap-4">
-          <div className="text-xs md:text-lg font-black text-yellow-400 border-2 border-yellow-400 px-1.5 md:px-2 py-0.5 font-orbitron tracking-tighter">ARCHITECT_OS</div>
-          <div className="h-4 w-px bg-yellow-400/30 hidden sm:block" />
+          <div className="text-xs md:text-lg font-black text-neon-yellow border-2 border-neon-yellow px-1.5 md:px-2 py-0.5 font-orbitron tracking-tighter">ARCHITECT_OS</div>
+          <div className="h-4 w-px bg-neon-yellow/30 hidden sm:block" />
           <span className="text-[8px] md:text-[10px] font-orbitron font-semibold text-slate-500 uppercase tracking-widest hidden sm:block">Sector: Projects_Core</span>
         </div>
         <div className="relative flex items-center">
-          <input className="bg-black/40 border border-white/10 py-1 pl-3 pr-3 text-[10px] md:text-xs font-orbitron focus:border-yellow-400/50 outline-none w-32 md:w-48 text-yellow-400 placeholder:text-slate-700" placeholder="QUERY_DATA..." type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+          <input className="bg-black/40 border border-white/10 py-1 pl-3 pr-3 text-[10px] md:text-xs font-orbitron focus:border-neon-yellow/50 outline-none w-32 md:w-48 text-neon-yellow placeholder:text-slate-700" placeholder="QUERY_DATA..." type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
         </div>
       </div>
 
@@ -185,22 +185,22 @@ export default function ProjectsSection() {
         {/* Title */}
         <div className="pt-6 mb-4 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 shrink-0">
           <div className="flex gap-4">
-            <div className="w-1.5 bg-yellow-400 shadow-[0_0_20px_rgba(253,228,0,0.4)] h-16 md:h-20" />
+            <div className="w-1.5 bg-neon-yellow shadow-[0_0_20px_rgba(204,255,0,0.4)] h-16 md:h-20" />
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-yellow-400/40" />
-                <span className="font-orbitron text-[0.6rem] md:text-[0.7rem] text-yellow-400/60 tracking-[0.4em] font-black">MODULE_02: SHOWCASE</span>
+                <div className="w-2 h-2 bg-neon-yellow/40" />
+                <span className="font-orbitron text-[0.6rem] md:text-[0.7rem] text-neon-yellow/60 tracking-[0.4em] font-black">MODULE_02: SHOWCASE</span>
               </div>
-              <h2 className="font-scary text-[#FFD600] text-4xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-glow-yellow uppercase italic">PROJECTS</h2>
+              <h2 className="font-scary text-[#CCFF00] text-4xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-glow-yellow uppercase italic">PROJECTS</h2>
             </div>
           </div>
           <div className="hidden md:flex flex-col gap-3 font-orbitron text-[9px] text-slate-600 uppercase tracking-[0.2em] text-right">
             <div className="flex items-center justify-end gap-6 border-b border-white/5 pb-2">
               <span>CPU_LOAD</span>
-              <div className="flex gap-0.5">{[...Array(12)].map((_, i) => <div key={i} className={`w-1 h-2 ${i < 8 ? "bg-yellow-400/30" : "bg-white/5"}`} />)}</div>
+              <div className="flex gap-0.5">{[...Array(12)].map((_, i) => <div key={i} className={`w-1 h-2 ${i < 8 ? "bg-neon-yellow/30" : "bg-white/5"}`} />)}</div>
             </div>
             <div className="flex items-center justify-end gap-6">
-              <span>MEM_SYNC</span><span className="text-yellow-400/40 font-black">STABLE_0x82_Q3</span>
+              <span>MEM_SYNC</span><span className="text-neon-yellow/40 font-black">STABLE_0x82_Q3</span>
             </div>
           </div>
         </div>
@@ -211,7 +211,7 @@ export default function ProjectsSection() {
           <div className="flex flex-wrap gap-2.5">
             {categories.map((cat) => (
               <button key={cat} onClick={() => setActiveFilter(cat)}
-                className={`px-5 py-2 font-orbitron text-[9px] font-black uppercase tracking-[0.25em] transition-all duration-300 border ${activeFilter === cat ? "bg-yellow-400 text-black border-yellow-400 shadow-[0_0_20px_rgba(253,228,0,0.3)]" : "border-white/10 text-[#7AA2B8] hover:border-yellow-400/40 hover:text-yellow-400"} cursor-pointer`}>
+                className={`px-5 py-2 font-orbitron text-[9px] font-black uppercase tracking-[0.25em] transition-all duration-300 border ${activeFilter === cat ? "bg-neon-yellow text-black border-neon-yellow shadow-[0_0_20px_rgba(204,255,0,0.3)]" : "border-white/10 text-[#7AA2B8] hover:border-neon-yellow/40 hover:text-neon-yellow"} cursor-pointer`}>
                 {cat.replace(" ", "_")}
               </button>
             ))}
@@ -222,11 +222,11 @@ export default function ProjectsSection() {
         <div className={`${effectiveIsMobile ? "flex flex-col gap-8 pb-8" : "flex-1 overflow-hidden relative"}`}>
           {!effectiveIsMobile && (
             <>
-              <button onClick={() => scrollTo('left')} className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 bg-[#0D1113]/80 border border-yellow-400/30 hover:border-yellow-400 hover:bg-yellow-400/10 transition-all group">
-                <ChevronLeft className="text-yellow-400 group-hover:scale-110 transition-transform" size={24} />
+              <button onClick={() => scrollTo('left')} className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 bg-[#0D1113]/80 border border-neon-yellow/30 hover:border-neon-yellow hover:bg-neon-yellow/10 transition-all group">
+                <ChevronLeft className="text-neon-yellow group-hover:scale-110 transition-transform" size={24} />
               </button>
-              <button onClick={() => scrollTo('right')} className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 bg-[#0D1113]/80 border border-yellow-400/30 hover:border-yellow-400 hover:bg-yellow-400/10 transition-all group">
-                <ChevronRight className="text-yellow-400 group-hover:scale-110 transition-transform" size={24} />
+              <button onClick={() => scrollTo('right')} className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 bg-[#0D1113]/80 border border-neon-yellow/30 hover:border-neon-yellow hover:bg-neon-yellow/10 transition-all group">
+                <ChevronRight className="text-neon-yellow group-hover:scale-110 transition-transform" size={24} />
               </button>
             </>
           )}

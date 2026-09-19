@@ -34,7 +34,7 @@ function ParticleCanvas() {
       radius: Math.random() * 1.5 + 0.5,
       speed: Math.random() * 0.4 + 0.15,
       opacity: Math.random() * 0.6 + 0.1,
-      color: Math.random() > 0.55 ? "#00F0FF" : "#FFD600",
+      color: Math.random() > 0.55 ? "#00F0FF" : "#CCFF00",
     }));
 
     const draw = () => {
@@ -45,7 +45,7 @@ function ParticleCanvas() {
         ctx.fillStyle =
           p.color === "#00F0FF"
             ? `rgba(0,240,255,${p.opacity})`
-            : `rgba(255,214,0,${p.opacity})`;
+            : `rgba(204,255,0,${p.opacity})`;
         ctx.shadowBlur = 8;
         ctx.shadowColor = p.color;
         ctx.fill();
@@ -234,8 +234,8 @@ function CornerDecs() {
         <div
           style={{
             width: 40, height: 40,
-            borderTop: "2px solid rgba(255,214,0,0.3)",
-            borderRight: "2px solid rgba(255,214,0,0.3)",
+            borderTop: "2px solid rgba(204,255,0,0.3)",
+            borderRight: "2px solid rgba(204,255,0,0.3)",
           }}
         />
       </div>
@@ -401,7 +401,7 @@ export default function HeroSection({ launchHref, onLaunch }: { launchHref?: str
         style={{
           background:
             "radial-gradient(ellipse 60% 60% at 25% 50%, rgba(0,240,255,0.07) 0%, transparent 70%), " +
-            "radial-gradient(ellipse 40% 50% at 10% 80%, rgba(255,214,0,0.05) 0%, transparent 60%)",
+            "radial-gradient(ellipse 40% 50% at 10% 80%, rgba(204,255,0,0.05) 0%, transparent 60%)",
           zIndex: 2,
         }}
       />
@@ -435,7 +435,7 @@ export default function HeroSection({ launchHref, onLaunch }: { launchHref?: str
               style={{
                 fontSize: effectiveIsMobile ? "2.2rem" : "clamp(2rem, 4vw, 3.5rem)",
                 fontWeight: 900,
-                color: "#FFD600",
+                color: "#CCFF00",
                 lineHeight: 1.1,
                 display: "block",
               }}
@@ -476,7 +476,7 @@ export default function HeroSection({ launchHref, onLaunch }: { launchHref?: str
         >
           Crafting digital experiences at the intersection of{" "}
           <span style={{ color: "#00F0FF" }}>code</span>{" "}and{" "}
-          <span style={{ color: "#FFD600" }}>creativity</span>.
+          <span style={{ color: "#CCFF00" }}>creativity</span>.
         </p>
 
         {/* CTA Button */}

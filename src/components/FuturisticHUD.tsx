@@ -22,10 +22,10 @@ const FuturisticHUD: React.FC<FuturisticHUDProps> = ({ rotation, className = "" 
 
         @keyframes pulseGlowYellow {
           0%, 100% {
-            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 16px rgba(255, 215, 0, 0.4));
+            filter: drop-shadow(0 0 8px rgba(204, 255, 0, 0.8)) drop-shadow(0 0 16px rgba(204, 255, 0, 0.4));
           }
           50% {
-            filter: drop-shadow(0 0 16px rgba(255, 215, 0, 1)) drop-shadow(0 0 32px rgba(255, 215, 0, 0.6));
+            filter: drop-shadow(0 0 16px rgba(204, 255, 0, 1)) drop-shadow(0 0 32px rgba(204, 255, 0, 0.6));
           }
         }
 
@@ -113,8 +113,8 @@ const FuturisticHUD: React.FC<FuturisticHUDProps> = ({ rotation, className = "" 
 
                     {/* Gradient for central chip */}
                     <linearGradient id="chipGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#FFD700" />
-                        <stop offset="100%" stopColor="#FFA500" />
+                        <stop offset="0%" stopColor="#CCFF00" />
+                        <stop offset="100%" stopColor="#80CC00" />
                     </linearGradient>
 
                     {/* Animated gradients */}
@@ -126,10 +126,10 @@ const FuturisticHUD: React.FC<FuturisticHUDProps> = ({ rotation, className = "" 
                     </radialGradient>
 
                     <radialGradient id="glowGradientYellow">
-                        <stop offset="0%" stopColor="#FFD700" stopOpacity="1">
+                        <stop offset="0%" stopColor="#CCFF00" stopOpacity="1">
                             <animate attributeName="stopOpacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" />
                         </stop>
-                        <stop offset="100%" stopColor="#FFD700" stopOpacity="0" />
+                        <stop offset="100%" stopColor="#CCFF00" stopOpacity="0" />
                     </radialGradient>
                 </defs>
 
@@ -143,7 +143,7 @@ const FuturisticHUD: React.FC<FuturisticHUDProps> = ({ rotation, className = "" 
                     cy="200"
                     r="170"
                     fill="none"
-                    stroke="#00FFFF"
+                        stroke="#00FFFF"
                     strokeWidth="3"
                     strokeDasharray="10 5"
                     filter="url(#cyanGlowEnhanced)"
@@ -174,7 +174,7 @@ const FuturisticHUD: React.FC<FuturisticHUDProps> = ({ rotation, className = "" 
                     cy="200"
                     r="140"
                     fill="none"
-                    stroke="#FFD700"
+                    stroke="#CCFF00"
                     strokeWidth="3"
                     strokeDasharray="8 4"
                     filter="url(#yellowGlowEnhanced)"
@@ -190,7 +190,7 @@ const FuturisticHUD: React.FC<FuturisticHUDProps> = ({ rotation, className = "" 
                     cy="200"
                     r="135"
                     fill="none"
-                    stroke="#FFD700"
+                    stroke="#CCFF00"
                     strokeWidth="2"
                     strokeDasharray="25 320"
                     filter="url(#yellowGlow)"
@@ -256,53 +256,53 @@ const FuturisticHUD: React.FC<FuturisticHUDProps> = ({ rotation, className = "" 
                         width="20"
                         height="20"
                         fill="url(#chipGradient)"
-                        stroke="#FFD700"
+                        stroke="#CCFF00"
                         strokeWidth="1"
                     >
                         <animate attributeName="opacity" values="1;0.8;1" dur="1.5s" repeatCount="indefinite" />
                     </rect>
 
                     {/* Chip pins - top */}
-                    <line x1="195" y1="190" x2="195" y2="180" stroke="#FFD700" strokeWidth="1.5">
+                    <line x1="195" y1="190" x2="195" y2="180" stroke="#CCFF00" strokeWidth="1.5">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" />
                     </line>
-                    <line x1="200" y1="190" x2="200" y2="180" stroke="#FFD700" strokeWidth="1.5">
+                    <line x1="200" y1="190" x2="200" y2="180" stroke="#CCFF00" strokeWidth="1.5">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="0.3s" repeatCount="indefinite" />
                     </line>
-                    <line x1="205" y1="190" x2="205" y2="180" stroke="#FFD700" strokeWidth="1.5">
+                    <line x1="205" y1="190" x2="205" y2="180" stroke="#CCFF00" strokeWidth="1.5">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="0.6s" repeatCount="indefinite" />
                     </line>
 
                     {/* Chip pins - bottom */}
-                    <line x1="195" y1="210" x2="195" y2="220" stroke="#FFD700" strokeWidth="1.5">
+                    <line x1="195" y1="210" x2="195" y2="220" stroke="#CCFF00" strokeWidth="1.5">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="0.9s" repeatCount="indefinite" />
                     </line>
-                    <line x1="200" y1="210" x2="200" y2="220" stroke="#FFD700" strokeWidth="1.5">
+                    <line x1="200" y1="210" x2="200" y2="220" stroke="#CCFF00" strokeWidth="1.5">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1.2s" repeatCount="indefinite" />
                     </line>
-                    <line x1="205" y1="210" x2="205" y2="220" stroke="#FFD700" strokeWidth="1.5">
+                    <line x1="205" y1="210" x2="205" y2="220" stroke="#CCFF00" strokeWidth="1.5">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1.5s" repeatCount="indefinite" />
                     </line>
 
                     {/* Chip pins - left */}
-                    <line x1="190" y1="195" x2="180" y2="195" stroke="#FFD700" strokeWidth="1.5">
+                    <line x1="190" y1="195" x2="180" y2="195" stroke="#CCFF00" strokeWidth="1.5">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" />
                     </line>
-                    <line x1="190" y1="200" x2="180" y2="200" stroke="#FFD700" strokeWidth="1.5">
+                    <line x1="190" y1="200" x2="180" y2="200" stroke="#CCFF00" strokeWidth="1.5">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="0.3s" repeatCount="indefinite" />
                     </line>
-                    <line x1="190" y1="205" x2="180" y2="205" stroke="#FFD700" strokeWidth="1.5">
+                    <line x1="190" y1="205" x2="180" y2="205" stroke="#CCFF00" strokeWidth="1.5">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="0.6s" repeatCount="indefinite" />
                     </line>
 
                     {/* Chip pins - right */}
-                    <line x1="210" y1="195" x2="220" y2="195" stroke="#FFD700" strokeWidth="1.5">
+                    <line x1="210" y1="195" x2="220" y2="195" stroke="#CCFF00" strokeWidth="1.5">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="0.9s" repeatCount="indefinite" />
                     </line>
-                    <line x1="210" y1="200" x2="220" y2="200" stroke="#FFD700" strokeWidth="1.5">
+                    <line x1="210" y1="200" x2="220" y2="200" stroke="#CCFF00" strokeWidth="1.5">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1.2s" repeatCount="indefinite" />
                     </line>
-                    <line x1="210" y1="205" x2="220" y2="205" stroke="#FFD700" strokeWidth="1.5">
+                    <line x1="210" y1="205" x2="220" y2="205" stroke="#CCFF00" strokeWidth="1.5">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1.5s" repeatCount="indefinite" />
                     </line>
 
@@ -322,13 +322,13 @@ const FuturisticHUD: React.FC<FuturisticHUDProps> = ({ rotation, className = "" 
                 </g>
 
                 {/* Orbital dots on yellow ring */}
-                <circle cx="200" cy="65" r="5" fill="#FFD700" filter="url(#yellowGlow)">
+                <circle cx="200" cy="65" r="5" fill="#CCFF00" filter="url(#yellowGlow)">
                     <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
                 </circle>
-                <circle cx="330" cy="200" r="4" fill="#FFD700" filter="url(#yellowGlow)" opacity="0.8">
+                <circle cx="330" cy="200" r="4" fill="#CCFF00" filter="url(#yellowGlow)" opacity="0.8">
                     <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" begin="0.6s" repeatCount="indefinite" />
                 </circle>
-                <circle cx="200" cy="335" r="4" fill="#FFD700" filter="url(#yellowGlow)" opacity="0.8">
+                <circle cx="200" cy="335" r="4" fill="#CCFF00" filter="url(#yellowGlow)" opacity="0.8">
                     <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" begin="1.2s" repeatCount="indefinite" />
                 </circle>
 

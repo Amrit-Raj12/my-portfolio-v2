@@ -46,11 +46,11 @@ const GlobalUplink: React.FC<GlobalUplinkProps> = ({
         
         /* Custom static marker */
         .cyber-marker {
-            background-color: #FACC15;
+            background-color: #CCFF00;
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            box-shadow: 0 0 8px #FACC15;
+            box-shadow: 0 0 8px #CCFF00;
             border: 1px solid #000;
         }
     </style>
@@ -81,7 +81,7 @@ const GlobalUplink: React.FC<GlobalUplinkProps> = ({
     `;
 
     return (
-        <div className={`h-64 border border-yellow-400/20 bg-black/40 relative overflow-hidden ${className}`}>
+        <div className={`h-64 border border-neon-yellow/20 bg-black/40 relative overflow-hidden ${className}`}>
             {/* Map Background */}
             <div className="absolute inset-0 z-0">
                 <iframe
@@ -98,44 +98,44 @@ const GlobalUplink: React.FC<GlobalUplinkProps> = ({
             </div>
 
             {/* Corner decorations */}
-            <div className="absolute top-2 left-2 w-12 h-12 border-l-2 border-t-2 border-yellow-400/40 z-10 pointer-events-none"></div>
-            <div className="absolute top-2 right-2 w-12 h-12 border-r-2 border-t-2 border-yellow-400/40 z-10 pointer-events-none"></div>
-            <div className="absolute bottom-2 left-2 w-12 h-12 border-l-2 border-b-2 border-yellow-400/40 z-10 pointer-events-none"></div>
-            <div className="absolute bottom-2 right-2 w-12 h-12 border-r-2 border-b-2 border-yellow-400/40 z-10 pointer-events-none"></div>
+            <div className="absolute top-2 left-2 w-12 h-12 border-l-2 border-t-2 border-neon-yellow/40 z-10 pointer-events-none"></div>
+            <div className="absolute top-2 right-2 w-12 h-12 border-r-2 border-t-2 border-neon-yellow/40 z-10 pointer-events-none"></div>
+            <div className="absolute bottom-2 left-2 w-12 h-12 border-l-2 border-b-2 border-neon-yellow/40 z-10 pointer-events-none"></div>
+            <div className="absolute bottom-2 right-2 w-12 h-12 border-r-2 border-b-2 border-neon-yellow/40 z-10 pointer-events-none"></div>
 
             {/* Bottom status text - LEFT */}
-            <div className="absolute top-4 left-4 sm:bottom-4 sm:top-auto sm:left-4 z-10 pointer-events-none bg-black/70 p-2 sm:p-3 border border-[#FACC15]/30 backdrop-blur-sm">
-                <div className="text-[#FACC15] text-[10px] font-mono tracking-wider mb-1 flex items-center gap-2">
+            <div className="absolute top-4 left-4 sm:bottom-4 sm:top-auto sm:left-4 z-10 pointer-events-none bg-black/70 p-2 sm:p-3 border border-[#CCFF00]/30 backdrop-blur-sm">
+                <div className="text-[#CCFF00] text-[10px] font-mono tracking-wider mb-1 flex items-center gap-2">
                     {address || location}
-                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FACC15]"></span>
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#CCFF00]"></span>
                 </div>
-                <div className="text-[#FACC15]/60 text-[8px] sm:text-[10px] font-mono">
+                <div className="text-[#CCFF00]/60 text-[8px] sm:text-[10px] font-mono">
                     COORD: {coordinates.lat.toFixed(6)}° N, {Math.abs(coordinates.lng).toFixed(6)}° {coordinates.lng >= 0 ? 'E' : 'W'}
                 </div>
             </div>
 
             {/* Location info - RIGHT */}
-            <div className="absolute bottom-4 right-4 z-10 pointer-events-none flex flex-col items-start bg-black/70 p-3 sm:p-4 border border-[#FACC15]/30 backdrop-blur-sm">
-                <div className="text-[#FACC15]/70 text-[10px] font-mono tracking-wider mb-1">
+            <div className="absolute bottom-4 right-4 z-10 pointer-events-none flex flex-col items-start bg-black/70 p-3 sm:p-4 border border-[#CCFF00]/30 backdrop-blur-sm">
+                <div className="text-[#CCFF00]/70 text-[10px] font-mono tracking-wider mb-1">
                     LOCATION
                 </div>
-                <div className="text-[#FACC15] text-sm sm:text-base font-bold font-mono tracking-wide flex items-center gap-2">
+                <div className="text-[#CCFF00] text-sm sm:text-base font-bold font-mono tracking-wide flex items-center gap-2">
                     {location}
                     <svg width="14" height="18" viewBox="0 0 16 20">
                         <path
                             d="M 8 2 Q 5 2 5 5 Q 5 8 8 14 Q 11 8 11 5 Q 11 2 8 2 Z"
-                            fill="#FACC15"
+                            fill="#CCFF00"
                         />
                         <circle cx="8" cy="5" r="1.5" fill="#000000" />
                     </svg>
                 </div>
 
-                <div className="w-full h-px bg-[#FACC15]/30 my-2"></div>
+                <div className="w-full h-px bg-[#CCFF00]/30 my-2"></div>
 
-                <div className="text-[#FACC15]/80 text-[10px] sm:text-xs font-mono">
+                <div className="text-[#CCFF00]/80 text-[10px] sm:text-xs font-mono">
                     {coordinates.lat.toFixed(6)}° N
                 </div>
-                <div className="text-[#FACC15]/80 text-[10px] sm:text-xs font-mono">
+                <div className="text-[#CCFF00]/80 text-[10px] sm:text-xs font-mono">
                     {Math.abs(coordinates.lng).toFixed(6)}° {coordinates.lng >= 0 ? 'E' : 'W'}
                 </div>
             </div>

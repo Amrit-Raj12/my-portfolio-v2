@@ -34,7 +34,7 @@ export default function MobileNavbar({ onMenuOpen }: MobileNavbarProps) {
       </div>
 
       {/* Right: Controller Icon */}
-      <div className="text-neon-yellow drop-shadow-[0_0_8px_rgba(255,214,0,0.6)]">
+      <div className="text-neon-yellow drop-shadow-[0_0_8px_rgba(204,255,0,0.6)]">
         <Gamepad2 size={24} />
       </div>
     </nav>

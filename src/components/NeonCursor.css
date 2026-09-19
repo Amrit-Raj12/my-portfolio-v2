@@ -13,11 +13,11 @@
     top: 0;
     left: 0;
     border-radius: 50%;
-    background: #ffd500;
+    background: #CCFF00;
     box-shadow:
-        0 0 10px #ffd500,
+        0 0 10px #CCFF00,
         0 0 20px #ffcc00,
-        0 0 35px #ffae00;
+        0 0 35px #80CC00;
     pointer-events: none;
     z-index: 9999;
 }
@@ -29,7 +29,7 @@
     top: 0;
     left: 0;
     border-radius: 50%;
-    border: 2px solid #ffd500;
+    border: 2px solid #CCFF00;
     box-shadow:
         0 0 12px rgba(255, 213, 0, 0.9),
         inset 0 0 12px rgba(255, 213, 0, 0.5);

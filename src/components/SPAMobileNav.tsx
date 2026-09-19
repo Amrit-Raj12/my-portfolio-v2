@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { Home, User, FolderKanban, Cpu, Trophy, Gamepad2, Mail, X, Menu } from "lucide-react";
 
 const navItems = [
@@ -53,14 +54,14 @@ export default function SPAMobileNav({ activeId, onNavigate }: Props) {
               aria-label={label}
               className="relative p-2 rounded-xl transition-all duration-200"
               style={{
-                background: isActive ? "rgba(255,214,0,0.10)" : "transparent",
-                border: isActive ? "1px solid rgba(255,214,0,0.30)" : "1px solid transparent",
-                boxShadow: isActive ? "0 0 15px rgba(255,214,0,0.2)" : "none",
+                background: isActive ? "rgba(204,255,0,0.10)" : "transparent",
+                border: isActive ? "1px solid rgba(204,255,0,0.30)" : "1px solid transparent",
+                boxShadow: isActive ? "0 0 15px rgba(204,255,0,0.2)" : "none",
               }}
             >
               <Icon
                 size={22}
-                style={{ color: isActive ? "#FFD600" : "#7AA2B8" }}
+                style={{ color: isActive ? "#CCFF00" : "#7AA2B8" }}
               />
             </button>
           );
@@ -68,13 +69,13 @@ export default function SPAMobileNav({ activeId, onNavigate }: Props) {
       </div>
 
       {/* Full-screen slide-in menu */}
-      {menuOpen && (
-        <div className="md:hidden fixed inset-0 z-[100] bg-[#06090D]/97 backdrop-blur-xl flex flex-col p-8">
+      {menuOpen && typeof document !== "undefined" && createPortal(
+        <div className="md:hidden fixed inset-0 z-[10000] bg-[#06090D]/97 backdrop-blur-xl flex flex-col p-8">
           <button
             onClick={() => setMenuOpen(false)}
-            className="self-end text-neon-cyan p-2 mb-8 hover:text-neon-yellow transition-colors"
+            className="absolute right-4 top-4 text-neon-yellow p-1 hover:text-white transition-colors"
           >
-            <X size={32} />
+            <X size={24} />
           </button>
 
           <nav className="flex flex-col gap-6 flex-1 justify-center">
@@ -89,9 +90,9 @@ export default function SPAMobileNav({ activeId, onNavigate }: Props) {
                   <div
                     className="w-10 h-10 flex items-center justify-center rounded-sm border transition-all"
                     style={{
-                      color: isActive ? "#FFD600" : "#7AA2B8",
-                      borderColor: isActive ? "rgba(255,214,0,0.4)" : "rgba(255,255,255,0.08)",
-                      background: isActive ? "rgba(255,214,0,0.08)" : "transparent",
+                      color: isActive ? "#CCFF00" : "#7AA2B8",
+                      borderColor: isActive ? "rgba(204,255,0,0.4)" : "rgba(255,255,255,0.08)",
+                      background: isActive ? "rgba(204,255,0,0.08)" : "transparent",
                     }}
                   >
                     <Icon size={18} />
@@ -99,8 +100,8 @@ export default function SPAMobileNav({ activeId, onNavigate }: Props) {
                   <span
                     className="font-orbitron text-xl tracking-[0.2em]"
                     style={{
-                      color: isActive ? "#FFD600" : "#7AA2B8",
-                      textShadow: isActive ? "0 0 20px rgba(255,214,0,0.5)" : "none",
+                      color: isActive ? "#CCFF00" : "#7AA2B8",
+                      textShadow: isActive ? "0 0 20px rgba(204,255,0,0.5)" : "none",
                     }}
                   >
                     {label}
@@ -120,7 +121,8 @@ export default function SPAMobileNav({ activeId, onNavigate }: Props) {
               ARCHITECT_OS // V2.0.1
             </span>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

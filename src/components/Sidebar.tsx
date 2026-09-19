@@ -104,19 +104,19 @@ export default function Sidebar({ activeId = "home" }: SidebarProps) {
                 aria-label={item.label}
                 className="relative flex items-center justify-center w-12 h-12 rounded-sm transition-all duration-300"
                 style={{
-                  color: isActive ? "#FFD600" : isHovered ? "#00F0FF" : "#7AA2B8",
+                  color: isActive ? "#CCFF00" : isHovered ? "#00F0FF" : "#7AA2B8",
                   background: isActive
-                    ? "rgba(255,214,0,0.08)"
+                    ? "rgba(204,255,0,0.08)"
                     : isHovered
                       ? "rgba(0,240,255,0.08)"
                       : "transparent",
                   border: isActive
-                    ? "1px solid rgba(255,214,0,0.4)"
+                    ? "1px solid rgba(204,255,0,0.4)"
                     : isHovered
                       ? "1px solid rgba(0,240,255,0.3)"
                       : "1px solid transparent",
                   boxShadow: isActive
-                    ? "0 0 12px rgba(255,214,0,0.4), inset 0 0 8px rgba(255,214,0,0.05)"
+                    ? "0 0 12px rgba(204,255,0,0.4), inset 0 0 8px rgba(204,255,0,0.05)"
                     : isHovered
                       ? "0 0 12px rgba(0,240,255,0.4)"
                       : "none",
@@ -126,7 +126,7 @@ export default function Sidebar({ activeId = "home" }: SidebarProps) {
                 {isActive && (
                   <span
                     className="absolute left-0 top-2 bottom-2 w-0.5 rounded-full"
-                    style={{ background: "#FFD600", boxShadow: "0 0 8px #FFD600" }}
+                    style={{ background: "#CCFF00", boxShadow: "0 0 8px #CCFF00" }}
                   />
                 )}
                 {item.icon}
