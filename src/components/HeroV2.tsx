@@ -189,20 +189,20 @@ export default function HeroV2() {
           </div>
         </div>
 
-        <div className="relative z-20 mx-auto mt-2 flex w-full max-w-[320px] justify-center lg:hidden">
-          <div className="relative h-[300px] w-full overflow-visible bg-transparent">
+        <div className="relative z-20 mx-auto mt-0 flex w-full max-w-[320px] justify-center lg:hidden">
+          <div className="relative h-[290px] w-full overflow-visible bg-transparent">
             <div className="absolute inset-x-5 top-3 flex items-center justify-between font-mono text-[8px] font-bold uppercase tracking-[0.25em] text-[#d7f8ff]">
               <span className="flex items-center gap-1.5"><span className="inline-flex size-1.5 rounded-full bg-[#ccff00] shadow-[0_0_8px_#ccff00]" />LIVE</span>
               <span className="rounded border border-[#ccff00]/40 px-1.5 py-0.5 text-[#ccff00]">ACTIVE</span>
             </div>
             <div className="absolute inset-x-0 bottom-[-20px] top-20 md:bottom-[-24px] md:top-24">
-              <Image src="/assets/images/main_model.png" alt="Cyberpunk character" fill priority className="pointer-events-none object-contain object-bottom drop-shadow-[0_18px_40px_rgba(0,0,0,0.9)]" sizes="320px" />
+              <Image src="/assets/images/main_model.png" alt="Cyberpunk character" fill priority className="pointer-events-none -translate-y-8 scale-[1.2] object-contain object-bottom drop-shadow-[0_18px_40px_rgba(0,0,0,0.9)]" sizes="320px" />
             </div>
           </div>
         </div>
 
-        <div className="relative z-30 mt-3 grid flex-1 grid-cols-1 items-end gap-6 text-center sm:mt-6 lg:mt-44 lg:grid-cols-12 lg:gap-6 lg:text-left xl:mt-64 xl:gap-8 min-[2560px]:z-[60]">
-          <div className="pointer-events-auto w-fit max-w-full space-y-4 bg-[linear-gradient(to_top,rgba(4,7,10,0.92),transparent_78%)] p-3 text-shadow-[0_2px_10px_rgba(0,0,0,0.8)] sm:space-y-5 sm:p-5 lg:col-span-6 lg:-mx-5 lg:px-5 lg:py-4">
+        <div className="relative z-30 mt-0 grid flex-none grid-cols-1 items-end gap-4 text-center sm:mt-0 lg:mt-44 lg:flex-1 lg:grid-cols-12 lg:gap-6 lg:text-left xl:mt-64 xl:gap-8 min-[2560px]:z-[60]">
+          <div className="pointer-events-auto w-fit max-w-full space-y-4 border border-[#ccff00]/25 border-l-[#ccff00]/65 bg-[linear-gradient(to_bottom,rgba(4,7,10,0.78),rgba(4,7,10,0.7)_55%,transparent)] py-3 pl-4 pr-3 text-shadow-[0_2px_10px_rgba(0,0,0,0.8)] sm:space-y-5 sm:p-5 lg:col-span-6 lg:-mx-5 lg:border-transparent lg:bg-[linear-gradient(to_top,rgba(4,7,10,0.92),transparent_78%)] lg:px-5 lg:py-4" style={{ clipPath: "polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px)" }}>
             <div className="flex items-center justify-center gap-3 font-mono text-[9px] uppercase tracking-[0.2em] text-[#8094a5] sm:text-xs lg:justify-start"><span>Frontend Developer</span><span className="h-px w-8 bg-[#ccff00] shadow-[0_0_8px_#ccff00] sm:w-10" /></div>
             <div className="space-y-1">
               <h2 className="font-scary text-4xl font-normal leading-none tracking-tight text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] sm:text-6xl md:text-5xl lg:text-7xl">AMRIT <span className="text-[#ccff00] drop-shadow-[0_0_25px_rgba(204,255,0,0.7)]">RAJ</span></h2>
@@ -215,13 +215,13 @@ export default function HeroV2() {
             </div>
           </div>
 
-          <div className="pointer-events-auto flex flex-col items-center space-y-4 sm:space-y-5 lg:col-span-4 lg:col-start-9 lg:items-end lg:text-right">
+          <div className="pointer-events-auto flex flex-col items-center space-y-2 sm:space-y-2 lg:col-span-4 lg:col-start-9 lg:items-end lg:text-right">
             <div className="max-w-sm space-y-2 border border-[#ccff00]/25 border-l-[#ccff00]/70 bg-gradient-to-r from-[#080e14]/75 via-[#080e14]/45 to-transparent py-3 pl-4 pr-3 backdrop-blur-sm drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]" style={{ clipPath: "polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px)" }}><h3 className="font-scary text-2xl uppercase tracking-wider text-[#ccff00] drop-shadow-[0_0_15px_rgba(204,255,0,0.5)] sm:text-3xl">The Future We Build</h3><p className="font-mono text-xs italic leading-relaxed tracking-wide text-slate-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] sm:text-sm">Clean code. Creative UI. Real impact. Exploring the intersection of design, technology and imagination.</p></div>
             <a href={homeData.resumeUrl} download="Amrit-Raj-Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download resume" className="group flex items-center gap-4 pt-2"><span className="relative flex size-12 items-center justify-center rounded-full border border-[#ccff00] bg-black/50 text-[#ccff00] shadow-[0_0_15px_rgba(204,255,0,0.5)] transition group-hover:scale-110 group-hover:bg-[#ccff00]/10"><Download className="size-5" /><span className="absolute inset-0 animate-ping rounded-full border border-[#ccff00]/30" /></span><span className="border-b border-slate-700 pb-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-slate-200 transition group-hover:text-[#ccff00] sm:text-xs">Download Resume</span></a>
           </div>
         </div>
 
-        <HudBox className="z-50 mt-8 border border-[#ccff00]/25 p-4 shadow-[inset_0_0_15px_rgba(204,255,0,0.12),0_0_20px_rgba(0,0,0,0.85)] sm:mt-10 sm:p-5 lg:mt-12 lg:p-7">
+        <HudBox className="z-50 mt-3 border border-[#ccff00]/25 p-4 shadow-[inset_0_0_15px_rgba(204,255,0,0.12),0_0_20px_rgba(0,0,0,0.85)] sm:mt-3 sm:p-5 lg:mt-12 lg:p-7">
           <div className="grid grid-cols-2 gap-3 lg:hidden">
             <div className="flex min-h-[120px] flex-col justify-center rounded border border-[#ccff00]/10 bg-[#07131b]/60 p-3">
               <div className="flex items-center gap-2 pb-2 text-[#ccff00]"><RadarMark /><span className="font-scary text-[2rem] leading-none">2+</span></div>
