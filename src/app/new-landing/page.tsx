@@ -5,16 +5,23 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import {
   motion, useMotionValue, useScroll, useSpring, useTransform,
 } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import "../../components/landing.css";
 import NeonParticles from "../../components/Neonparticles";
 import SceneLights from "../../components/SceneLights";
 import { getLenis } from "@/components/SmoothScroll";
 
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+const DESKTOP_QUERY = "(min-width: 768px)";
 
 function subscribeToReducedMotion(onChange: () => void) {
   const mediaQuery = window.matchMedia(REDUCED_MOTION_QUERY);
+  mediaQuery.addEventListener("change", onChange);
+  return () => mediaQuery.removeEventListener("change", onChange);
+}
+
+function subscribeToDesktop(onChange: () => void) {
+  const mediaQuery = window.matchMedia(DESKTOP_QUERY);
   mediaQuery.addEventListener("change", onChange);
   return () => mediaQuery.removeEventListener("change", onChange);
 }
@@ -23,8 +30,32 @@ function getReducedMotionSnapshot() {
   return window.matchMedia(REDUCED_MOTION_QUERY).matches;
 }
 
+function getDesktopSnapshot() {
+  return window.matchMedia(DESKTOP_QUERY).matches;
+}
+
 function getServerReducedMotionSnapshot() {
   return false;
+}
+
+function DesktopHeroVideo() {
+  const [isReady, setIsReady] = useState(false);
+
+  return (
+    <video
+      className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${isReady ? "opacity-100" : "opacity-0"}`}
+      src="https://res.cloudinary.com/dzur9wakk/video/upload/q_auto,f_auto/v1790948195/new-hero-bg-v2_pvcomj.mp4"
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      aria-hidden="true"
+      tabIndex={-1}
+      onCanPlay={() => setIsReady(true)}
+      onError={() => setIsReady(false)}
+    />
+  );
 }
 
 /** Types the text, holds, deletes it, and loops - with a blinking pipe caret. */
@@ -62,6 +93,11 @@ export default function Hero({ launchTarget = "about" }: { launchTarget?: string
   const calm = useSyncExternalStore(
     subscribeToReducedMotion,
     getReducedMotionSnapshot,
+    getServerReducedMotionSnapshot,
+  );
+  const isDesktop = useSyncExternalStore(
+    subscribeToDesktop,
+    getDesktopSnapshot,
     getServerReducedMotionSnapshot,
   );
 
@@ -123,21 +159,19 @@ export default function Hero({ launchTarget = "about" }: { launchTarget?: string
             translateX: "-50%",
             translateY: "-50%",
           }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.9, 0.2, 1, 0.5, 1] }}
-          transition={{ duration: 1.1, times: [0, 0.2, 0.3, 0.5, 0.65, 1] }}
         >
           <picture className="absolute inset-0">
             <source media="(max-width: 767px)" srcSet="/assets/images/hero-bg-mob.webp" />
             <Image src="/assets/images/hero-bg.webp" alt="" fill priority unoptimized sizes="100vw" className="object-cover" />
           </picture>
+          {isDesktop && <DesktopHeroVideo />}
           <div className="hidden md:block">
             <SceneLights />
           </div>
         </motion.div>
       </motion.div>
 
-      <NeonParticles />
+      {isDesktop && <NeonParticles />}
 
       {/* ---------- Atmosphere ---------- */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#02060a]/90 via-[#02060a]/45 to-transparent md:via-[#02060a]/20" />
@@ -154,9 +188,9 @@ export default function Hero({ launchTarget = "about" }: { launchTarget?: string
         className="relative z-10 flex h-full items-center justify-center px-6 text-center sm:px-10 md:justify-start md:px-[6vw] md:text-left"
       >
         <motion.div
-          initial="hidden"
           animate="show"
-          className="flex h-full w-full max-w-[46rem] flex-col justify-between py-8 sm:py-12 md:h-auto md:justify-start md:py-0"
+          initial={false}
+          className="flex h-full w-full max-w-[46rem] flex-col justify-start py-8 sm:py-12 md:h-auto md:justify-start md:py-0"
         >
           <motion.div variants={container} className="flex flex-1 flex-col justify-center md:flex-none md:justify-start">
             <motion.p variants={rise} className="mb-4 font-mono text-xs tracking-widest text-[#00f0ff] sm:text-sm">
@@ -166,7 +200,7 @@ export default function Hero({ launchTarget = "about" }: { launchTarget?: string
             <motion.h1 variants={rise} className="font-scary -skew-x-6 uppercase leading-[0.9]">
               <span className="neon-lime-text block text-3xl sm:text-5xl">Welcome to my</span>
               <motion.span
-                className="glitch neon-cyan-text mt-1 block text-[4.5rem] font-normal leading-none tracking-tight sm:text-[8rem] lg:text-[10rem]"
+                className="glitch neon-cyan-text mt-1 block text-[clamp(3rem,14vw,4.5rem)] font-normal leading-none tracking-tight sm:text-[8rem] lg:text-[10rem]"
                 data-text="PORTFOLIO"
                 animate={{ opacity: [1, 1, 0.55, 1, 0.8, 1] }}
                 transition={{ duration: 5, repeat: Infinity, times: [0, 0.82, 0.84, 0.86, 0.88, 1] }}
@@ -186,7 +220,7 @@ export default function Hero({ launchTarget = "about" }: { launchTarget?: string
             </motion.p>
           </motion.div>
 
-          <motion.div variants={buttonRise} className="flex flex-wrap items-center justify-center gap-6 md:mt-9 md:justify-start">
+          <motion.div variants={buttonRise} className="mt-auto flex flex-wrap items-center justify-center gap-6 pb-8 md:mt-9 md:justify-start md:pb-0">
             <motion.button
               onClick={launch}
               whileHover={{ scale: 1.05 }}
@@ -220,14 +254,6 @@ export default function Hero({ launchTarget = "about" }: { launchTarget?: string
         </motion.div>
       </motion.div>
 
-      <motion.div
-        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-[#00f0ff]/70"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        aria-hidden
-      >
-        <ChevronDown className="h-6 w-6" />
-      </motion.div>
     </section>
   );
 }

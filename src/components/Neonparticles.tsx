@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-/** Floating neon motes (cyan + lime) rendered with three.js, reacting softly to the cursor. */
+/** Floating cyan neon motes rendered with three.js, reacting softly to the cursor. */
 export default function NeonParticles({ count = 190 }: { count?: number }) {
   const hostRef = useRef<HTMLDivElement>(null);
 
@@ -37,7 +37,6 @@ export default function NeonParticles({ count = 190 }: { count?: number }) {
     const speed = new Float32Array(count);
     const phase = new Float32Array(count);
     const cyan = new THREE.Color("#00f0ff");
-    const lime = new THREE.Color("#d4ff00");
 
     for (let i = 0; i < count; i++) {
       positions[i * 3] = (Math.random() - 0.5) * 18;
@@ -45,8 +44,7 @@ export default function NeonParticles({ count = 190 }: { count?: number }) {
       positions[i * 3 + 2] = Math.random() * 7 - 4;
       speed[i] = 0.05 + Math.random() * 0.22;
       phase[i] = Math.random() * Math.PI * 2;
-      const col = Math.random() > 0.45 ? cyan : lime;
-      colors.set([col.r, col.g, col.b], i * 3);
+      colors.set([cyan.r, cyan.g, cyan.b], i * 3);
     }
 
     const geometry = new THREE.BufferGeometry();

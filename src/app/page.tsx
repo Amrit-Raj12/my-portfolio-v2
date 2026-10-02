@@ -35,6 +35,7 @@ export default function SPAPage() {
   const [bootComplete, setBootComplete] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const observersRef = useRef<IntersectionObserver[]>([]);
+  const completeBoot = useCallback(() => setBootComplete(true), []);
 
   /* ── Launch handler ── */
   const handleLaunch = useCallback(() => {
@@ -107,7 +108,7 @@ export default function SPAPage() {
 
   return (
     <>
-      {!bootComplete && <Booting onComplete={() => setBootComplete(true)} duration={4000} />}
+      {!bootComplete && <Booting onComplete={completeBoot} duration={4000} />}
       <style dangerouslySetInnerHTML={{ __html: `
         /* SPA scroll container */
         #spa-scroll {

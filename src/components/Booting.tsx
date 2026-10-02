@@ -36,8 +36,6 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
     const [stepLabel, setStepLabel] = useState(PROGRESS_STEPS[0].label);
     const [done, setDone] = useState(false);
     const [visible, setVisible] = useState(true);
-    const rafRef = useRef<number | null>(null);
-    const startRef = useRef<number | null>(null);
     const logTimersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const playedRef = useRef(false);
@@ -109,9 +107,10 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
 
     /* ── Animate progress bar ── */
     useEffect(() => {
-        const animate = (ts: number) => {
-            if (!startRef.current) startRef.current = ts;
-            const elapsed = ts - startRef.current;
+        const start = performance.now();
+        let completionTimer: ReturnType<typeof setTimeout> | undefined;
+        const interval = setInterval(() => {
+            const elapsed = performance.now() - start;
             const raw = Math.min(elapsed / duration, 1);
             // ease-out cubic
             const eased = 1 - Math.pow(1 - raw, 3);
@@ -124,21 +123,22 @@ export default function Booting({ onComplete, duration = 4000 }: BootingProps) {
             if (step) setStepLabel(step.label);
 
             if (raw < 1) {
-                rafRef.current = requestAnimationFrame(animate);
+                return;
             } else {
+                clearInterval(interval);
                 setProgress(100);
                 setDone(true);
                 audioRef.current?.pause();
-                setTimeout(() => {
+                completionTimer = setTimeout(() => {
                     setVisible(false);
                     onComplete?.();
                 }, 800);
             }
-        };
+        }, 50);
 
-        rafRef.current = requestAnimationFrame(animate);
         return () => {
-            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+            clearInterval(interval);
+            if (completionTimer) clearTimeout(completionTimer);
         };
     }, [duration, onComplete]);
 
