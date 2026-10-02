@@ -1,0 +1,123 @@
+/* Plain CSS (no Tailwind directives) so it works with any globals.css. Imported by components/Hero.tsx */
+:root { --neon-cyan: #00f0ff; --neon-lime: #d4ff00; }
+.hero-scene-frame {
+  width: max(100vw, calc(100svh * 2.01357466));
+  aspect-ratio: 1780 / 884;
+}
+@media (max-width: 767px) {
+  .hero-scene-frame {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ---------- Light animations ---------- */
+@keyframes neon-flicker {
+  0%, 10%, 14%, 18%, 22%, 25%, 53%, 57%, 80%, 84%, 100% { opacity: 1; }
+  12%, 16%, 20%, 24%, 55%, 82% { opacity: 0.15; }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.35; transform: translate(-50%, -50%) scale(0.85); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+}
+@keyframes blink {
+  0%, 44%, 56%, 100% { opacity: 1; }
+  50% { opacity: 0.08; }
+}
+@keyframes scan {
+  from { transform: translateY(-20%); }
+  to { transform: translateY(120%); }
+}
+@keyframes glitch-a {
+  0%, 90%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  92% { clip-path: inset(15% 0 60% 0); transform: translate(-6px, 0); }
+  94% { clip-path: inset(62% 0 8% 0); transform: translate(5px, 0); }
+  96% { clip-path: inset(38% 0 40% 0); transform: translate(-3px, 0); }
+}
+@keyframes glitch-b {
+  0%, 91%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  93% { clip-path: inset(50% 0 20% 0); transform: translate(6px, 0); }
+  95% { clip-path: inset(10% 0 70% 0); transform: translate(-5px, 0); }
+  97% { clip-path: inset(75% 0 5% 0); transform: translate(3px, 0); }
+}
+@keyframes caret { 50% { opacity: 0; } }
+
+.light-pulse { animation: pulse-glow var(--d, 3s) ease-in-out var(--delay, 0s) infinite; }
+.light-flicker { animation: neon-flicker var(--d, 6s) linear var(--delay, 0s) infinite; }
+.light-blink { animation: blink var(--d, 2.4s) steps(1, end) var(--delay, 0s) infinite; }
+.caret { animation: caret 0.8s steps(1) infinite; }
+.scan-band { animation: scan 7s linear infinite; }
+
+.neon-cyan-text {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.7), 0 0 40px rgba(0, 240, 255, 0.35);
+}
+.neon-lime-text {
+  color: var(--neon-lime);
+  text-shadow: 0 0 10px rgba(212, 255, 0, 0.6), 0 0 30px rgba(212, 255, 0, 0.25);
+}
+
+.glitch { position: relative; display: inline-block; }
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+.glitch::before { color: var(--neon-lime); animation: glitch-a 6s infinite; }
+.glitch::after { color: #ffffff; animation: glitch-b 6s infinite; }
+
+.scanlines {
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 2px, rgba(0,0,0,0.22) 3px);
+}
+
+/* ---------- Chamfered CTA button ---------- */
+.cta {
+  --c: 18px;
+  position: relative; display: inline-block; padding: 7px; cursor: pointer;
+  filter: drop-shadow(0 0 10px rgba(212, 255, 0, 0.45));
+  animation: cta-glow 2.4s ease-in-out infinite;
+}
+.cta::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
+  background:
+    linear-gradient(var(--neon-lime), var(--neon-lime)) left 0 top 22px / 2px 16px no-repeat,
+    linear-gradient(var(--neon-lime), var(--neon-lime)) left 0 bottom 22px / 2px 16px no-repeat,
+    linear-gradient(var(--neon-lime), var(--neon-lime)) right 0 top 22px / 2px 16px no-repeat,
+    linear-gradient(var(--neon-lime), var(--neon-lime)) right 0 bottom 22px / 2px 16px no-repeat,
+    linear-gradient(var(--neon-cyan), var(--neon-cyan)) left 24px bottom 0 / 30px 2px no-repeat,
+    linear-gradient(var(--neon-cyan), var(--neon-cyan)) right 24px bottom 0 / 30px 2px no-repeat,
+    linear-gradient(var(--neon-cyan), var(--neon-cyan)) left 24px top 0 / 30px 2px no-repeat,
+    linear-gradient(var(--neon-cyan), var(--neon-cyan)) right 24px top 0 / 30px 2px no-repeat,
+    rgba(0, 240, 255, 0.1);
+  animation: frame-flick 3.2s linear infinite;
+}
+.cta-in {
+  position: relative; display: flex; align-items: center; gap: 14px; overflow: hidden;
+  padding: 16px 34px; background: var(--neon-lime); color: #000;
+  font: 700 14px ui-monospace, monospace; letter-spacing: 0.16em; text-transform: uppercase;
+  transition: background 0.2s;
+  clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
+}
+.cta-in::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  transform: skewX(-20deg); animation: shine 3.6s ease-in-out infinite;
+}
+.cta-in svg { animation: nudge 1.6s ease-in-out infinite; }
+.cta:hover .cta-in { background: #e8ff3d; }
+@keyframes shine { 0%, 55% { left: -60%; } 100% { left: 130%; } }
+@keyframes nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
+@keyframes cta-glow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(212, 255, 0, 0.45)); }
+  50% { filter: drop-shadow(0 0 20px rgba(212, 255, 0, 0.85)) drop-shadow(0 0 40px rgba(0, 240, 255, 0.35)); }
+}
+@keyframes frame-flick {
+  0%, 100%, 30%, 70% { opacity: 1; }
+  32%, 72% { opacity: 0.4; }
+  34%, 74% { opacity: 1; }
+}
