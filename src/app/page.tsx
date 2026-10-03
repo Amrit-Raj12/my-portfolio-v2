@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import HeroSection from "@/components/HeroSection";
+import HeroSectionV2 from "@/components/HeroSectionV2";
 import Booting from "@/components/Booting";
 import SPASidebar from "@/components/SPASidebar";
 import SPAMobileNav from "@/components/SPAMobileNav";
@@ -165,7 +165,7 @@ export default function SPAPage() {
             transition: "transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s ease"
           }}
         >
-          <HeroSection onLaunch={handleLaunch} />
+          <HeroSectionV2 onLaunch={handleLaunch} isReady={bootComplete} />
         </div>
 
         {/* ══════════ SPA ══════════ */}

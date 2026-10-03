@@ -6,10 +6,9 @@ import {
   motion, useMotionValue, useScroll, useSpring, useTransform,
 } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import "../../components/landing.css";
-import NeonParticles from "../../components/Neonparticles";
-import SceneLights from "../../components/SceneLights";
-import { getLenis } from "@/components/SmoothScroll";
+import "./landing.css";
+import NeonParticles from "./Neonparticles";
+import SceneLights from "./SceneLights";
 
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 const DESKTOP_QUERY = "(min-width: 768px)";
@@ -89,7 +88,13 @@ function Typewriter({ text, delay = 0.4 }: { text: string; delay?: number }) {
   );
 }
 
-export default function Hero({ launchTarget = "about" }: { launchTarget?: string }) {
+export default function HeroSectionV2({
+  onLaunch,
+  isReady,
+}: {
+  onLaunch: () => void;
+  isReady: boolean;
+}) {
   const calm = useSyncExternalStore(
     subscribeToReducedMotion,
     getReducedMotionSnapshot,
@@ -125,27 +130,15 @@ export default function Hero({ launchTarget = "about" }: { launchTarget?: string
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
-  // Scrolls to the element with id={launchTarget} (change via prop); falls back to one screen down.
-  const launch = () => {
-    const el = document.getElementById(launchTarget);
-    const lenis = getLenis();
-    if (lenis) lenis.scrollTo(el ?? window.innerHeight, { duration: 1.6 });
-    else if (el) el.scrollIntoView({ behavior: "smooth" });
-    else window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-  };
-
-  const container = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.22, delayChildren: 0.4 } },
-  };
-  const rise = {
+  const entrance = (delay: number) => ({
     hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
-    show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: "easeOut" as const } },
-  };
-  const buttonRise = {
-    ...rise,
-    show: { ...rise.show, transition: { ...rise.show.transition, delay: 1.7 } },
-  };
+    show: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 0.7, ease: "easeOut" as const, delay },
+    },
+  });
 
   return (
     <section id="home" className="relative h-svh min-h-svh w-full overflow-hidden bg-[#02060a] md:min-h-[640px]">
@@ -188,16 +181,24 @@ export default function Hero({ launchTarget = "about" }: { launchTarget?: string
         className="relative z-10 flex h-full items-center justify-center px-6 text-center sm:px-10 md:justify-start md:px-[6vw] md:text-left"
       >
         <motion.div
-          animate="show"
-          initial={false}
           className="flex h-full w-full max-w-[46rem] flex-col justify-start py-8 sm:py-12 md:h-auto md:justify-start md:py-0"
         >
-          <motion.div variants={container} className="flex flex-1 flex-col justify-center md:flex-none md:justify-start">
-            <motion.p variants={rise} className="mb-4 font-mono text-xs tracking-widest text-[#00f0ff] sm:text-sm">
+          <motion.div className="flex flex-1 flex-col justify-center md:flex-none md:justify-start">
+            <motion.p
+              variants={entrance(0)}
+              initial="hidden"
+              animate={isReady ? "show" : "hidden"}
+              className="mb-4 font-mono text-xs tracking-widest text-[#00f0ff] sm:text-sm"
+            >
               <Typewriter text="// INIT SYSTEM..." delay={0.5} />
             </motion.p>
 
-            <motion.h1 variants={rise} className="font-scary -skew-x-6 uppercase leading-[0.9]">
+            <motion.h1
+              variants={entrance(0.15)}
+              initial="hidden"
+              animate={isReady ? "show" : "hidden"}
+              className="font-scary -skew-x-6 uppercase leading-[0.9]"
+            >
               <span className="neon-lime-text block text-3xl sm:text-5xl">Welcome to my</span>
               <motion.span
                 className="glitch neon-cyan-text mt-1 block text-[clamp(3rem,14vw,4.5rem)] font-normal leading-none tracking-tight sm:text-[8rem] lg:text-[10rem]"
@@ -210,7 +211,9 @@ export default function Hero({ launchTarget = "about" }: { launchTarget?: string
             </motion.h1>
 
             <motion.p
-              variants={rise}
+              variants={entrance(1)}
+              initial="hidden"
+              animate={isReady ? "show" : "hidden"}
               className="mx-auto mt-6 max-w-md border border-[#ccff00]/25 border-l-[#ccff00]/70 bg-gradient-to-r from-[#080e14]/90 via-[#080e14]/75 to-[#080e14]/55 py-3 pl-4 pr-3 font-mono text-base italic leading-relaxed tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] backdrop-blur-sm sm:text-lg md:mx-0 md:border-transparent md:bg-transparent md:px-0 md:py-0 md:text-white/75 md:shadow-none md:backdrop-blur-0"
               style={{ clipPath: "polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px)" }}
             >
@@ -220,9 +223,14 @@ export default function Hero({ launchTarget = "about" }: { launchTarget?: string
             </motion.p>
           </motion.div>
 
-          <motion.div variants={buttonRise} className="mt-auto flex flex-wrap items-center justify-center gap-6 pb-8 md:mt-9 md:justify-start md:pb-0">
+          <motion.div
+            variants={entrance(1.8)}
+            initial="hidden"
+            animate={isReady ? "show" : "hidden"}
+            className="mt-auto flex flex-wrap items-center justify-center gap-6 pb-8 md:mt-9 md:justify-start md:pb-0"
+          >
             <motion.button
-              onClick={launch}
+              onClick={onLaunch}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.96 }}
               className="cta focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#00f0ff]"
