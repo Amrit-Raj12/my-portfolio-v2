@@ -11,44 +11,50 @@ export default function GlobalHUD() {
   const router = useRouter();
 
   useEffect(() => {
-    const onScroll = (e: any) => {
-      const target = e.target === document ? window.scrollY : e.target.scrollTop;
-      setRotation(target * 0.4);
+    const onWindowScroll = () => {
+      setRotation(window.scrollY * 0.4);
+    };
+
+    const onSpaScroll = (event: Event) => {
+      const container = event.currentTarget;
+      if (container instanceof HTMLElement) {
+        setRotation(container.scrollTop * 0.4);
+      }
     };
 
     const check = () => {
+      if (pathname !== '/') {
+        setIsVisible(true);
+        return;
+      }
+
+      const spaPanel = document.querySelector('.spa-panel');
+      if (spaPanel) {
+        setIsVisible(spaPanel.classList.contains('visible-phase'));
+        return;
+      }
+
       const hero = document.querySelector('[data-hero-section]');
       if (!hero) {
-        setIsVisible(pathname !== '/');
+        setIsVisible(false);
         return;
       }
       
       const style = window.getComputedStyle(hero);
       const isHeroVisible = (hero as HTMLElement).offsetParent !== null && style.visibility !== 'hidden' && style.display !== 'none';
-      
-      if (pathname === '/') {
-        setIsVisible(!isHeroVisible);
-      } else {
-        setIsVisible(true);
-      }
+      setIsVisible(!isHeroVisible);
     };
 
+    check();
     const interval = setInterval(check, 200);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    
-    const spaInterval = setInterval(() => {
-      const spaScroll = document.getElementById('spa-scroll');
-      if (spaScroll) {
-        spaScroll.addEventListener('scroll', onScroll, { passive: true });
-      }
-    }, 1000);
+    window.addEventListener('scroll', onWindowScroll, { passive: true });
+    const spaScroll = document.getElementById('spa-scroll');
+    spaScroll?.addEventListener('scroll', onSpaScroll, { passive: true });
 
     return () => {
       clearInterval(interval);
-      clearInterval(spaInterval);
-      window.removeEventListener('scroll', onScroll);
-      const spaScroll = document.getElementById('spa-scroll');
-      if (spaScroll) spaScroll.removeEventListener('scroll', onScroll);
+      window.removeEventListener('scroll', onWindowScroll);
+      spaScroll?.removeEventListener('scroll', onSpaScroll);
     };
   }, [pathname]);
 

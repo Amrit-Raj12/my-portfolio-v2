@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import HeroSection from "@/components/HeroSection";
+import HeroSectionV2 from "@/components/HeroSectionV2";
 import Booting from "@/components/Booting";
 import SPASidebar from "@/components/SPASidebar";
 import SPAMobileNav from "@/components/SPAMobileNav";
@@ -35,6 +35,7 @@ export default function SPAPage() {
   const [bootComplete, setBootComplete] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const observersRef = useRef<IntersectionObserver[]>([]);
+  const completeBoot = useCallback(() => setBootComplete(true), []);
 
   /* ── Launch handler ── */
   const handleLaunch = useCallback(() => {
@@ -107,7 +108,7 @@ export default function SPAPage() {
 
   return (
     <>
-      {!bootComplete && <Booting onComplete={() => setBootComplete(true)} duration={4000} />}
+      {!bootComplete && <Booting onComplete={completeBoot} duration={4000} />}
       <style dangerouslySetInnerHTML={{ __html: `
         /* SPA scroll container */
         #spa-scroll {
@@ -132,6 +133,51 @@ export default function SPAPage() {
         .landing-slide.out {
           transform: translateY(-100%);
           opacity: 0;
+        }
+
+        /* Glitch flash masks the handoff without obscuring the incoming page. */
+        @keyframes launch-glitch {
+          0%, 100% {
+            opacity: 0;
+            clip-path: inset(0 0 100% 0);
+            transform: translateX(0);
+          }
+          8% {
+            opacity: 0.9;
+            clip-path: inset(12% 0 76% 0);
+            transform: translateX(-1.5%);
+          }
+          18% {
+            opacity: 0.75;
+            clip-path: inset(42% 0 43% 0);
+            transform: translateX(1.2%);
+          }
+          32% {
+            opacity: 0.85;
+            clip-path: inset(68% 0 18% 0);
+            transform: translateX(-0.8%);
+          }
+          58% {
+            opacity: 0.55;
+            clip-path: inset(20% 0 18% 0);
+            transform: translateX(0.6%);
+          }
+          82% {
+            opacity: 0.35;
+            clip-path: inset(0);
+            transform: translateX(-0.3%);
+          }
+        }
+        .launch-glitch {
+          background:
+            repeating-linear-gradient(0deg, rgba(0, 240, 255, 0.2) 0 1px, transparent 1px 5px),
+            linear-gradient(90deg, transparent 8%, rgba(0, 240, 255, 0.65) 9% 12%, transparent 13% 24%, rgba(212, 255, 0, 0.5) 25% 29%, transparent 30%),
+            linear-gradient(90deg, rgba(0, 240, 255, 0.12), transparent 48%, rgba(212, 255, 0, 0.1));
+          animation: launch-glitch 750ms steps(1, end) both;
+          mix-blend-mode: screen;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .launch-glitch { animation: none; opacity: 0; }
         }
 
         /* SPA panel transition */
@@ -160,16 +206,16 @@ export default function SPAPage() {
           style={{
             display: "block",
             pointerEvents: (phase === "spa" || phase === "transitioning-to-spa") ? "none" : "all",
-            visibility: (phase === "spa" || phase === "transitioning-to-spa") ? "hidden" : "visible",
+            visibility: phase === "spa" ? "hidden" : "visible",
             transition: "transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s ease"
           }}
         >
-          <HeroSection onLaunch={handleLaunch} />
+          <HeroSectionV2 onLaunch={handleLaunch} isReady={bootComplete} />
         </div>
 
         {/* ══════════ SPA ══════════ */}
         <div
-          className={`spa-panel absolute inset-0 z-20 flex ${phase === "spa" ? "visible-phase" : "hidden-phase"
+          className={`spa-panel absolute inset-0 z-20 flex ${phase === "spa" || phase === "transitioning-to-spa" ? "visible-phase" : "hidden-phase"
             }`}
         >
           {/* Desktop sidebar (fixed, 80px wide) */}
@@ -204,6 +250,13 @@ export default function SPAPage() {
             onNavigate={(id) => scrollToSection(id as SectionId)}
           />
         </div>
+
+        {phase === "transitioning-to-spa" && (
+          <div
+            aria-hidden="true"
+            className="launch-glitch pointer-events-none absolute inset-0 z-40"
+          />
+        )}
       </div>
     </>
   );
